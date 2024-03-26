@@ -1,0 +1,7 @@
+command list
+git add .
+git commit -m "message"
+git push
+
+everytime before start 
+git pull

@@ -39,7 +39,7 @@
           <p>
             @Copyright Bite Map 2023.All rights reserved.
           </p>
-          <p>Developed by S.M.Shahriar Rahman Maruph</p>
+          <p>Developed by </p>
         </div>
       </div>
     </section>

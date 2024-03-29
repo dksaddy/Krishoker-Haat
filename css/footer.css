@@ -1,138 +1,101 @@
-/* Importing Google font - Open Sans */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
-}
-
-.footer {
-  margin-top: 35px;
-  min-height: 50vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #4E6C50;
-}
-
-.footer .footer-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 3.5rem;
-  padding: 30px;
-}
-
-.footer-row .footer-col h4 {
-  color: #fff;
-  font-size: 1.2rem;
-  font-weight: 400;
-}
-
-.footer-col .links {
-  margin-top: 20px;
-}
-
-.footer-col .links li {
-  list-style: none;
-  margin-bottom: 10px;
-}
-
-.footer-col .links li a {
-  text-decoration: none;
-  color: #bfbfbf;
-}
-
-.footer-col .links li a:hover {
-  color: #fff;
-}
-
-.footer-col p {
-  margin: 20px 0;
-  color: #bfbfbf;
-  max-width: 300px;
-}
-
-.footer-col form {
-  display: flex;
-  gap: 5px;
-}
-
-.footer-col input {
-  height: 40px;
-  border-radius: 6px;
-  background: none;
-  width: 100%;
-  outline: none;
-  border: 1px solid #7489C6;
-  caret-color: #fff;
-  color: #fff;
-  padding-left: 10px;
-}
-
-.footer-col input::placeholder {
-  color: #ccc;
-}
-
-.footer-col form button {
-  background: #fff;
-  outline: none;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: 0.2s ease;
-}
-
-.footer-col form button:hover {
-  background: #cecccc;
-}
-
-.footer-col .icons {
-  display: flex;
-  margin-top: 30px;
-  gap: 30px;
-  cursor: pointer;
-}
-
-.footer-col .icons i {
-  color: #afb6c7;
-}
-
-.footer-col .icons i:hover {
-  color: yellow;
-}
-
-@media (max-width: 768px) {
+  /* General footer styles */
   .footer {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .footer .footer-row {
+    background-color: #00224D;
+    color: #fff;
     padding: 20px;
-    gap: 1rem;
   }
 
+  /* Columns in the footer */
+  .footer-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  /* Individual column styles */
   .footer-col {
-    width: 100%;
-    text-align: center;
+    flex-basis: calc(33.333% - 20px);
+    margin-bottom: 20px;
+  }
+  .footer-col h4{
+    color: #e8670c;
   }
 
-  .footer-col form {
-    display: block;
+  .footer-col h5 {
+    margin: 2% 0;
+    color: #08dc67;
+  }
+  .footer-col h2{
+    color: #e8670c;
+  }
+  .footer-col h2 span{
+    color: #05810d;
   }
 
-  .footer-col form input,
-  .footer-col form button {
-    width: 100%;
+  .footer-col p {
+    color: #e7ece6d1;
   }
 
-  .footer-col form button {
-    margin: 10px 0 0 0;
+  .footer-col ul.links {
+    list-style-type: none;
+    padding: 0;
   }
+
+  .footer-col ul.links li a {
+    margin-bottom: 10px;
+    text-decoration: none; 
+    color: rgb(176, 233, 8); 
+}
+
+.footer-col ul.links li a:hover {
+    color: #e8670c;
+}
+  .footer-col .icons {
+    margin-top: 5px;
+  }
+
+  .footer-col .icons i {
+    margin-right: 30px;
+    font-size: 20px;
+    color: #9fed18;
+  }
+  .footer-col .icons i:hover{
+    color: rgb(250, 125, 7);
+  }
+  .copyright {
+  text-align: center;
+  color: #f5f2f0; 
+}
+
+.copyright p {
+  margin: 0 0; 
+}
+.subscrive{
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    margin: 10px 10px;
+}
+.subscribe input{
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 8px 80px;
+    font-size: 70%;
+
+}
+.subscribe button{
+    background: #05810d;
+    font-size: 70%;
+    padding: 7px 25px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+
+}
+.subscribe button:hover{
+  background: rgb(134, 185, 148);
+  text-decoration: none;
+  color: rgb(0, 0, 0);
 }

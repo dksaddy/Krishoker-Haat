@@ -14,6 +14,7 @@ h3 {
     width: 200px;
     display: flex;
     flex-direction: column;
+    border: 2px solid green;
 }
 
 .child-2 {
@@ -30,15 +31,18 @@ h3 {
 
 .child-2-1-1 {
     font-size: 35px;
+    margin-left: 10px;
 }
 
 .child-2-1-2{
     font-size: 20px;
+    margin-left: 10px;
 }
 
 .child-2-1-3 {
     font-size: 12px;
     padding-top: 7px;
+    padding-left: 10px;
 }
 
 .child-2-2-1 {

@@ -1,0 +1,212 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "poppins",sans-serif;
+    box-sizing: border-box;
+
+}
+.header{
+    height: 12vh;
+    width: 100%;
+    padding: 0 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    position: relative;
+    margin-bottom: 2%;
+    background-color: #0b7610;
+}
+.header nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0;
+    width: 100%;
+    height: auto;
+}
+
+.logt{
+    text-align: center;
+    color: rgb(253, 255, 254);
+    margin-top: 0;
+    font-size: 25px;
+}
+.logt span{
+    color: #ff0f0f;
+    font-size: 35px;
+    
+}
+.nav-links{
+    padding: 15px 0;
+}
+.nav-links li{
+    display: inline-block;
+    margin: 0 15px;
+}
+.nav-links li a{
+    font-size: 20 px;
+}
+.nav-links li img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover; 
+
+}
+.navbutton{
+    background: #ff3d00;
+    color: #ffffff;
+    padding: 6px 10px;
+    width: 100px;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+.navbutton:hover{
+    background: rgb(134, 185, 148);
+    
+}
+.navbutton a{
+    text-decoration: none;
+    color: rgb(10, 1, 1);
+    padding: 5px 0;
+    position: relative;
+}
+.navbutton a:hover{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    background-color: none;
+}
+.nav-links li a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    padding: 5px 0;
+    position: relative;
+    text-decoration: color(from color srgb r g b);
+    font-weight: 1000;
+}
+.nav-links li.dropbtn1{
+    padding-top: 20%;
+}
+.nav-links li a:hover{
+    color: #f5be08;
+    background-color: none;
+    box-shadow: 0 0 10px #0efb70;
+    text-shadow: 0 0 5px #189505;
+}
+.signupbutton{
+    background: #ff3d00;
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 3px;
+    cursor: pointer;
+    border-color: #10ff40;
+}
+
+.content{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    max-width: 50%;
+    transform: translate(-50%, -40%);
+    text-align: center;
+    color: white;
+}
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: #f9f9f9;
+    padding: 10px;
+    z-index: 1;
+  }
+
+/* Style the container for the dropdown menu */
+.dropdown1 {
+    position: absolute;
+    margin-top: 10%;
+    display: inline-block;
+    position: relative;
+}
+
+/* Style the dropdown menu items */
+.dropdown1-content1 {
+    display: none;
+    position: absolute;
+    background-color: transparent;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+    font-size: 30px bolder;
+
+}
+
+/* Style the dropdown menu links */
+.dropdown1-content1 a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-weight: 600;
+    background-color: #079634;
+}
+
+/* Change color on hover */
+.dropdown1-content1 a:hover {
+    background-color: rgb(0, 0, 0)000;
+    color: rgb(3, 78, 7);
+}
+
+/* Show the dropdown menu when the image is hovered over */
+.dropdown1:hover .dropdown1-content1 {
+    display: block;
+    background-color: #026925;
+}
+.round-image {
+
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    
+}
+
+
+.dropdown2 {
+    position: relative;
+    display: inline-block;
+}
+
+
+
+.dropdown2-content2 {
+    display: none;
+    position: absolute;
+    background-color: transparent;
+    min-width: 80px;
+    box-shadow: 0px 8px 16px 0px rgba(255, 255, 255, 0.2);
+    z-index: 1;
+    transition: opacity 0.3s ease-in-out;
+
+}
+
+.dropdown2:hover .dropdown2-content2 {
+    display: block;
+    opacity: 1;
+
+}
+
+/* Optional: Add styles to your dropdown links */
+.dropdown2-content2 a {
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    color: rgb(255, 255, 255);
+    transition: background-color 0.3s ease-in-out;
+}
+
+.dropdown2-content2 a:hover {
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 12px;
+}

@@ -11,6 +11,7 @@
 </head>
 
 <body>
+<?php include('header.php') ?>
         <div class="signup ">
             <form id="form" method="post" action="functions/signup.php" enctype="multipart/form-data" class="inner">
                 <h6 class="logt">Customers Sign Up</h6>

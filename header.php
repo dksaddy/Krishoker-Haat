@@ -4,7 +4,7 @@ $log = 0;
 $fetch = []; 
 
 // Include the database connection file
-include("templete/db_connect.php");
+include("template/db_connect.php");
 
 if (!empty($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
@@ -20,6 +20,8 @@ if (!empty($_SESSION['user_id'])) {
     if (mysqli_num_rows($select) > 0) {
         $fetch = mysqli_fetch_assoc($select);
     }
+}else{
+    $log =1;
 }
 
 // if (!empty($_SESSION['restaurant_id'])) {
@@ -41,15 +43,12 @@ if (!empty($_SESSION['user_id'])) {
 
 ?>
 <div class="header">
-        <video autoplay loop class="background-video" muted plays-inline>
-            <source src="image/background.mp4" type="video/mp4">
-        </video>
         <nav>
         <h1 class="logt">কৃষকের <span>হাট</span></h1>
             <ul class="nav-links">
-                <li><a href="http://localhost/project/bitemap.php">HOME</a></li>
-                <li><a href="features.php">ABOUT US</a></li>
-                <li><a href="offerHOme.php">CONTACT</a></li>
+                <li><a href="http://localhost/project/bitemap.php">হোম</a></li>
+                <li><a href="features.php">আমাদের সম্পর্কে</a></li>
+                <li><a href="offerHOme.php">যোগাযোগ</a></li>
                 <li><a href="aboutus.php">#</a></li>
                 <li><a href="aboutus.php">#</a></li>
                 
@@ -57,15 +56,14 @@ if (!empty($_SESSION['user_id'])) {
 
                     <?php if($log): ?>
                
-                <li><a href="http://localhost/project/userBloghome.php">COMMUNITY</a></li>
-                <li><a href="http://localhost/project/messageHome.php">ARTICLE</a></li>
-                <li><a href="http://localhost/project/messageHome.php">Cart</a></li>
-                <li><a href="http://localhost/project/myReservation.php"><img src="image/cart1.png" alt="Shopping Cart"></a></li>
-                <button type="submit" class ="navbutton"><a href="fuctions/logout.php">LOG OUT</a></button>
+                <li><a href="http://localhost/project/userBloghome.php">কমিউনিটি</a></li>
+                <li><a href="http://localhost/project/messageHome.php">আর্টিকেল</a></li>
+                <li><a href="http://localhost/project/myReservation.php"><img src="image/Icon/cart.png" alt="Shopping Cart"></a></li>
                   <li class="dropdown1">
                 <?php 
-                    echo '<img src="'.$fetch['profile_picture'].'" alt="Profile Picture" class="round-image">';
+                    echo '<img src="image/profile.png" alt="Profile Picture" class="round-image">';
                   ?>
+                  
                    <div class="dropdown1-content1">
                     <a href="http://localhost/project/userProfile.php">User Profile</a>
                     <a href="http://localhost/project/updateProfile.php">Update Profile</a>

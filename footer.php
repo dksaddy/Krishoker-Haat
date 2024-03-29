@@ -37,9 +37,9 @@
             <i class="fa-brands fa-github"></i>
           </div>
           <p>
-            @Copyright Bite Map 2023.All rights reserved.
+            @Copyright Krishoker Haat 2024 All rights reserved.
           </p>
-          <p>Developed by </p>
+          <p>Developed by Team AK</p>
         </div>
       </div>
     </section>

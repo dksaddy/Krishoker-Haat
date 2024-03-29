@@ -2,7 +2,7 @@
     display: flex;
     height: 200px;
     width: 100%;
-    background-image: url('../image/cover.jpg');
+    background-image: url('../image/User/cover.jpg');
 }
 #userpicture{
     height: 130px;

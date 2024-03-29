@@ -11,7 +11,7 @@
     <section>
         <div id="cover">
             <div id="profilepicture">
-                <img src="image/person.jpg" alt="প্রভাত কুন্ডু শাওন image" id="userpicture">
+                <img src="image/User/person.jpg" alt="প্রভাত কুন্ডু শাওন image" id="userpicture">
             </div>
             <div id="nameandmobilenumber">
                 <div id="name">
@@ -37,7 +37,7 @@
             <h4>বিশেষ বিক্রয় পণ্য</h4>
             <div style="display: flex; margin-top: 50px;">
                 <div class="product">
-                    <img src="image/papaya.jpg" alt="papaya">
+                    <img src="image/Product/papaya.jpg" alt="papaya">
                     <h5>Original Price : 50 Taka</h5>
                     <h5>Offer Price : 40 Taka</h5>
                     <div style="display: flex;">
@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="product">
-                    <img src="image/papaya.jpg" alt="papaya">
+                    <img src="image/Product/papaya.jpg" alt="papaya">
                     <h5>Original Price : 50 Taka</h5>
                     <h5>Offer Price : 40 Taka</h5>
                     <div style="display: flex;">
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="product">
-                    <img src="image/papaya.jpg" alt="papaya">
+                    <img src="image/Product/papaya.jpg" alt="papaya">
                     <h5>Original Price : 50 Taka</h5>
                     <h5>Offer Price : 40 Taka</h5>
                     <div style="display: flex;">
@@ -66,7 +66,7 @@
             </div>
             <div style="display: flex; margin-top: 50px;">
                 <div class="product">
-                    <img src="image/papaya.jpg" alt="papaya">
+                    <img src="image/Product/papaya.jpg" alt="papaya">
                     <h5>Original Price : 50 Taka</h5>
                     <h5>Offer Price : 40 Taka</h5>
                     <div style="display: flex;">
@@ -75,7 +75,7 @@
                     </div>
                 </div>
                 <div class="product">
-                    <img src="image/papaya.jpg" alt="papaya">
+                    <img src="image/Product/papaya.jpg" alt="papaya">
                     <h5>Original Price : 50 Taka</h5>
                     <h5>Offer Price : 40 Taka</h5>
                     <div style="display: flex;">
@@ -84,7 +84,7 @@
                     </div>
                 </div>
                 <div class="product">
-                    <img src="image/papaya.jpg" alt="papaya">
+                    <img src="image/Product/papaya.jpg" alt="papaya">
                     <h5>Original Price : 50 Taka</h5>
                     <h5>Offer Price : 40 Taka</h5>
                     <div style="display: flex;">
@@ -98,7 +98,7 @@
                 <div style="margin-top: 50px; display: flex; justify-content: space-around; padding: 20px;">
                     <div style="display: flex;">
                         <div style="margin-left: 20px;">
-                            <img src="image/pngegg.png" alt="taka" height="90" width="70">
+                            <img src="image/Icon/pngegg.png" alt="taka" height="90" width="70">
                         </div>
                         <div style="margin-left: 20px;">
                             <div style="height: 100px; width: 150px; background-color: #A4E265; border-radius: 20px; text-align: center; font-weight: 700; line-height: 100px;">
@@ -110,7 +110,7 @@
                         <div style="background-color: #A4E265; padding: 5px 20px; font-weight: 700; border-radius: 20px;">টাকা উত্তোলনের জন্য নির্বাচন করুন</div>
                         <div>
                             <div id="payment-method" style="display: flex;">
-                                <img src="image/bkash.jpg" alt="bkash"><img src="image/Nagad.png" alt="nagad"><img src="image/rocket.png" alt="rocket">
+                                <img src="image/Icon/bkash.jpg" alt="bkash"><img src="image/Icon/Nagad.png" alt="nagad"><img src="image/Icon/rocket.png" alt="rocket">
                             </div>
                         </div>
                     </div>

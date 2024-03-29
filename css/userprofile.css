@@ -1,0 +1,76 @@
+#cover{
+    display: flex;
+    height: 200px;
+    width: 100%;
+    background-image: url('../image/cover.jpg');
+}
+#userpicture{
+    height: 130px;
+    width: 130px;
+    border-radius: 50%;
+    margin-top: 60px;
+    margin-left: 25px
+}
+#nameandmobilenumber{
+    margin-top: 120px;
+    margin-left: 20px;
+    font-weight: 700;
+}
+#menu{
+    background-color: #CEF1A1;
+    width: 25%;
+    height: auto;
+    padding: 3%;
+}
+#menu h6{
+    margin: 40px 0;
+    font-weight: 700;
+}
+#sign-out-btn{
+    background-color: #BF171D;
+    color: white;
+    border-radius: 20px;
+    width: 120px;
+    text-align: center;
+    padding: 5px;
+    cursor: pointer;
+}
+#special-products-for-sell{
+    padding-left: 50px;
+}
+#special-products-for-sell h4{
+    margin: 50px 350px;
+}
+.product{
+    margin-left: 35px;
+}
+.product h5{
+    margin: 10px;
+}
+.product img{
+    height: 200px; 
+    width: 250px;
+    border-radius: 20px;
+}
+.buy, .addtocart{
+    padding: 5px 20px;
+    border-radius: 20px;
+    margin-left: 5px;
+    
+}
+.buy{
+    background-color: #1C6416;
+    color: white;
+}
+.addtocart{
+    border: 2px solid #1C6416;;
+}
+#payment-system h4{
+    text-align: center;
+}
+#payment-method img{
+    height: 50px;
+    width: 80px;
+    margin-top: 30px;
+    margin-left: 30px;
+}

@@ -1,0 +1,92 @@
+
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+ }
+ 
+ 
+ .container{
+    max-width: 1200px;
+    margin:0 auto;
+    /* padding-bottom: 5rem; */
+ }
+ 
+ 
+ .update-profile{
+     margin-bottom: 10p;
+     margin-top: 3%;
+     margin-left: 25% ;
+     padding-top: 10px;
+     height: 90%;
+     width: 600px;
+     
+     border-radius: 12px;
+     box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.9), 0 10px 40px 0 rgba(255, 255, 255, 0.9); 
+     
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ 
+ }
+ .form {
+     margin-top: auto;
+     height: 700px;
+     width: 500px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     padding: 0%;
+     justify-content: center;
+ 
+ }
+ .inputBox input{
+     border-radius: 12px;
+     border: 1px solid #ffffff;
+     height: 35px;
+     width: 400px;
+     opacity: 100%;
+     background-color: rgb(0, 0, 0);
+     color: #ffffff;
+     font-size: large;
+     display: flex;
+     align-items: left;
+     padding-left: 12px;
+     margin-top: 5px;
+     margin-bottom: 5px;
+ }
+ .inputBox span{
+     font-size: 15px;
+     color: white;
+     margin-bottom: 10px;
+     
+ }
+ .updatebutton{
+     margin-top: 40px;
+     background-color: #ff3d00;
+     color: white;
+     padding: 18px 80px;
+     border: 1px solid black;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+     border-radius: 5px;
+     cursor: pointer;
+     font-size: 20px;
+ }
+ 
+ .profile-image-container {
+     text-align: center;
+ }
+ 
+ .profile-image-container img {
+     width: 200px;
+     height: 200px;
+     border-radius: 50%;
+     border: 2px solid orangered;
+     margin-top: 1%;
+     margin-bottom: 2%;
+     /* Add any additional styles you need */
+ }
+ 

@@ -1,29 +1,19 @@
-*{
-    margin: 0;
-    padding: 0;
-    font-family: "poppins",sans-serif;
-    box-sizing: border-box;
-
-}
-
 body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
 }
 .logo{
-    height: 50px;
-    width: 50px;
-    padding-top: 200px;
-    margin-left: 200px;
+    
 }
 
 .header {
-    background-color: rgb(18, 17, 17);
+   
     padding: 1px ;
 }
 
 .nav{
+    margin-right: 40px;
     position: fixed;
     top: 0;
     display: flex;
@@ -31,13 +21,13 @@ body {
     width: 100%;
     height: 100px;
     line-height: 100px;
-    background: white;
+    background: rgba(247, 241, 167, 0.463);
     z-index: 100;
 
 }
 .nav ul{
     margin-left: 50px;
-    display: flex;
+    display: contents;
 }
 .nav ul li{
     list-style-type: none;
@@ -46,9 +36,8 @@ body {
     text-decoration: none;
     font-weight: 500;
     color: black;
-    padding-bottom: 15px;
-    margin-right: 5px; 
-    
+    padding-bottom: 5px;
+    margin:  10px; 
 
 }
 
@@ -67,6 +56,35 @@ body {
     
     
 }
-.srch .srch-bar{
+.srch-bar{
+    border: none;
+    margin-top: 12px;
+    width: 150px;
+    height: 30px;
+    font-weight: bold;
+    background: transparent;
+    border-radius: 30px;
    
+}
+.srch{
+    border: 2px solid;
+    margin-top: 25px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    
+}
+.srch-btn{
+
+    border: none;
+    background: red;
+    margin-right: 0px;
+    margin-top: 11.7px;
+    height: 35px;
+    width: 40px;
+    display: flex;
+    border-radius: 15px;
+    
 }

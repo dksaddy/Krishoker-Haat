@@ -9,12 +9,18 @@ h3 {
 }
 
 /*This CSS for বিক্রি করা হবে & সর্বাধিক বিক্রিত পণ্য .*/
+.grand_1 {
+    display: flex;
+    justify-content: space-between;
+    background-color: beige;
+}
 
 .parent {
-    width: 200px;
+    width: 300px;
     display: flex;
     flex-direction: column;
     border: 2px solid green;
+    box-shadow: 2px 2px 2px 2px rgb(24, 18, 18);
 }
 
 .child-2 {
@@ -64,6 +70,38 @@ h3 {
     border-radius: 10px;
 }
 
+/*This CSS for পণ্য বিভাগ.*/
+.grand {
+    display: flex;
+    gap: 140px;
+    background-color: beige;
+}
+
+.product_parent {
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+    width: 400px;
+    border: 2px solid;
+    box-shadow: 3px 3px 3px 3px;
+}
+
+.product_child_1 {
+    width: 50%;
+}
+
+.product_child_2 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.product_child_2_1 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
 /*This CSS for মাস সেরা চাষী.*/
 
 .farmer-parent {
@@ -83,6 +121,7 @@ h3 {
     width: 100px;
     height: 100px;
     border-radius: 50%;
+    border: 2px solid;
 }
 
 .farmer-child-2 {
@@ -93,6 +132,4 @@ h3 {
 .farmer-child-3 {
    font-size: 14px;
 }
-
-
 

@@ -7,11 +7,10 @@
 </title>
   <link rel="stylesheet"type="text/css" href="css/login.css">
 </head>
-<>
 
 <div class="login" >
     <form class="form">
-        <img class="logo" src="image.jpg" alt=""><br>
+        <img class="logo" src="image\image.jpg" alt=""><br>
         <label >মোবাইল-নম্বর</label>
         <input type="text" placeholder="+880" style="height: 30px;"><i class="bx bxs-phone"></i><br>
         <label >পাসওয়ার্ড</label>
@@ -26,7 +25,7 @@
             </div>
         </div>
         <button class="btn" type="submit">প্রবেশ করুন</button>
-        <p style="margin-left: 20px;  margin-top: 25px;">Don't have an account?<a class="a2" href="" target="_blank">নিবন্ধন করুন</a></p>
+        <p style="margin-left: 20px;  margin-top: 25px;">Don't have an account?<a class="a2" href="registration.php" target="_blank">নিবন্ধন করুন</a></p>
         <p></p>
     </form>
    </div>

@@ -16,7 +16,7 @@
       <img src="image/Icon/mainlogo.jpg" width="80" height="80">
     </div> 
                <ul>
-                    <li><a href="#" class="link">HOME</a></li>
+                    <li><a href="./HomePage.php" class="link">HOME</a></li>
                     <li><a href="#" class="link">ABOUT US</a></li>
                     <li><a href="#" class="link">CONTACT</a></li>
                     <li><a href="#" class="link">COMMUNITY</a></li>
@@ -28,7 +28,7 @@
                 </div>
           
                 <div class="nav-button">
-                    <button class="signin"><a href="login.php" class="link">লগইন</a></button>
+                    <button class="signin"><a href="./login.php" class="link">লগইন</a></button>
                     
 
                 </div>

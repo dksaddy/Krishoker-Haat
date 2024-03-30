@@ -1,87 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>সাইন আপ</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="CSS/signup.css">
-    <link rel="stylesheet" href="CSS/header.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>registration</title>
+    <link rel="stylesheet" href="css\registration.css">
 </head>
-
 <body>
-<?php include('header.php') ?>
-        <div class="signup ">
-            <form id="form" method="post" action="functions/signup.php" enctype="multipart/form-data" class="inner">
-                <h6 class="logt">Customers Sign Up</h6>
+   <div class="login" >
+    <form class="form">
+        <img class="logo" src="image.jpg" alt=""><br>
+        <label >মোবাইল-নম্বর</label>
+        <input type="text" placeholder="+880" style="height: 30px;"><i class="bx bxs-phone"></i><br>
+        <label >পাসওয়ার্ড নিশ্চিত করুন</label>
+        <input type="text" style="height: 30px; width: 300px;"><i class="bx bxs-lock"></i> <br>
+        <label >পাসওয়ার্ড পুনরায় নিশ্চিত করুন</label>
+        <input type="text" style="height: 30px; width: 300px;"><i class="bx bxs-edit-alt"></i> <br><br>
 
-
-                <!-- To display the success message -->
-                <?php
-                if (isset($_SESSION['registration_success'])) {
-                    echo '<div class="success-message">';
-                    echo '<p>' . $_SESSION['registration_success'] . '</p>';
-                    echo '</div>';
-                    unset($_SESSION['registration_success']); // Clear the success message after displaying
-                }
-                ?>
-                <!-- Display errors if any -->
-                <?php
-                if (isset($_SESSION['signup_errors'])) {
-                    $errors = $_SESSION['signup_errors'];
-                    echo '<div class="error-message">';
-                    echo '<p>' . $errors['email'] . '</p>';
-                    echo '</div>';
-
-                    // Clear the errors after displaying
-                }
-                ?>
-                <div class="innerinner">
-                    <div class="in">
-                        <p>নাম : </p>
-                        <input type="text" placeholder="আপনার নাম লিখুন" name="name"
-                            value="<?php echo isset($_SESSION['input_values']['name2']) ? $_SESSION['input_values']['name2'] : ''; ?>"
-                            required>
-                    </div>
-                    <div class="in">
-                        <p>ই-মেইল ঠিকানা :</p>
-                        <input type="text" placeholder="আপনার ই-মেইল লিখুন" name="email"
-                            value="<?php echo isset($_SESSION['input_values']['email']) ? $_SESSION['input_values']['email'] : ''; ?>"
-                            required>
-                    </div>
-                    <div class="in">
-                        <p>পাসওয়ার্ড : </p>
-                        <input type="password" placeholder="আপনার পাসওয়ার্ড লিখুন" name="password"
-                            value="<?php echo isset($_SESSION['input_values']['password']) ? $_SESSION['input_values']['password'] : ''; ?>"
-                            required>
-                    </div>
-                    <div class="in">
-                        <p>ঠিকানা : </p>
-                        <input type="text" placeholder="আপনার ঠিকানা লিখুন" name="address"
-                            value="<?php echo isset($_SESSION['input_values']['address']) ? $_SESSION['input_values']['address'] : ''; ?>"
-                            required>
-                    </div>
-                </div>
-                <div class="innerinner">
-                    <div class="in">
-                        <p>যোগাযোগের নম্বর : </p>
-                        <input type="text" placeholder="আপনার যোগাযোগের নম্বর লিখুন" name="contact_number"
-                            value="<?php echo isset($_SESSION['input_values']['contact_number']) ? $_SESSION['input_values']['contact_number'] : ''; ?>"
-                            required>
-                    </div>
-                    <div class="log">
-                        <button class="signup_button">Sign up</button>
-                    </div>
-                </div>
-
-
-                <a href="login.php?key=1"></a>
-            </form>
-
+        <div class="mrg">
+            <div>
+                <input style="margin-top: 12px;" type="checkbox">
+            </div><div>
+                <p style="margin-left: 5px; font-size: 11px;">তথ্য মনে রাখুন</p>
+            </div>
         </div>
-
-    </div>
-    <?php include('footer.php') ?>
+        <button class="btn" type="submit">জমা দিন</button>
+        <p style="margin-left: 20px;  margin-top: 25px; padding-bottom: 10px;">Already have an account?<a class="a2" href="login.php" target="_blank">প্রবেশ করুন</a></p>
+        <p></p>
+    </form>
+   </div>
+</body>
 </html>
+

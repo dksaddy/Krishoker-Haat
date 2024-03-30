@@ -1,0 +1,90 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 46rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.logo{
+    height: 105px;
+    width: 100px;
+    border-radius: 40px;
+    margin-left: 100px;
+    padding-top: 10px;
+}
+.login{
+    border:1px solid black;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.75) ;
+    height: 520px;
+    width: 400px;
+}
+.form{
+    display: grid;
+    place-content: center;
+    box-sizing: border-box;
+
+}
+.mrg{
+    display: grid;
+    grid-template-columns: 20px 80px;
+    vertical-align: top;
+    margin-top: -32px;
+}
+.btn{
+    background-color: green;
+    color: aliceblue;
+    border: none;
+    border-radius: 30px;
+    height: 40px;
+    width: 190px;
+    margin-left: 65px;
+    margin-top: 30px;
+    font-size: 17px;
+    font-weight: 520;
+    transition: opacity 1s;
+}
+.btn:hover{
+    opacity: 0.85;
+    box-shadow: 0 0 10px rgba(0,0,0,0.8);
+    cursor: pointer;
+}
+
+.a1{
+color: rgb(203, 33, 33);
+font-size: 12px;
+
+
+}
+.a1:hover{
+    font-size: 13px;
+
+
+}
+
+
+.a2{
+    color: blue;
+    font-size: 15px;
+}
+.a2:hover{
+    font-size: 16px;
+}
+
+.bxs-phone{
+    display: block;
+    position: absolute;
+    padding : 167px 0 0 30px;
+}
+.bxs-lock{
+    display: block;
+    position: absolute;
+    padding : 246px 0 0 30px;
+
+}
+.bxs-load{
+    display: block;
+    position: absolute;
+    padding : 346px 0 0 30px;
+
+}

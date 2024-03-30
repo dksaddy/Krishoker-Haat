@@ -24,22 +24,6 @@ if (!empty($_SESSION['user_id'])) {
     $log =1;
 }
 
-// if (!empty($_SESSION['restaurant_id'])) {
-//     echo $_SESSION['restaurant_id'];
-//    $restaurant_id = $_SESSION['restaurant_id'];
-//    $logres = 1;
-
-
-//     if ($conn->connect_error) {
-//         die("Connection failed: " . $conn->connect_error);
-//     }
-
-//     $select = mysqli_query($conn, "SELECT * FROM `restaurant` WHERE restaurant_id = '$restaurant_id'") or die('query failed');
-
-//     if (mysqli_num_rows($select) > 0) {
-//         $fetch = mysqli_fetch_assoc($select);
-//     }
-// }
 
 ?>
 <div class="header">

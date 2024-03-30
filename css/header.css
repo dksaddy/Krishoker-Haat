@@ -11,7 +11,7 @@ body {
 
 .nav{
     margin-right: 40px;
-    position: fixed;
+    position: inherit;
     top: 0;
     display: flex;
     justify-content: space-around;
@@ -39,7 +39,7 @@ body {
 }
 
 .nav-button .signin{
-    margin-top: 3%;
+    margin-bottom: -40px;
     width: 130px;
     height: 40px;
     font-weight: 500;
@@ -55,14 +55,14 @@ body {
 }
 .srch-bar{
     border: none;
-    margin-top: 12px;
+    margin-top: 1px;
     width: 150px;
     height: 30px;
     font-weight: bold;
     background: transparent;
-    border-radius: 30px;
-   
+    
 }
+
 .srch{
     border: 2px solid;
     margin-top: 25px;
@@ -74,9 +74,8 @@ body {
     
 }
 .srch-btn{
-
+    background: transparent;
     border: none;
-    background: red;
     margin-right: 0px;
     margin-top: 11.7px;
     height: 35px;

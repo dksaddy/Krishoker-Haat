@@ -10,11 +10,7 @@
 
 <div class="login" >
     <form class="form">
-<<<<<<< HEAD
         <img class="logo" src="image/image.jpg" alt=""><br>
-=======
-        <img class="logo" src="image\image.jpg" alt=""><br>
->>>>>>> 0b98f516ebec0c02ca4992899defdddb9a6aedac
         <label >মোবাইল-নম্বর</label>
         <input type="text" placeholder="+880" style="height: 30px;"><i class="bx bxs-phone"></i><br>
         <label >পাসওয়ার্ড</label>

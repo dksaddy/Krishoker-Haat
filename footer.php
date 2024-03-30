@@ -39,7 +39,7 @@
               <a href="#"><i class="fab fa-facebook-f"></i></a>
               <a href="#"><i class="fab fa-twitter"></i></a>
               <a href="#"><i class="fab fa-linkedin"></i></a>
-              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="https://github.com/dksaddy/Krishoker-Haat"><i class="fab fa-github"></i></a>
             </div>
         </ul>
       </div>

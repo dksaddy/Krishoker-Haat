@@ -10,13 +10,13 @@
 <body>
    <div class="login" >
     <form class="form">
-        <img class="logo" src="image.jpg" alt=""><br>
+        <img class="logo" src="image/image.jpg" alt=""><br>
         <label >মোবাইল-নম্বর</label>
         <input type="text" placeholder="+880" style="height: 30px;"><i class="bx bxs-phone"></i><br>
         <label >পাসওয়ার্ড নিশ্চিত করুন</label>
         <input type="text" style="height: 30px; width: 300px;"><i class="bx bxs-lock"></i> <br>
         <label >পাসওয়ার্ড পুনরায় নিশ্চিত করুন</label>
-        <input type="text" style="height: 30px; width: 300px;"><i class="bx bxs-edit-alt"></i> <br><br>
+        <input type="text" style="height: 30px; width: 300px;"><i class="bx bxs-edit-alt"></i><br>
 
         <div class="mrg">
             <div>

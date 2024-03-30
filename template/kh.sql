@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 30, 2024 at 06:53 AM
+-- Generation Time: Mar 30, 2024 at 06:58 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -193,6 +193,7 @@ CREATE TABLE `user` (
   `email` varchar(500) NOT NULL,
   `address` varchar(500) NOT NULL,
   `user_type` varchar(500) NOT NULL,
+  `password` varchar(500) NOT NULL,
   `profile_picture` varchar(500) NOT NULL,
   `curr_balance` double NOT NULL,
   `timestamp` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
@@ -202,9 +203,9 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `name`, `phone_number`, `email`, `address`, `user_type`, `profile_picture`, `curr_balance`, `timestamp`) VALUES
-(1, 'Md Nasir', 1325657896, 'nasir@gmail.com', 'Potuakhali', 'Customer', 'image/image.jpg', 12, '2024-03-30 11:49:09'),
-(2, 'Md. Rahim Mia', 1452639874, 'rahim@gmail.com', 'Pabna', 'Farmer', 'image/image.jpg', 21, '2024-03-30 11:52:40');
+INSERT INTO `user` (`user_id`, `name`, `phone_number`, `email`, `address`, `user_type`, `password`, `profile_picture`, `curr_balance`, `timestamp`) VALUES
+(1, 'Md Nasir', 1325657896, 'nasir@gmail.com', 'Potuakhali', 'Customer', '123', 'image/image.jpg', 12, '2024-03-30 11:56:58'),
+(2, 'Md. Rahim Mia', 1452639874, 'rahim@gmail.com', 'Pabna', 'Farmer', '456', 'image/image.jpg', 21, '2024-03-30 11:57:15');
 
 --
 -- Indexes for dumped tables

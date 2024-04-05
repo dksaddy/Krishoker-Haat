@@ -1,3 +1,27 @@
+<?php
+session_start();
+$log = 0;
+$fetch = []; 
+
+// Include the database connection file
+include("template/db_connect.php");
+
+if (!empty($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+    $log = 1;
+
+    // Check if the database connection is open
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $select = mysqli_query($conn, "SELECT * FROM `user` WHERE user_id = '$user_id'") or die('query failed');
+
+    if (mysqli_num_rows($select) > 0) {
+        $fetch = mysqli_fetch_assoc($select);
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,18 +43,31 @@
                     <li><a href="./HomePage.php" class="link">HOME</a></li>
                     <li><a href="#" class="link">ABOUT US</a></li>
                     <li><a href="#" class="link">CONTACT</a></li>
-                    <li><a href="#" class="link">COMMUNITY</a></li>
-                    <li><a href="#" class="link">ARTICLE</a></li>
+                    <?php if($log): ?>
+               <li><a href="http://localhost/project/userBloghome.php">কমিউনিটি</a></li>
+               <li><a href="http://localhost/project/messageHome.php">আর্টিকেল</a></li>
+                 <li class="dropdown">
+               <?php 
+                   echo '<img src="image/image.jpg" alt="Profile Picture" class="round-image">';
+                 ?>
+                 
+                  <div class="dropdown-content">
+                   <a href="http://localhost/project/userProfile.php">User Profile</a>
+                   <a href="http://localhost/project/updateProfile.php">Update Profile</a>
+                   <a href="functions/logout.php">LOG OUT</a>
+               </div>
+             </li>
+
                 </ul>
                 <div class="srch">
                     <input type="text" class="srch-bar" placeholder="এখানে অনুসন্ধান করুন" >
                     <button class="srch-btn"><img src="image/Icon/search.png"> </button>
                 </div>
-          
+                <?php else: ?>
                 <div class="nav-button">
                     <button class="signin"><a href="./login.php" class="link">লগইন</a></button>
                     
-
+                    <?php endif; ?>
                 </div>
 
                 </div>

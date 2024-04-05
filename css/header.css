@@ -37,6 +37,48 @@ body {
     margin:  10px; 
 
 }
+/* Style for the round profile image */
+.round-image {
+    width: 65px; 
+    height: 60px; 
+    border-radius: 50%; 
+}
+/*style for dropdown start*/
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Adjusted button background color */
+.dropdown:hover .dropbtn {
+    background-color: transparent;
+}
+/*style for dropdown end*/
 
 .nav-button .signin{
     margin-bottom: -40px;

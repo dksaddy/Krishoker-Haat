@@ -1,25 +1,27 @@
-h1 {
-    text-align: center;
-    background-color: brown;
-}
-
 h3 {
-    margin-top: 70px;
-    text-align: center;
+   padding: 30px 0 30px 0;
+   text-align: center;
+   
 }
 
 /*This CSS for বিক্রি করা হবে & সর্বাধিক বিক্রিত পণ্য .*/
 .grand_1 {
     display: flex;
-    justify-content: space-between;
-    background-color: beige;
+    justify-content: space-around;
 }
 
 .parent {
     width: 300px;
     display: flex;
     flex-direction: column;
-    border: 2px solid green;
+    border: 2px solid;
+}
+.parent:hover {
+    transform: scale(1.1);
+    background-color: antiquewhite;
+    transition: .5s;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px 2px rgb(126, 112, 112);
 }
 
 .child-2 {
@@ -72,17 +74,25 @@ h3 {
 /*This CSS for পণ্য বিভাগ.*/
 .grand {
     display: flex;
+    justify-content: space-around;
     gap: 140px;
-    background-color: beige;
 }
 
 .product_parent {
     display: flex;
     justify-content: flex-start;
     gap: 30px;
-    width: 400px;
+    width: 350px;
     border: 2px solid;
-    box-shadow: 3px 3px 3px 3px;
+}
+
+.product_parent:hover {
+    transform: scale(1.1);
+    background-color: antiquewhite;
+    transition: .5s;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px 2px rgb(204, 175, 175);
+    border-radius: 5px;
 }
 
 .product_child_1 {
@@ -107,6 +117,8 @@ h3 {
     display: flex;
     justify-content: flex-start;
     padding-left: 10px;
+    margin-bottom: 30px;
+   
 }
 
 .farmer-child {
@@ -114,6 +126,15 @@ h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.farmer-child:hover {
+    transform: scale(1.08);
+    background-color: antiquewhite;
+    transition: .5s;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px 2px rgb(204, 175, 175);
+    border-radius: 10px;
 }
 
 .farmer-child-1 {

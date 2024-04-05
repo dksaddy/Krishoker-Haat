@@ -153,3 +153,38 @@
 .btn:hover {
     background-color: #0639d0;
 }
+<<<<<<< HEAD
+=======
+.a1:hover{
+    font-size: 13px;
+
+
+}
+
+
+.a2{
+    color: blue;
+    font-size: 15px;
+}
+.a2:hover{
+    font-size: 16px;
+}
+
+.bxs-phone{
+    display: block;
+    position: absolute;
+    padding : 167px 0 0 30px;
+}
+.bxs-lock{
+    display: block;
+    position: absolute;
+    padding : 246px 0 0 30px;
+
+}
+.bxs-edit-alt{
+    display: block;
+    position: absolute;
+    padding : 325px 0 0 30px;
+
+}
+>>>>>>> 83fde8a3876ff2a37d12d9add9011fc8efb25621

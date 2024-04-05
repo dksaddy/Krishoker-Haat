@@ -11,6 +11,7 @@
 <div class="login">
 <form class="form" action="functions/login.php" enctype="multipart/form-data" method="post">
         <img class="logo" src="image/image.jpg" alt=""><br>
+<<<<<<< HEAD
          <!-- Display errors if any -->
       <?php
       session_start();
@@ -28,6 +29,13 @@
         <label>পাসওয়ার্ড</label>
         <input type="text" style="height: 30px; width: 300px;"name ="password"><i class="bx bxs-lock"></i> <br>
         <p style="display: flex; justify-content: right; margin-top: -10px;"><a class="a1" href="" target="_blank">পাসওয়ার্ড ভুলে গেছেন?</a></p>
+=======
+        <label >মোবাইল-নম্বর</label>
+        <input type="text" placeholder="+880" style="height: 30px;"><i class="bx bxs-phone"></i><br>
+        <label >পাসওয়ার্ড</label>
+        <input type="text" style="height: 30px; width: 300px;"><i class="bx bxs-lock"></i> <br>
+        <p style="display: flex;justify-content: right;margin-top: -10px;"><a class="a1" href="registration.php" target="_blank">পাসওয়ার্ড ভুলে গেছেন?</a></p>
+>>>>>>> 83fde8a3876ff2a37d12d9add9011fc8efb25621
 
         <div class="mrg">
             <div>

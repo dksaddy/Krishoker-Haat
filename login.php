@@ -15,7 +15,7 @@
         <input type="text" placeholder="+880" style="height: 30px;"><i class="bx bxs-phone"></i><br>
         <label >পাসওয়ার্ড</label>
         <input type="text" style="height: 30px; width: 300px;"><i class="bx bxs-lock"></i> <br>
-        <p style="display: flex;justify-content: right;margin-top: -10px;"><a class="a1" href="" target="_blank">পাসওয়ার্ড ভুলে গেছেন?</a></p>
+        <p style="display: flex;justify-content: right;margin-top: -10px;"><a class="a1" href="registration.php" target="_blank">পাসওয়ার্ড ভুলে গেছেন?</a></p>
 
         <div class="mrg">
             <div>

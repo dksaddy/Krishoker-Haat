@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 30, 2024 at 06:58 AM
+-- Generation Time: Apr 06, 2024 at 05:56 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -164,6 +164,16 @@ CREATE TABLE `product` (
   `image` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`product_id`, `name`, `category`, `price`, `user_id`, `image`) VALUES
+(1, 'Orange', 'Friuts\r\n', 80, 0, 'image\\Product\\orange.jpg'),
+(3, 'পেঁপে', 'Fruits', 70, 0, 'image\\Product\\papaya.jpg'),
+(5, 'বেগুন​', 'Vegetable', 35, 0, 'image\\Product\\egg plant.jpg'),
+(6, 'আলু', 'Vegetable', 20, 0, 'image\\Product\\potato.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -322,7 +332,7 @@ ALTER TABLE `order_table`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `purchase_history`

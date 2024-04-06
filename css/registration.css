@@ -1,61 +1,160 @@
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 46rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+
+.login {
+    margin: 5% auto;
+    max-width: 60%;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+    background-color: #fae482; /* Add background color */
+
 }
+
+.form {
+    text-align: center;
+}
+
 .logo{
     height: 105px;
     width: 100px;
-    border-radius: 40px;
-    margin-left: 100px;
+    border-radius: 30px;
+    margin-left: 0%;
     padding-top: 10px;
 }
-.login{
-    border:1px solid black;
-    border-radius: 5px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.75) ;
-    height: 520px;
-    width: 400px;
+.head{
+    display: flex;
+    flex-direction: column;
 }
-.form{
-    display: grid;
-    place-content: center;
-    box-sizing: border-box;
+.head label{
+    display: flex;
+    text-align: left;
+    color: rgb(16, 70, 16);
+    font-weight: 600;
+    font-size: 13px;
+}
+.input-container {
+    position: relative;
+    margin-bottom: 20px;
+}
 
+.input-container input[type="text"] {
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    height: 30px;
+    width: 90%;
+    padding-left: 35px;
+    display: flex;
+    align-items: center;
 }
-.mrg{
-    display: grid;
-    grid-template-columns: 20px 80px;
-    vertical-align: top;
-    margin-top: -32px;
+
+.input-container i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
 }
-.btn{
-    background-color: green;
-    color: aliceblue;
+
+.checkbox-container {
+    margin-bottom: 20px;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 10px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.checkbox-container input[type="checkbox"]:checked {
+    background-color: #eb1010;
+}
+
+.checkbox-container label {
+    vertical-align: middle;
+}
+
+.checkbox-container input[type="checkbox"]::before {
+    content: ""; /* Empty content for unchecked state */
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+}
+
+.checkbox-container input[type="checkbox"]:checked::before {
+    content: "\2714"; /* Checkmark (✓) for checked state */
+    color: #fff;
+}
+
+.mrg {
+    display: flex;
+    align-items: center;
+}
+
+.mrg input[type="checkbox"] {
+    margin-right: 10px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.mrg input[type="checkbox"]:checked {
+    background-color: #007bff;
+}
+
+.mrg p {
+    margin: 0;
+    margin-left: 5px;
+    font-size: 11px;
+    color: #000; /* Change color as needed */
+}
+
+.mrg input[type="checkbox"]::before {
+    content: ""; /* Empty content for unchecked state */
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+}
+
+.mrg input[type="checkbox"]:checked::before {
+    content: "\2714"; /* Checkmark (✓) for checked state */
+    color: #fff;
+}
+
+
+
+.btn {
+    background-color: #0a8a1f;
+    color: #fff;
     border: none;
-    border-radius: 30px;
-    height: 40px;
-    width: 190px;
-    margin-left: 65px;
-    margin-top: 30px;
-    font-size: 17px;
-    font-weight: 520;
-    transition: opacity 1s;
-}
-.btn:hover{
-    opacity: 0.85;
-    box-shadow: 0 0 10px rgba(0,0,0,0.8);
+    border-radius: 5px;
+    padding: 10px 20px;
     cursor: pointer;
 }
 
-.a1{
-color: rgb(203, 33, 33);
-font-size: 12px;
-
-
+.btn:hover {
+    background-color: #0639d0;
 }
+<<<<<<< HEAD
+=======
 .a1:hover{
     font-size: 13px;
 
@@ -88,3 +187,4 @@ font-size: 12px;
     padding : 325px 0 0 30px;
 
 }
+>>>>>>> 83fde8a3876ff2a37d12d9add9011fc8efb25621

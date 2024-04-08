@@ -61,7 +61,7 @@
     </div>
 
     <div style="display: flex; justify-content: flex-end; margin: 20px 40px;">
-    <a style="background-color: red; width:150px; text-align: center;  text-decoration: none; color: white;" href="#">All Product</a>
+    <a style="background-color: red; width:150px; text-align: center;  text-decoration: none; color: white; border-radius: 10px;" href="AllProduct.php">All Products</a>
     </div>
     <!--From here this is a ending portion of Selling-->
 

@@ -8,6 +8,7 @@ h3 {
 .grand_1 {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .parent {
@@ -15,6 +16,7 @@ h3 {
     display: flex;
     flex-direction: column;
     border: 2px solid;
+    border-radius: 5%;
 }
 .parent:hover {
     transform: scale(1.1);
@@ -23,6 +25,11 @@ h3 {
     cursor: pointer;
     box-shadow: 2px 2px 2px 2px rgb(126, 112, 112);
 }
+
+.child-1 img {
+    border-radius: 5%;
+}
+
 
 .child-2 {
     display: flex;
@@ -75,6 +82,7 @@ h3 {
 .grand {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     gap: 140px;
 }
 
@@ -108,6 +116,23 @@ h3 {
 .product_child_2_1 {
     font-size: 20px;
     font-weight: bold;
+}
+
+.all_product_btn {
+    display: flex; 
+    justify-content: flex-end; 
+    margin: 20px 40px;
+}
+
+.all_product_btn div {
+    text-decoration: none;
+    text-align: center;
+    background-color: rgb(191, 240, 240);
+    color: black;
+    width: 150px;
+    height: 40px;
+    padding: 5px;
+
 }
 
 

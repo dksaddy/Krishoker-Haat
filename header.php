@@ -53,7 +53,7 @@ if (!empty($_SESSION['user_id'])) {
                  
                   <div class="dropdown-content">
                    <a href="http://localhost/project/userProfile.php">User Profile</a>
-                   <a href="http://localhost/project/updateProfile.php">Update Profile</a>
+                   <a href="update_profile.php">Update Profile</a>
                    <a href="functions/logout.php">LOG OUT</a>
                </div>
              </li>

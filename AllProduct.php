@@ -1,42 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Products</title>
     <link rel="stylesheet" href="css\All Product.css?v=<?php echo time(); ?>">
 </head>
+
 <body>
-   <div>
+    <div class="container">
 
-        <div class="category">
-
-            <div class="category_1">
-                <div><input type="checkbox">Fruits</div>
-                <div><input type="checkbox">Vegetable</div>
-                <div><input type="checkbox">Dry Food</div>
-                <div><input type="checkbox">Spices</div>
-                <div><input type="checkbox">Farming Tool</div>
-                <div><input type="checkbox">Fertilizer</div>
+        <form action="AllProduct.php" method="post">
+            <div class="category">
+                <div class="filter_btn"><button name="all">All Products</button></div>
+                <h3>Consumer:</h3>
+                <div class="filter_btn"><button name="fruits">Fruits</button></div>
+                <div class="filter_btn"><button name="vegetable">Vegetable</button></div>
+                <div class="filter_btn"><button name="dryFood">Dry Food</button></div>
+                <div class="filter_btn"><button name="spices">Spices</button></div>
+                <h3>Farmer:</h3>
+                <div class="filter_btn"><button name="farmingTool">Farming Tool</button></div>
+                <div class="filter_btn"><button name="fertilizer">Fertilizer</button></div>
             </div>
-            <div class="category_2">
-                <div>Sort by:</div>
-                <div>
-                    <select name="" id="">
-                        <option value="0">Select</option>
-                        <option value="1">Price Low -> High</option>
-                        <option value="1">Price High -> Low</option>
-                    </select>
-                </div>
-            </div>
-
-        </div>
+        </form>
 
         <div class="product">
-
             <?php
-            include('template\db_connect.php');
-            $sql = "SELECT * FROM product";
+
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+                if (isset($_POST['fruits'])) {
+                    $sqlinput = "SELECT * FROM product WHERE category = 'Fruits'";
+                    show($sqlinput);
+
+                }else if (isset($_POST['vegetable'])) {
+                    $sqlinput = "SELECT * FROM product WHERE category = 'Vegetable'";
+                    show($sqlinput);
+
+                }else if (isset($_POST['all'])) {
+                    $sqlinput = "SELECT * FROM product";
+                    show($sqlinput);
+
+                }else if (isset($_POST['dryFood'])) {
+                    $sqlinput = "SELECT * FROM product WHERE category = 'Dry Food'";
+                    show($sqlinput);
+
+                }else if (isset($_POST['spices'])) {
+                    $sqlinput = "SELECT * FROM product WHERE category = 'Spices'";
+                    show($sqlinput);
+
+                }else if (isset($_POST['farmingTool'])) {
+                    $sqlinput = "SELECT * FROM product WHERE category = 'Farming Tools'";
+                    show($sqlinput);
+
+                }else if (isset($_POST['fertilizer'])) {
+                    $sqlinput = "SELECT * FROM product WHERE category = 'Fertilizer'";
+                    show($sqlinput);
+                }
+
+            } else {
+                $sqlinput = "SELECT * FROM product";
+                show($sqlinput);
+            }
+            ?>
+
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+
+<?php
+function show ($sqlinput) {
+    include('template\db_connect.php');
+            $sql = $sqlinput;
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
@@ -67,9 +107,10 @@
                 echo "0 results";
             }
             $conn->close();
-            ?>
+}
 
-        </div>
-   </div>
-</body>
-</html>
+?>
+
+
+
+

@@ -2,47 +2,55 @@ body {
     margin: 0;
 }
 
-.category {
+.container {
     display: flex;
-    justify-content: flex-start;
-    font-size: 20px;
-    height: 60px;
-    margin-top: 10px;
-    background-color: antiquewhite;
-}
-
-.category_1 {
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-}
-
-.category_2{
-    width: 30%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    
-}
-
-
-.product {
-    display: flex;
-    justify-content: space-evenly;
-    gap: 10px;
-    flex-wrap: wrap;
     margin-top: 20px;
 }
+
+.category {
+    width: 210px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+h3 {
+    margin-left: 10px;
+}
+
+.filter_btn button {
+    width: 150px;
+    height: 30px;
+    margin: 25px 0 20px 20px;
+    font-size: 17px;
+    background: transparent;
+    border: none;
+}
+
+.filter_btn button:hover {
+    transform: scale(1.1);
+    background-color: antiquewhite;
+    transition: .3s;
+    cursor: pointer;
+    border-left: 2px solid;
+}
+
+.product{
+    width: 99%;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
 
 .parent {
     width: 300px;
     display: flex;
     flex-direction: column;
     border: 2px solid;
-    margin-bottom: 20px;
+    margin: 20px 0 20px 0;
     border-radius: 5%;
 }
 .parent:hover {
@@ -50,7 +58,7 @@ body {
     background-color: antiquewhite;
     transition: .5s;
     cursor: pointer;
-    box-shadow: 5px 5px 2px 2px rgb(167, 166, 166);
+    box-shadow: 0px 5px 2px 2px rgb(167, 166, 166);
 }
 
 .child-1 img {

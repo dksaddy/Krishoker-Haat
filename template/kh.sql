@@ -3,15 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
-<<<<<<< HEAD
--- Generation Time: Apr 09, 2024 at 06:57 PM
+-- Generation Time: Apr 09, 2024 at 07:10 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
-=======
--- Generation Time: Apr 06, 2024 at 05:56 PM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
->>>>>>> b804cc561116b743426455b619690ba0ee8b994e
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -170,16 +164,6 @@ CREATE TABLE `product` (
   `image` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `product`
---
-
-INSERT INTO `product` (`product_id`, `name`, `category`, `price`, `user_id`, `image`) VALUES
-(1, 'Orange', 'Friuts\r\n', 80, 0, 'image\\Product\\orange.jpg'),
-(3, 'পেঁপে', 'Fruits', 70, 0, 'image\\Product\\papaya.jpg'),
-(5, 'বেগুন​', 'Vegetable', 35, 0, 'image\\Product\\egg plant.jpg'),
-(6, 'আলু', 'Vegetable', 20, 0, 'image\\Product\\potato.jpg');
-
 -- --------------------------------------------------------
 
 --
@@ -231,7 +215,8 @@ INSERT INTO `user` (`user_id`, `name`, `phone_number`, `email`, `address`, `user
 (9, '', '01766972627', '', '', '', '$2y$10$o6rFMPZ/p.z4WXfqmlSN.ObgYbWQb2Qfi0L0.YoAkqtGLqjDnruQu', '', 0, '2024-04-05 22:29:07'),
 (10, '', '01766972630', '', '', 'farmer', '$2y$10$NFoD7Jq6tZMAgr1LyL1WH.IlGBkZlqzmHjeyWCdESumottzIyVchi', '', 0, '2024-04-05 22:53:01'),
 (11, '', '01766972640', '', '', 'customer', '$2y$10$V0OsuDrbJ4EHNF3v5/tav.nYma5HdPVrEcNl/ZosKZvWYhMeOOcxu', '', 0, '2024-04-05 22:57:16'),
-(12, '', '01766972641', '', '', 'customer', '$2y$10$pcdbqYOdjhei.Em6MtiQsOTVT8eXbchTrFMLl2WvPaBcRz9wdai.G', '', 0, '2024-04-05 22:58:35');
+(12, '', '01766972641', '', '', 'customer', '$2y$10$pcdbqYOdjhei.Em6MtiQsOTVT8eXbchTrFMLl2WvPaBcRz9wdai.G', '', 0, '2024-04-05 22:58:35'),
+(13, '', '01719595420', '', '', 'farmer', '$2y$10$ueDWleJs1QZNSs0/MxllH.4Ca/2lLT8foBiK3jcs6LmKpoIjm/IJi', '', 0, '2024-04-09 23:04:23');
 
 --
 -- Indexes for dumped tables
@@ -348,7 +333,7 @@ ALTER TABLE `order_table`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `purchase_history`
@@ -360,7 +345,7 @@ ALTER TABLE `purchase_history`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

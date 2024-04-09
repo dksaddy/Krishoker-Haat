@@ -1,46 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="css\Home Page.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css\footer.css">
 </head>
+
 <body>
 
-   <?php include('header.php')?>
+    <?php 
+    include('header.php');
+    include("template\db_connect.php");
+    ?>
 
+    <!--From here this is a portion of Selling-->
     <h3>বিক্রি করা হবে</h3>
-    <!--Card Model start-->
     <div class="grand_1">
         <?php
-        for ($i=0; $i <4 ; $i++) { 
-            echo '
-            <div class="parent">
-                <div class="child-1">
-                    <img src="image\Product\papaya.jpg" alt="" width="100%" height="100%">
-                </div>
-                <div class="child-2">
-                    <div class="child-2-1">
-                        <div class="child-2-1-1">পেঁপে</div>
-                        <div class="child-2-1-2">৳ ১০০</div>
-                        <div class="child-2-1-3">প্রতি কেজি</div>
+        // SQL query to fetch data
+        $sql = "SELECT name, price, image FROM product LIMIT 4";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+        // Output data of each row
+            while($row = $result->fetch_assoc()) {
+                $name = $row['name'];
+                $image = $row['image'];
+                $price = $row['price'];
+                echo '
+                <div class="parent">
+                    <div class="child-1">
+                        <img src="'.$image.'" alt="" width="100%" height="100%">
                     </div>
-                    <div class="child-2-2">
-                        <div class="child-2-2-1"><button class="cart-button"><img src="image\Icon\cart.png" alt="" width="100%" height="100%"></button></div>
-                        <div><button class="buy-button">কিনুন</button></div>
+                    <div class="child-2">
+                        <div class="child-2-1">
+                            <div class="child-2-1-1">'.$name.'</div>
+                            <div class="child-2-1-2">৳ '.$price.'</div>
+                            <div class="child-2-1-3">প্রতি কেজি</div>
+                        </div>
+                        <div class="child-2-2">
+                            <div class="child-2-2-1"><button class="cart-button"><img src="image\Icon\cart.png" alt=""
+                                width="100%" height="100%"></button></div>
+                            <div><button class="buy-button">কিনুন</button></div>
+                        </div>
                     </div>
-                </div>
-            </div>';
+                </div>';
+
+            }//while end
+
+        } else {
+        echo "0 results";
         }
+
+        // Close connection
+        $conn->close();
         ?>
     </div>
-    <!--Card Model start-->
+
+    <div class="all_product_btn">
+    <a href="AllProduct.php"><div>All Product</div></a>
+    </div>
+    <!--From here this is a ending portion of Selling-->
+
 
     <h3>সর্বাধিক বিক্রিত পণ্য</h3>
-    <!--Card Model start-->
     <div class="grand_1">
         <?php
         for ($i=0; $i<4 ; $i++) { 
@@ -64,7 +90,7 @@
         ?>
     </div>
     <!--Card Model End-->
-   
+
 
 
     <!--...............................Product Category Start .............................-->
@@ -133,4 +159,5 @@
     <?php include('footer.php')?>
 
 </body>
+
 </html>

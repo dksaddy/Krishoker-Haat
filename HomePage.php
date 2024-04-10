@@ -21,12 +21,14 @@
     <div class="grand_1">
         <?php
         // SQL query to fetch data
-        $sql = "SELECT name, price, image FROM product LIMIT 4";
+        $sql = "SELECT product_id, name, price, image FROM product LIMIT 4";
         $result = $conn->query($sql);
+        $product_id = array();
 
         if ($result->num_rows > 0) {
-        // Output data of each row
+        // Output data of each row.
             while($row = $result->fetch_assoc()) {
+                $product_id[] = $row['product_id'];
                 $name = $row['name'];
                 $image = $row['image'];
                 $price = $row['price'];

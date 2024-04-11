@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Individual product</title>
-    <link rel="stylesheet" href="css\Individual Product.css">
+    <link rel="stylesheet" href="css\Individual Product.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css\footer.css">
 </head>
 
@@ -24,6 +24,8 @@
             $price = $row['price'];
             $image = $row['image'];
             $farmer = $row['user_id'];
+            $description = $row['description'];
+            $quantity = $row['quantity'];
         }
 
     } else {
@@ -50,7 +52,7 @@
 
         <div class="right_div">
             <form id="quantityForm" action="IndividualProduct.php" method="post">
-                <div style="font-weight: bold; margin-top: 40px">Quantity (kg)</div>
+                <div style="font-weight: bold; margin-top: 60px">Quantity (kg)</div>
 
                 <div style="display: flex; gap: 20px">
                     <div><button type="button" id="minusButton" name="minus" onclick="decrementQuantity()">-</button></div>
@@ -58,9 +60,18 @@
                     <div><button type="button" id="plusButton" name="plus" onclick="incrementQuantity()">+</button></div>
                 </div>
 
-                <div style="margin-right: 40px">Remaining:</div>
-                <div style="margin-right: 40px">Price: <?php echo "৳ " . $price?> </div>
-                <div style="margin-right: 40px">Total Price: </div>
+                <div style="margin: 20px 0 0 60px">
+                Remaining: <input type="text" id="remaining" name="remaining" disabled value="<?php echo $quantity - 1?>"> (kg)
+                </div>
+
+                <div style="margin-right: 40px">
+                Price: <input type="text" id="pricePerUnit" name="pricePerUnit" disabled value="<?php echo $price?>"> 
+                </div>
+
+                <div style="margin-left: 20px">
+                Total Price: <input type="text" id="totalPrice" name="totalPrice" disabled value="<?php echo $price?>"> 
+                </div>
+
                 <div><button name="cart" class="cart_btn">Add to Cart</button></div>
             </form>
         </div>
@@ -70,12 +81,7 @@
     <div class="main_div_2">
         <div>
             <h1>Product Description</h1>
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et ipsam temporibus
-                repudiandae magni. Exercitationem, reprehenderit? Recusandae eligendi in,
-                obcaecati sed, distinctio magnam doloremque adipisci repudiandae nam non
-                magni suscipit eius!
-            </p>
+            <p> <?php echo $description?> </p>
         </div>
     </div>
 
@@ -86,25 +92,53 @@
 
 
     <script>
-    function incrementQuantity() {
+   function incrementQuantity() {
         var quantityInput = document.getElementById("quantityInput");
+        var remaining = document.getElementById("remaining");
+        var totalPrice = document.getElementById("totalPrice");
+        var pricePerUnit = document.getElementById("pricePerUnit").value;
+
         var currentQuantity = parseInt(quantityInput.value);
-        if (!isNaN(currentQuantity)) {
+        var quantityOutput = parseInt(remaining.value);
+
+        if (!isNaN(currentQuantity) && quantityOutput > 0) {
             quantityInput.value = currentQuantity + 1;
+            remaining.value = quantityOutput - 1;
+
+            // Calculate total price
+            var totalPriceValue = (currentQuantity + 1) * pricePerUnit;
+            totalPrice.value = totalPriceValue; // Ensure total price has 2 decimal places
+
         } else {
-            quantityInput.value = 1; // If no value is present, set it to 1
+            quantityInput.value = 1; // If no value is present or remaining quantity is 0, set it to 1
+            totalPrice.value = pricePerUnit; // Reset total price to price per unit
         }
     }
 
+
     function decrementQuantity() {
         var quantityInput = document.getElementById("quantityInput");
+        var remaining = document.getElementById("remaining");
+        var totalPrice = document.getElementById("totalPrice");
+        var pricePerUnit = document.getElementById("pricePerUnit").value;
+
         var currentQuantity = parseInt(quantityInput.value);
+        var quantityOutput = parseInt(remaining.value);
+
         if (!isNaN(currentQuantity) && currentQuantity > 1) {
             quantityInput.value = currentQuantity - 1;
+            remaining.value = quantityOutput + 1;
+
+            // Calculate total price
+            var totalPriceValue = (currentQuantity - 1) * pricePerUnit;
+            totalPrice.value = totalPriceValue; // Ensure total price has 2 decimal places
+
         } else {
             quantityInput.value = 1; // Ensure quantity doesn't go below 1
+            totalPrice.value = pricePerUnit; // Reset total price to price per unit
         }
     }
+
     </script>
 
 

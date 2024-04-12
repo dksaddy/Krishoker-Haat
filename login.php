@@ -24,10 +24,10 @@
       }
       ?>
         <label>মোবাইল-নম্বর</label>
-        <input type="text" placeholder="+880" style="height: 30px;" name ="phone_number"><i class="bx bxs-phone"></i><br>
+        <input type="text" placeholder="ex:+88017********" style="height: 30px;" name ="phone_number"><i class="bx bxs-phone"></i><br>
         <label>পাসওয়ার্ড</label>
-        <input type="text" style="height: 30px; width: 300px;"name ="password"><i class="bx bxs-lock"></i> <br>
-        <p style="display: flex; justify-content: right; margin-top: -10px;"><a class="a1" href="" target="_blank">পাসওয়ার্ড ভুলে গেছেন?</a></p>
+        <input type="text" placeholder="Type your password" style="height: 30px; width: 300px;"name ="password"><i class="bx bxs-lock"></i> <br>
+        <p style="display: flex; justify-content: right; margin-top: -10px;"><a class="a2" href="#" target="_blank">পাসওয়ার্ড ভুলে গেছেন?</a></p>
 
         <div class="mrg">
             <div>

@@ -29,13 +29,17 @@ body {
 .nav ul li{
     list-style-type: none;
 }
-.nav ul li .link{
+.nav ul li .link {
     text-decoration: none;
-    font-weight: 500;
+    font-weight: bold;
     color: black;
-    padding-bottom: 5px;
-    margin:  10px; 
+    padding-bottom: 8px; 
+    margin: 10px 0; 
+    transition: color 0.3s;
+}
 
+.nav ul li .link:hover {
+    color: rgb(10, 195, 72);
 }
 /* Style for the round profile image */
 .round-image {

@@ -44,16 +44,24 @@ if (!empty($_SESSION['user_id'])) {
                     <li><a href="./HomePage.php" class="link">HOME</a></li>
                     <li><a href="#" class="link">ABOUT US</a></li>
                     <li><a href="#" class="link">CONTACT</a></li>
+                    <li><a href="#" class="link">PRODUCTS</a></li>
+
                     <?php if($log): ?>
-               <li><a href="http://localhost/project/userBloghome.php">কমিউনিটি</a></li>
-               <li><a href="http://localhost/project/messageHome.php">আর্টিকেল</a></li>
+               <li><a href="community_post.php"class="link">কমিউনিটি</a></li>
+               <li><a href="article.php"class="link">আর্টিকেল</a></li>
+               <?php
+    if (!empty($_SESSION['user_id'])) {
+        echo "<h6>Hi " . $fetch['name'] . " </h6>";
+    }
+?>
                  <li class="dropdown">
                <?php 
                    echo '<img src="image/image.jpg" alt="Profile Picture" class="round-image">';
                  ?>
                  
                   <div class="dropdown-content">
-                   <a href="http://localhost/project/userProfile.php">User Profile</a>
+                 
+                   <a href="user_profile.php">User Profile</a>
                    <a href="update_profile.php">Update Profile</a>
                    <a href="functions/logout.php">LOG OUT</a>
                </div>

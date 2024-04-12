@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2024 at 07:06 PM
+-- Generation Time: Apr 12, 2024 at 11:53 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -63,6 +63,13 @@ CREATE TABLE `cart` (
   `product_price` int(11) NOT NULL,
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`cart_id`, `user_id`, `product_id`, `product_price`, `quantity`) VALUES
+(10, 0, 3, 280, 4);
 
 -- --------------------------------------------------------
 
@@ -161,22 +168,24 @@ CREATE TABLE `product` (
   `category` varchar(500) NOT NULL,
   `price` double NOT NULL,
   `user_id` int(11) NOT NULL,
-  `image` varchar(500) NOT NULL
+  `image` varchar(500) NOT NULL,
+  `quantity` int(11) DEFAULT NULL,
+  `description` varchar(1000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`product_id`, `name`, `category`, `price`, `user_id`, `image`) VALUES
-(3, 'Papaya', 'Fruits', 70, 0, 'image\\Product\\papaya.jpg'),
-(5, 'বেগুন​', 'Vegetable', 35, 0, 'image\\Product\\egg plant.jpg'),
-(6, 'আলু', 'Vegetable', 20, 0, 'image\\Product\\potato.jpg'),
-(7, 'Cucumber', 'Vegetable', 30, 0, 'image\\Product\\cucumber.jpg'),
-(8, 'Green Grape', 'Fruits', 120, 0, 'image\\Product\\green grape.jpg'),
-(9, 'Green Pea', 'Vegetable', 40, 0, 'image\\Product\\green pea.jpg'),
-(10, 'Watermelon', 'Fruits', 20, 0, 'image\\Product\\watermelons.jpg'),
-(11, 'Orange', 'Fruits', 80, 0, 'image\\Product\\orange.jpg');
+INSERT INTO `product` (`product_id`, `name`, `category`, `price`, `user_id`, `image`, `quantity`, `description`) VALUES
+(3, 'Papaya', 'Fruits', 70, 0, 'image\\Product\\papaya.jpg', 20, 'Papaya is a tropical fruit known for its sweet, musky flavor and vibrant orange flesh. Rich in vitamins, particularly vitamin C, and minerals like potassium and magnesium, papaya offers numerous health benefits. It contains enzymes like papain, which aids in digestion, making it a popular choice for improving digestive health. Papaya is also low in calories and high in fiber, making it a great option for those looking to maintain a healthy weight. With its unique taste and nutritional profile, papaya is enjoyed fresh, in smoothies, salads, and various culinary dishes around the world.'),
+(5, 'Egg Plant', 'Vegetable', 35, 0, 'image\\Product\\egg plant.jpg', 30, 'Eggplant, also known as aubergine, is a versatile vegetable with a glossy, purple skin and a soft, creamy interior containing numerous tiny seeds. Belonging to the nightshade family, it is rich in vitamins, minerals, and antioxidants. Eggplant is low in calories and carbohydrates, making it a popular choice for various diets. It is known for its slightly bitter taste, which becomes milder and more complex when cooked. Eggplant is commonly used in cuisines around the world, from Mediterranean dishes like moussaka and ratatouille to Asian stir-fries and curries. With its unique flavor and texture, eggplant adds depth and richness to a wide range of culinary creations.'),
+(6, 'Potato', 'Vegetable', 20, 0, 'image\\Product\\potato.jpg', 40, 'Potatoes are a versatile and widely consumed root vegetable known for their starchy texture and mild, earthy flavor. They are a staple food in many cuisines around the world and can be prepared in numerous ways, including boiling, baking, frying, and mashing. \r\n\r\nRich in carbohydrates, potatoes provide an excellent source of energy. They also contain essential vitamins and minerals such as vitamin C, potassium, and B vitamins. \r\n\r\nPotatoes come in various colors, shapes, and sizes, with popular varieties including russet, red, and Yukon Gold. They are often used as a base ingredient in dishes such as mashed potatoes, French fries, potato salad, and soups. \r\n\r\nWith their widespread availability, affordability, and culinary versatility, potatoes are a beloved ingredient in many households and play a significant role in global cuisine.'),
+(7, 'Cucumber', 'Vegetable', 30, 0, 'image\\Product\\cucumber.jpg', NULL, NULL),
+(8, 'Green Grape', 'Fruits', 120, 0, 'image\\Product\\green grape.jpg', NULL, NULL),
+(9, 'Green Pea', 'Vegetable', 40, 0, 'image\\Product\\green pea.jpg', NULL, NULL),
+(10, 'Watermelon', 'Fruits', 20, 0, 'image\\Product\\watermelons.jpg', NULL, NULL),
+(11, 'Orange', 'Fruits', 80, 0, 'image\\Product\\orange.jpg', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -203,7 +212,7 @@ CREATE TABLE `purchase_history` (
 CREATE TABLE `user` (
   `user_id` int(11) NOT NULL,
   `name` varchar(500) NOT NULL,
-  `phone_number` int(11) NOT NULL,
+  `phone_number` varchar(500) NOT NULL,
   `email` varchar(500) NOT NULL,
   `address` varchar(500) NOT NULL,
   `user_type` varchar(500) NOT NULL,
@@ -218,8 +227,21 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `name`, `phone_number`, `email`, `address`, `user_type`, `password`, `profile_picture`, `curr_balance`, `timestamp`) VALUES
-(1, 'Md Nasir', 1325657896, 'nasir@gmail.com', 'Potuakhali', 'Customer', '123', 'image/image.jpg', 12, '2024-03-30 11:56:58'),
-(2, 'Md. Rahim Mia', 1452639874, 'rahim@gmail.com', 'Pabna', 'Farmer', '456', 'image/image.jpg', 21, '2024-03-30 11:57:15');
+(1, 'Md Nasir', '01325657896', 'nasir@gmail.com', 'Potuakhali', 'Customer', '123', 'image/image.jpg', 12, '2024-03-30 12:07:47'),
+(2, 'Md. Rahim Mia', '01452639874', 'rahim@gmail.com', 'Pabna', 'Farmer', '456', 'image/image.jpg', 21, '2024-03-30 12:07:58'),
+(3, '', '01766972626', '', '', '', '$2y$10$E5cP/IpiOICL0qNQ0aBuZeZLvrbaZI1PR5nX6xbDZul/yZdqcfTdC', '', 0, '2024-04-03 17:55:09'),
+(4, '', '01321098082', '', '', '', '$2y$10$XEpX9H9IpAtGLmz.ihqc5.ur8fx.WnV0zF5gDV92x5Yx50ctvyCa2', '', 0, '2024-04-05 20:25:17'),
+(5, '', '01321098083', '', '', '', '$2y$10$n2yRtUJFaDJh6/iAuIZ.K.cKSJc/AjcQy/hPx4AiWUC4xtKRwemm.', '', 0, '2024-04-05 20:26:19'),
+(6, '', '01321098084', '', '', '', '$2y$10$Yw7FEI9sijgHqskfVGcTj.O9UigSRNLt44Cv7n9L3Th/ahwbYlt0u', '', 0, '2024-04-05 20:26:59'),
+(7, '', '01866649720', '', '', '', '$2y$10$sSmZ9IcWmh/Fyy0bnm.pTevDQbUnstzMNoZiC37J465y8xcnfh0pS', '', 0, '2024-04-05 20:37:09'),
+(8, '', '01712379617', '', '', '', '$2y$10$X3Oat8o/QdKaPmSDbFwa8.YDRCLwKRWSA3ImsqGt595jfLRHBsXCC', '', 0, '2024-04-05 21:44:20'),
+(9, '', '01766972627', '', '', '', '$2y$10$o6rFMPZ/p.z4WXfqmlSN.ObgYbWQb2Qfi0L0.YoAkqtGLqjDnruQu', '', 0, '2024-04-05 22:29:07'),
+(10, '', '01766972630', '', '', 'farmer', '$2y$10$NFoD7Jq6tZMAgr1LyL1WH.IlGBkZlqzmHjeyWCdESumottzIyVchi', '', 0, '2024-04-05 22:53:01'),
+(11, '', '01766972640', '', '', 'customer', '$2y$10$V0OsuDrbJ4EHNF3v5/tav.nYma5HdPVrEcNl/ZosKZvWYhMeOOcxu', '', 0, '2024-04-05 22:57:16'),
+(12, '', '01766972641', '', '', 'customer', '$2y$10$pcdbqYOdjhei.Em6MtiQsOTVT8eXbchTrFMLl2WvPaBcRz9wdai.G', '', 0, '2024-04-05 22:58:35'),
+(13, '', '01719595420', '', '', 'farmer', '$2y$10$ueDWleJs1QZNSs0/MxllH.4Ca/2lLT8foBiK3jcs6LmKpoIjm/IJi', '', 0, '2024-04-09 23:04:23'),
+(14, '', '01987654323', '', '', 'customer', '$2y$10$c6eODVtSNFqxNCHsj3jUYuvzp2.TytnBIZQyFgVatSyqe6Hq2xtXO', '', 0, '2024-04-09 23:59:08'),
+(15, '', '', '', '', 'farmer', '$2y$10$eOOdzsvXtMoF8ZH20Z7XCenzRtEkCwQC4UeIs.rUU6QwmgQ/Bjyme', '', 0, '2024-04-10 00:00:45');
 
 --
 -- Indexes for dumped tables
@@ -300,7 +322,7 @@ ALTER TABLE `article_post_likes`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `community_post_comments`
@@ -348,7 +370,7 @@ ALTER TABLE `purchase_history`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

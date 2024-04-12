@@ -42,9 +42,8 @@ if (!empty($_SESSION['user_id'])) {
     </div> 
                <ul>
                     <li><a href="./HomePage.php" class="link">HOME</a></li>
-                    <li><a href="#" class="link">ABOUT US</a></li>
                     <li><a href="#" class="link">CONTACT</a></li>
-                    <li><a href="#" class="link">PRODUCTS</a></li>
+                    <li><a href="AllProduct.php" class="link">PRODUCTS</a></li>
 
                     <?php if($log): ?>
                <li><a href="community_post.php"class="link">কমিউনিটি</a></li>

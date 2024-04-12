@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 12, 2024 at 11:53 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Generation Time: Apr 12, 2024 at 07:00 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -36,7 +36,7 @@ CREATE TABLE `article_post` (
   `timestamp` datetime NOT NULL,
   `likes` int(11) NOT NULL,
   `dislike` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -48,7 +48,7 @@ CREATE TABLE `article_post_likes` (
   `article_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `liked` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -62,7 +62,7 @@ CREATE TABLE `cart` (
   `product_id` int(11) NOT NULL,
   `product_price` int(11) NOT NULL,
   `quantity` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `cart`
@@ -86,7 +86,15 @@ CREATE TABLE `community_post` (
   `timestamp` datetime NOT NULL,
   `likes` int(11) NOT NULL,
   `dislike` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `community_post`
+--
+
+INSERT INTO `community_post` (`blog_id`, `user_id`, `title`, `content`, `image`, `timestamp`, `likes`, `dislike`) VALUES
+(7, 4, 'First post', 'First postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postFirst postv', 'image/community_post/ginger-root-still-life-1296x728-header.avif', '2024-04-12 16:44:55', 1, 0),
+(10, 4, 'First post', 'lobongo', 'image/community_post/WhatsApp Image 2024-02-23 at 04.46.59_86a1a8cf.jpg', '2024-04-12 16:49:06', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -100,7 +108,14 @@ CREATE TABLE `community_post_comments` (
   `blog_id` int(11) NOT NULL,
   `comment_text` text NOT NULL,
   `timestamp` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `community_post_comments`
+--
+
+INSERT INTO `community_post_comments` (`comment_id`, `user_id`, `blog_id`, `comment_text`, `timestamp`) VALUES
+(8, 4, 7, 'nope\r\n', '2024-04-10 10:12:52');
 
 -- --------------------------------------------------------
 
@@ -112,7 +127,15 @@ CREATE TABLE `community_post_likes` (
   `user_id` int(11) NOT NULL,
   `blog_id` int(11) NOT NULL,
   `liked` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `community_post_likes`
+--
+
+INSERT INTO `community_post_likes` (`user_id`, `blog_id`, `liked`) VALUES
+(4, 7, 0),
+(13, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -124,7 +147,7 @@ CREATE TABLE `favourite_seller` (
   `f_id` int(11) NOT NULL,
   `buyer_id` int(11) NOT NULL,
   `seller_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -140,7 +163,7 @@ CREATE TABLE `message` (
   `timestamp` datetime NOT NULL,
   `sender_type` varchar(500) NOT NULL,
   `receiver_type` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -154,7 +177,7 @@ CREATE TABLE `order_table` (
   `seller_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -171,7 +194,7 @@ CREATE TABLE `product` (
   `image` varchar(500) NOT NULL,
   `quantity` int(11) DEFAULT NULL,
   `description` varchar(1000) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `product`
@@ -201,7 +224,7 @@ CREATE TABLE `purchase_history` (
   `quantity` int(11) NOT NULL,
   `total_price` double NOT NULL,
   `timestamp` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -220,7 +243,7 @@ CREATE TABLE `user` (
   `profile_picture` varchar(500) NOT NULL,
   `curr_balance` double NOT NULL,
   `timestamp` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
@@ -328,13 +351,13 @@ ALTER TABLE `cart`
 -- AUTO_INCREMENT for table `community_post_comments`
 --
 ALTER TABLE `community_post_comments`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `community_post_likes`
 --
 ALTER TABLE `community_post_likes`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `favourite_seller`

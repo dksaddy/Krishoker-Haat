@@ -95,7 +95,7 @@ function show ($sqlinput) {
                     $price = $row['price'];
 
                     echo '
-                    <a class="card_link" href="IndividualProduct.php?data1='.$product_id.'">
+                    <a class="card_link" href="IndividualProduct.php?data='.$product_id.'">
                     <div class="parent">
                     <div class="child-1">
                         <img src="'.$image.'" alt="" width="100%" height="100%">

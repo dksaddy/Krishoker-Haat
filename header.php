@@ -48,19 +48,19 @@ if (!empty($_SESSION['user_id'])) {
                     <?php if($log): ?>
                <li><a href="community_post.php"class="link">কমিউনিটি</a></li>
                <li><a href="article.php"class="link">আর্টিকেল</a></li>
-               <?php
-    if (!empty($_SESSION['user_id'])) {
-        echo "<h6>Hi " . $fetch['name'] . " </h6>";
-    }
-?>
+     
                  <li class="dropdown">
                <?php 
                    echo '<img src="image/image.jpg" alt="Profile Picture" class="round-image">';
                  ?>
                  
                   <div class="dropdown-content">
-                 
-                   <a href="user_profile.php">User Profile</a>
+                  <?php
+    if (!empty($_SESSION['user_id'])) {
+        echo "<h5>Welcome " . $fetch['name'] . " </h5>";
+    }
+?>
+                   <a href="userProfile.php">User Profile</a>
                    <a href="update_profile.php">Update Profile</a>
                    <a href="functions/logout.php">LOG OUT</a>
                </div>

@@ -154,7 +154,7 @@
                     <div style="padding-bottom: 5px;">
                         <img src="image\Category\farmer.png" width="70px" height="70px">
                     </div>
-                    <h2>Consumer</h2>
+                    <h2>Farmer</h2>
                 </div>
 
                 <div class="product_child_2">

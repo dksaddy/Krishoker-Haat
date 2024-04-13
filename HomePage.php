@@ -16,147 +16,216 @@
     include("template\db_connect.php");
     ?>
 
-    <!--From here this is a portion of Selling-->
-    <h3>বিক্রি করা হবে</h3>
-    <div class="grand_1">
-        <?php
-        // SQL query to fetch data
-        $sql = "SELECT product_id, name, price, image FROM product LIMIT 4";
-        $result = $conn->query($sql);
-        $product_id = array();
+    <div class="main_div">
 
-        if ($result->num_rows > 0) {
-        // Output data of each row.
-            while($row = $result->fetch_assoc()) {
-                $product_id[] = $row['product_id'];
-                $name = $row['name'];
-                $image = $row['image'];
-                $price = $row['price'];
-                echo '
-                <div class="parent">
-                    <div class="child-1">
-                        <img src="'.$image.'" alt="" width="100%" height="100%">
-                    </div>
-                    <div class="child-2">
-                        <div class="child-2-1">
+
+        <div class="first_div">
+
+            <div class="first_div_1">
+                <a href="#"><div>Fruits</div></a>
+                <a href="#"><div>Vegetable</div></a>
+                <a href="#"><div>Grain Product</div></a>
+                <a href="#"><div>Dairy Product</div></a>
+                <a href="#"><div>Spices</div></a>
+                
+                <a href="#"><div>Farming Tools</div></a>
+                <a href="#"><div>Fertilize</div></a>
+                <a href="#"><div>Pesticide</div></a>
+                <a href="#"><div>Seeds</div></a>
+            </div>
+
+            <div class="first_div_2"></div>
+
+        </div><!--First Div End -->
+
+
+
+
+        <div class="grand_1">
+        
+            <?php
+            // SQL query to fetch data
+            $sql = "SELECT product_id, name, price, image FROM product LIMIT 6";
+            $result = $conn->query($sql);
+            $product_id = array();
+
+            if ($result->num_rows > 0) {
+            // Output data of each row.
+                while($row = $result->fetch_assoc()) {
+                    $product_id[] = $row['product_id'];
+                    $name = $row['name'];
+                    $image = $row['image'];
+                    $price = $row['price'];
+                    echo '
+                    <div class="parent">
+
+                        <div class="child-1">
+                            <img src="'.$image.'" alt="" width="100%" height="100%">
+                        </div>
+
+                        <div class="child-2">   
                             <div class="child-2-1-1">'.$name.'</div>
-                            <div class="child-2-1-2">৳ '.$price.'</div>
-                            <div class="child-2-1-3">প্রতি কেজি</div>
+                            <div class="child-2-1-2">৳' .$price.' /kg</div>
                         </div>
-                        <div class="child-2-2">
-                            <div class="child-2-2-1"><button class="cart-button"><img src="image\Icon\cart.png" alt=""
-                                width="100%" height="100%"></button></div>
-                            <div><button class="buy-button">কিনুন</button></div>
-                        </div>
+
+                    </div>';
+
+                }//while end
+
+            } else {
+            echo "0 results";
+            }
+
+            // Close connection
+            $conn->close();
+            ?>
+
+        </div> <!--Grand Div End -->
+
+
+        <div class="all_product_btn">
+            <a href="AllProduct.php"><div>All Product</div></a>
+        </div>
+
+        <div style="margin:10px; background: white; letter-spacing: 10px;
+                word-spacing: 15px; text-align: center; border-top: 3px solid;
+                border-bottom: 3px solid;"> 
+            <h1>Selective  Category</h1>
+        </div>
+
+
+
+        
+        <!--................Product Category Start .....................-->
+        <div class="grand">
+
+
+            <!--.............Consumer Section...............-->
+
+            <div class="product_parent">
+
+                <div class="product_child_1">
+                    <div style="padding-bottom: 5px;">
+                        <img src="image\Category\consumer.png" width="70px" height="70px">
                     </div>
-                </div>';
-
-            }//while end
-
-        } else {
-        echo "0 results";
-        }
-
-        // Close connection
-        $conn->close();
-        ?>
-    </div>
-
-    <div class="all_product_btn">
-    <a href="AllProduct.php"><div>All Product</div></a>
-    </div>
-    <!--From here this is a ending portion of Selling-->
-
-
-    <h3>সর্বাধিক বিক্রিত পণ্য</h3>
-    <div class="grand_1">
-        <?php
-        for ($i=0; $i<4 ; $i++) { 
-            echo '<div class="parent">
-            <div class="child-1">
-                <img src="image\Product\orange.jpg" alt="" width="100%" height="100%">
-            </div>
-            <div class="child-2">
-                <div class="child-2-1">
-                    <div class="child-2-1-1">কমলা</div>
-                    <div class="child-2-1-2">৳ ১০০</div>
-                    <div class="child-2-1-3">প্রতি কেজি</div>
+                    <h2>Consumer</h2>
                 </div>
-                <div class="child-2-2">
-                    <div class="child-2-2-1"><button class="cart-button"><img src="image\Icon\cart.png" alt="" width="100%" height="100%"></button></div>
-                    <div><button class="buy-button">কিনুন</button></div>
+
+                <div class="product_child_2">
+
+                    <div class="product_child_2_1">
+                        <div><img src="image\Category\fruits.png"></div>
+                        <div>Fruits</div>
+                    </div>
+
+                    <div class="product_child_2_1">
+                        <div><img src="image\Category\vegetable.png" alt=""></div>
+                        <div>Vegetable</div>
+                    </div>
+
+                    <div class="product_child_2_1">
+                        <div><img src="image\Category\grain food.png" alt=""></div>
+                        <div>Grain Product</div>
+                    </div>
+
+                    <div class="product_child_2_1">
+                        <div><img src="image\Category\dairy-products.png" alt=""></div>
+                        <div>Dairy</div>
+                    </div>
+
+                    <div class="product_child_2_1">
+                        <div><img src="image\Category\spice.png"></div>
+                        <div>Spices</div>
+                    </div>
+
+
+                </div> <!-- product_child_2 End-->
+
+
+            </div> <!-- Parent End-->
+
+
+            <!--......................Consumer Section.......................-->
+
+
+            <div class="product_parent">
+
+                <div class="product_child_1">
+                    <div style="padding-bottom: 5px;">
+                        <img src="image\Category\farmer.png" width="70px" height="70px">
+                    </div>
+                    <h2>Consumer</h2>
                 </div>
-            </div>
-        </div>';
-        }
-        ?>
-    </div>
-    <!--Card Model End-->
+
+                <div class="product_child_2">
+
+                    <div class="product_child_2_1">
+                        <div><img src="image\Category\fruits.png"></div>
+                        <div>Fruits</div>
+                    </div>
+
+                    <div class="product_child_2_1">
+                        <div><img src="image\Category\vegetable.png" alt=""></div>
+                        <div>Vegetable</div>
+                    </div>
+
+                    <div class="product_child_2_1">
+                        <div><img src="image\Category\grain food.png" alt=""></div>
+                        <div>Grain Product</div>
+                    </div>
+
+                    <div class="product_child_2_1">
+                        <div><img src="image\Category\dairy-products.png" alt=""></div>
+                        <div>Dairy</div>
+                    </div>
+
+                    <div class="product_child_2_1">
+                        <div><img src="image\Category\spice.png"></div>
+                        <div>Spices</div>
+                    </div>
 
 
+                </div> <!-- product_child_2 End-->
 
-    <!--...............................Product Category Start .............................-->
-    <h3>পণ্য বিভাগ</h3>
-    <div class="grand">
 
+            </div> <!-- Parent End-->
+
+        </div> <!-- Grand End-->
+        <!--.....................Product Category End .......................-->
+
+
+        <div style="margin: 60px 0 10px;background: white; letter-spacing: 10px;
+                word-spacing: 15px; text-align: center; border-top: 3px solid;
+                border-bottom: 3px solid;"> 
+            <h1>Farmer Of The Month</h1>
+        </div>
+        
         <!--Card Model start-->
-        <div class="product_parent">
-            <div class="product_child_1">
-                <img src="image\Category\Farming Material.jpg" alt="" width="100%" height="100%">
-            </div>
-            <div class="product_child_2">
-                <div class="product_child_2_1">কৃষি উপকরণ:</div>
-                <div>বীজ</div>
-                <div>সার</div>
-                <div>কীটনাশক</div>
-                <div>যন্ত্রপাতি</div>
-            </div>
-        </div>
-        <!--Card Model End-->
+        <div class="farmer-parent">
 
-        <!--Card Model start-->
-        <div class="product_parent">
-            <div class="product_child_1">
-                <img src="image\Category\Fruits.jpg" alt="" width="100%" height="100%">
-            </div>
-            <div class="product_child_2">
-                <div class="product_child_2_1">মৌসুমি ফল:</div>
-                <div>আম</div>
-                <div>লিচু</div>
-                <div>কাঁঠাল</div>
-            </div>
-        </div>
-        <!--Card Model End-->
+            <?php
+                for ($i=0; $i < 5; $i++) { 
+                    echo '
+                    <div class="farmer-child">
 
-        <!--Card Model start-->
-        <div class="product_parent">
-            <div class="product_child_1">
-                <img src="image\Category\Vegetable.jpg" alt="" width="100%" height="100%">
-            </div>
-            <div class="product_child_2">
-                <div class="product_child_2_1">কৃষি পণ্য:</div>
-                <div>শস্য ছাটা</div>
-                <div>শাকসবজি</div>
-                <div>অন্যান্য পণ্য</div>
-            </div>
-        </div>
-        <!--Card Model End-->
+                        <div><img class="farmer-child-1" src="image/Farmer/Karim Mia.jpg" alt=""></div>
+                        <div class="farmer-child-2">করিম মিয়া</div>
+                        <div class="farmer-child-3">পাবনা</div>
 
-    </div>
-    <!--...............................Product Category End .............................-->
+                    </div>
+                    ';
+                }
+            ?>
+
+        </div> <!--Card Model End-->
 
 
+        
 
-    <h3>মাস সেরা চাষী</h3>
-    <!--Card Model start-->
-    <div class="farmer-parent">
-        <div class="farmer-child">
-            <div><img class="farmer-child-1" src="image/Farmer/Karim Mia.jpg" alt=""></div>
-            <div class="farmer-child-2">করিম মিয়া</div>
-            <div class="farmer-child-3">পাবনা</div>
-        </div>
-    </div>
-    <!--Card Model End-->
+
+    </div> <!-- Main Div End -->
+    
+
 
     <?php include('footer.php')?>
 

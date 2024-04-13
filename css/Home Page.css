@@ -4,7 +4,78 @@ h3 {
    
 }
 
-/*This CSS for বিক্রি করা হবে & সর্বাধিক বিক্রিত পণ্য .*/
+.main_div {
+    background: url('../image/Icon/Fruit.jpg');
+    padding-bottom: 10px;
+}
+
+
+
+.first_div {
+    
+    height: 340px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 10%;
+    margin: 10px 0 5px;
+
+}
+
+.first_div_1 {
+    width: 20%;
+    background-color: rgba(255, 255, 255, 0.842);
+    display: flex;
+    flex-direction: column;
+    padding: 10px 50px;
+    margin: 3px 0 3px 20px;
+
+}
+.first_div_1:hover {
+    background-color: white;
+}
+
+.first_div_1 div {
+    margin: 6px 0 6px;
+    padding: 0 5px;
+}
+
+.first_div_1 div:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+    border-left: 3px solid;
+    background-color: antiquewhite;
+}
+
+.first_div_1 a {
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+}
+
+
+.first_div_2 {
+    width: 60%;
+    margin: 3px 0 3px 20px;
+
+    background-image: url("../image/Category/slide1.jpg");
+    background-size: 100% 100% ;
+    animation: slideHome 20s infinite linear;
+
+    
+
+}
+@keyframes slideHome {
+    25% {background-image: url("../image/Category/slide2.jpg");}
+    50% {background-image: url("../image/Category/slide3.jpg");}
+    75% {background-image: url("../image/Category/slide4.jpg");}
+}
+
+
+
+/*This CSS for Product Salling ...................*/
+
+
+
 .grand_1 {
     display: flex;
     justify-content: space-around;
@@ -12,161 +83,204 @@ h3 {
 }
 
 .parent {
-    width: 300px;
+    width: 220px;
     display: flex;
     flex-direction: column;
-    border: 2px solid;
-    border-radius: 5%;
+    border-radius: 15px;
+    margin: 15px 0 25px;
+    box-shadow: 1px 1px 6px 3px black;
+    background-color: rgba(255, 255, 255, 0.842);
 }
+
 .parent:hover {
     transform: scale(1.1);
-    background-color: antiquewhite;
+    background-color: rgb(255, 255, 255);
     transition: .5s;
     cursor: pointer;
-    box-shadow: 2px 2px 2px 2px rgb(126, 112, 112);
 }
 
 .child-1 img {
-    border-radius: 5%;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
 }
 
 
 .child-2 {
     display: flex;
-    justify-content: space-between;
-}
-
-.child-2-2 {
-   display: flex;
-   flex-direction: column;
-   gap: 20px;
-   margin-top: 10px;
-}
-
-.child-2-1-1 {
-    font-size: 35px;
-    margin-left: 10px;
-}
-
-.child-2-1-2{
-    font-size: 20px;
-    margin-left: 10px;
-}
-
-.child-2-1-3 {
-    font-size: 12px;
-    padding-top: 7px;
-    padding-left: 10px;
-}
-
-.child-2-2-1 {
-    width: 40px;
-    margin-left: 30px;
-}
-
-.cart-button {
-    background-color: white;
-    border-color: white;
-}
-
-.buy-button {
-    background-color: #01D009;
-    color: white;
-    border-color: white;
-    border: 2px solid;
-    width: 80px;
-    border-radius: 10px;
-}
-
-/*This CSS for পণ্য বিভাগ.*/
-.grand {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 140px;
-}
-
-.product_parent {
-    display: flex;
-    justify-content: flex-start;
-    gap: 30px;
-    width: 350px;
-    border: 2px solid;
-}
-
-.product_parent:hover {
-    transform: scale(1.1);
-    background-color: antiquewhite;
-    transition: .5s;
-    cursor: pointer;
-    box-shadow: 2px 2px 2px 2px rgb(204, 175, 175);
-    border-radius: 5px;
-}
-
-.product_child_1 {
-    width: 50%;
-}
-
-.product_child_2 {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.product_child_2_1 {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.all_product_btn {
-    display: flex; 
-    justify-content: flex-end; 
-    margin: 30px 40px;
-}
-
-.all_product_btn div {
-    text-decoration: none;
-    text-align: center;
-    background-color: rgb(191, 240, 240);
-    color: black;
-    width: 150px;
-    height: 40px;
-    padding: 5px;
-
-}
-
-
-/*This CSS for মাস সেরা চাষী.*/
-
-.farmer-parent {
-    display: flex;
-    justify-content: flex-start;
-    padding-left: 10px;
-    margin-bottom: 30px;
-   
-}
-
-.farmer-child {
-    width: 200px;
-    display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+.child-2-1-1 {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.child-2-1-2{
+    font-size: 20px;
+    word-spacing: 10px;
+    letter-spacing: 5px;
+}
+
+
+
+/*..END.. CSS of Product Selling ...............*/
+
+
+
+.all_product_btn {
+    
+    display: flex; 
+    justify-content: flex-end;
+    margin: 5px 0 50px;
+    padding-right: 25px;
+}
+
+.all_product_btn div {
+    background-color: rgb(255, 255, 255);
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    padding: 5px 0 10px;
+    box-shadow: 2px 2px 10px 4px black;
+
+    animation: allProduct 4s infinite linear;
+}
+
+@keyframes allProduct {
+    25% {background-color:rgb(255, 152, 67);}
+    50% {background-color: rgb(255, 221, 149);}
+    75% {background-color: rgb(134, 167, 252);}
+}
+
+.all_product_btn div:hover {
+    transform: scale(1.1);
+    transition: .5s;
+    color: black;
+
+}
+
+.all_product_btn a {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+
+
+
+/*This CSS for পণ্য বিভাগ.*/
+
+
+.grand {
+
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 20px 0 20px;
+    margin-bottom: 10px;
+   
+}
+
+.product_parent {
+    background-color: rgba(255, 255, 255, 0.842);
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 1px 1px 6px 3px;
+
+}
+.product_parent:hover{ 
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.product_child_1 {
+    display: flex;
+    justify-content: flex-start;
+    gap: 5%;
+    margin: 5px 0 5px;
+    border-bottom: 3px solid;
+
+}
+.product_child_1 img {
+    margin-left: 10px;
+    border-radius: 50%;
+    border: 2px solid;
+
+}
+
+.product_child_2 {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 5%;
+}
+
+.product_child_2_1 {
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 10px;
+    padding: 10px;
+    margin: 10px 0 10px 7px;
+
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px 3px;
+
+}
+.product_child_2_1:hover {
+    transform: scale(1.04);
+    transition: 0.3s;
+}
+
+.product_child_2_1 img {
+    width: 50px;
+    height: 50px;
+}
+
+
+
+/*This CSS for মাস সেরা চাষী.*/
+
+
+.farmer-parent {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 5%;
+    margin-bottom: 20px;
+}
+
+.farmer-child {
+    background-color: rgba(255, 255, 255, 0.842);
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    box-shadow: 1px 1px 4px 2px;
+    border-radius: 10px;
+    margin: 10px 0 10px;
+}
+
 .farmer-child:hover {
     transform: scale(1.08);
-    background-color: antiquewhite;
+    background-color: white;
     transition: .5s;
     cursor: pointer;
-    box-shadow: 2px 2px 2px 2px rgb(204, 175, 175);
-    border-radius: 10px;
 }
 
 .farmer-child-1 {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    border: 2px solid;
+    box-shadow: 1px 1px 1px 1px;
+    margin: 10px 0 10px;
 }
 
 .farmer-child-2 {
@@ -176,5 +290,6 @@ h3 {
 
 .farmer-child-3 {
    font-size: 14px;
+   margin-bottom: 10px;
 }
 

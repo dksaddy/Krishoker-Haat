@@ -37,7 +37,7 @@
 
                 <div class="left_div">
                     <div style="font-weight: bold; font-size: 40px">'.$name.'</div>
-                    <div style="display: flex; gap: 80px;">
+                    <div style="display: flex; gap: 20px;">
                         <p>Category: '.$category.' </p>
                         <p>Farmer: '.$farmer.' </p>
                     </div>
@@ -54,7 +54,7 @@
                             <div><button type="button" id="plusButton" name="plus" onclick="incrementQuantity()">+</button></div>
                         </div>
 
-                        <div style="margin: 20px 0 0 60px">
+                        <div style="margin: 20px 0 0 70px">
                             Remaining: <input type="text" id="remaining" name="remaining" disabled
                             value="'.($quantity - 1).'"> (kg)
                         </div>
@@ -67,7 +67,11 @@
                             Total Price: <input type="text" id="totalPrice" name="totalPrice" disabled value="'.$price.'">
                         </div>
 
-                        <button name="cart" class="cart_btn">Add to Cart</button>
+                        <div style="display: flex; gap: 30px; flex-wrap: wrap; margin: 30px">
+                            <button name="cart" class="cart_btn">Add to Cart</button>
+                            <button name="buy" class="cart_btn" style="background-color: rgb(101, 91, 245)">Buy Now</button>
+                        </div>
+
                     </form>
 
                 </div>

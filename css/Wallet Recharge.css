@@ -20,6 +20,7 @@ h1 {
     box-shadow: 1px 1px 2px 2px;
     border-radius: 10px;
     font-weight: bold;
+    background-color: rgba(202, 219, 252);
 }
 
 .side_card img {
@@ -41,12 +42,13 @@ h1 {
     border: 2px solid;
     border-radius: 10px;
     box-shadow: 1px 1px 2px 2px rgb(141, 139, 139);
+    background-color: rgba(250, 197, 127, 0.911);
 }
 
-.main_div:hover {
+.main_div:hover, .side_card:hover {
     transform: scale(1.05);
-    transition: 0.8s;
-    background-color:rgb(255, 235, 178);
+    transition: 0.6s;
+    background-color:rgb(255, 255, 255);
 }
 
 .banking_div {

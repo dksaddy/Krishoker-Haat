@@ -22,16 +22,16 @@
         <div class="first_div">
 
             <div class="first_div_1">
-                <a href="#"><div>Fruits</div></a>
-                <a href="#"><div>Vegetable</div></a>
-                <a href="#"><div>Grain Product</div></a>
-                <a href="#"><div>Dairy Product</div></a>
-                <a href="#"><div>Spices</div></a>
+                <a href="FilterPage.php?data=Fruits"><div>Fruits</div></a>
+                <a href="FilterPage.php?data=Vegetable"><div>Vegetable</div></a>
+                <a href="FilterPage.php?data=Grain Product"><div>Grain Product</div></a>
+                <a href="FilterPage.php?data=Dairy Product"><div>Dairy Product</div></a>
+                <a href="FilterPage.php?data=Spices"><div>Spices</div></a>
                 
-                <a href="#"><div>Farming Tools</div></a>
-                <a href="#"><div>Fertilize</div></a>
-                <a href="#"><div>Pesticide</div></a>
-                <a href="#"><div>Seeds</div></a>
+                <a href="FilterPage.php?data=Farming Tools"><div>Farming Tools</div></a>
+                <a href="FilterPage.php?data=Fertilize"><div>Fertilize</div></a>
+                <a href="FilterPage.php?data=Pesticide"><div>Pesticide</div></a>
+                <a href="FilterPage.php?data=Seeds"><div>Seeds</div></a>
             </div>
 
             <div class="first_div_2"></div>

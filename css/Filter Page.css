@@ -1,0 +1,14 @@
+.container_for_product {
+    background-color: red;
+    display: flex;
+}
+
+.category {
+    background-color: white;
+
+}
+
+.product_container {
+    background-color: rgb(182, 148, 148);
+    display: flex;
+}

@@ -1,65 +1,93 @@
 .container_for_product {
-    margin: 20px 0 20px 0;    
     display: flex;
+    justify-content: flex-start;
+    background: url("../image/Icon/fruit.jpg");
 }
 
 .category {
-    width: 300px;
+    width: 15%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    padding-top: 20px;
-}
-
-.category button {
-    width: 150px;
-    border: none;
-    margin: 20px;
-    background: transparent;
-}
-
-.category button:hover {
-    transform: scale(1.1);
-    transition: .4s;
-    cursor: pointer;
-    border-left: 3px solid;
-    background-color: rgb(240, 240, 178);
-}
-
-h3 {
+    align-items: center;
     margin-left: 10px;
+    background-color: rgba(255, 255, 255, 0.884);
+}
+.category:hover {
+    background-color: white;
 }
 
-
-.product {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.card_link {
+.category a {
     text-decoration: none;
-    color: rgb(0, 0, 0);
-    text-align: center;
+    color: black;  
 }
-
-.card_link:hover {
+.category a:hover {
     color: black;
 }
 
+.filter_btn {
+    height: 30px;
+    width: 200px;
+    margin: 10px 0 10px;
+    padding-left: 10px;
+}
+
+.filter_btn:hover {
+    background-color: rgb(233, 230, 230);
+    border-left: 3px solid;
+    transform: scale(1.1);
+}
+
+
+.product_container {
+    width: 85%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-left: 15px;
+}
+
+.product_container a {
+    color: black;
+    text-decoration: none;
+}
+
 .parent {
-    border-radius: 8%;
-    margin: 20px 0 20px 0;
+    width: 220px;
+    height: 230px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    margin: 15px 17px 25px;
+    box-shadow: 1px 1px 6px 3px black;
+    background-color: rgba(255, 255, 255, 0.842);
 }
 
 .parent:hover {
     transform: scale(1.1);
+    background-color: rgb(255, 255, 255);
     transition: .5s;
-    background-color: rgb(240, 240, 178);
-    border: 2px solid;
+    cursor: pointer;
 }
 
-.child-2-1-1 {
-    font-size: 30px;
+.child-1 img {
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+}
+
+
+.child-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.child-2-1 {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.child-2-2{
+    font-size: 20px;
+    word-spacing: 10px;
+    letter-spacing: 5px;
 }

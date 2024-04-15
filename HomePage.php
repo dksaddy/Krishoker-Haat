@@ -22,16 +22,16 @@
         <div class="first_div">
 
             <div class="first_div_1">
-                <a href="FilterPage.php?data=Fruits"><div>Fruits</div></a>
-                <a href="FilterPage.php?data=Vegetable"><div>Vegetable</div></a>
-                <a href="FilterPage.php?data=Grain Product"><div>Grain Product</div></a>
-                <a href="FilterPage.php?data=Dairy Product"><div>Dairy Product</div></a>
-                <a href="FilterPage.php?data=Spices"><div>Spices</div></a>
+                <a href="AllProduct.php?data=Fruits"><div>Fruits</div></a>
+                <a href="AllProduct.php?data=Vegetable"><div>Vegetable</div></a>
+                <a href="AllProduct.php?data=Grain Product"><div>Grain Product</div></a>
+                <a href="AllProduct.php?data=Dairy Product"><div>Dairy Product</div></a>
+                <a href="AllProduct.php?data=Spices"><div>Spices</div></a>
                 
-                <a href="FilterPage.php?data=Farming Tools"><div>Farming Tools</div></a>
-                <a href="FilterPage.php?data=Fertilize"><div>Fertilize</div></a>
-                <a href="FilterPage.php?data=Pesticide"><div>Pesticide</div></a>
-                <a href="FilterPage.php?data=Seeds"><div>Seeds</div></a>
+                <a href="AllProduct.php?data=Farming Tools"><div>Farming Tools</div></a>
+                <a href="AllProduct.php?data=Fertilize"><div>Fertilize</div></a>
+                <a href="AllProduct.php?data=Pesticide"><div>Pesticide</div></a>
+                <a href="AllProduct.php?data=Seeds"><div>Seeds</div></a>
             </div>
 
             <div class="first_div_2"></div>
@@ -84,7 +84,7 @@
 
 
         <div class="all_product_btn">
-            <a href="AllProduct.php"><div>All Product</div></a>
+            <a href="AllProduct.php?data=all"><div>All Product</div></a>
         </div>
 
         <div style="margin:10px; background: white; letter-spacing: 10px;

@@ -87,7 +87,9 @@
 }
 
 .cart_btn:hover {
-    box-shadow: 1px 1px 4px 2px rgb(171, 171, 156);
+    border-radius: 0px;
+    border-left: 7px solid rgb(238, 224, 32);
+    border-right: 7px solid rgb(238, 224, 32);
     transform: scale(1.1);
     transition: 0.3s;
     font-weight: bold;

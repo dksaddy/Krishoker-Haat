@@ -15,9 +15,37 @@
     include('template\db_connect.php');
 
    $product_id = 0;
+   $prob = "";
    if (isset($_GET['data'])) {
     $product_id = $_GET['data'];
    }
+
+
+
+   if (isset($_POST['cart'])) {
+    $product_id = (int)$product_id;
+    $quantity = (int)$_POST['quantity'];
+    $totalPrice = (float)$_POST['totalPrice'];
+    
+
+    if($log === 0){
+        $prob = "Please Log in First";
+    }else {
+        // Prepare the SQL statement
+        $sql = "INSERT INTO `cart`(user_id, product_id, product_price, quantity) 
+        VALUES ($user_id, $product_id, $totalPrice, $quantity)";
+
+        if ($conn->query($sql) === TRUE) {
+        //echo "<script>window.location.href = 'AllProduct.php';</script>";
+        //exit; // Make sure to exit after the redirect to prevent further execution
+        } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+        }   
+    }
+
+}
+
+
 
     
     $sql = "SELECT * FROM `product` WHERE product_id = $product_id";
@@ -41,12 +69,12 @@
                         <p>Category: '.$category.' </p>
                         <p>Farmer: '.$farmer.' </p>
                     </div>
-                    <div><img src="'.$image.'" alt="" width="100%" height="100%"></div>
+                    <div><img src="'.$image.'" width="100% height="100%"></div>
                 </div>
 
                 <div class="right_div">
                     <form id="quantityForm" action="IndividualProduct.php?data='.$product_id.'" method="post" onsubmit="enableInput()">
-                        <div style="font-weight: bold; margin-top: 60px">Quantity (kg)</div>
+                        <div style="font-weight: bold; margin-top: 40px">Quantity (kg)</div>
 
                         <div style="display: flex; gap: 20px">
                             <div><button type="button" id="minusButton" name="minus" onclick="decrementQuantity()">-</button></div>
@@ -67,7 +95,11 @@
                             Total Price: <input type="text" id="totalPrice" name="totalPrice" disabled value="'.$price.'">
                         </div>
 
-                        <div style="display: flex; gap: 30px; flex-wrap: wrap; margin: 30px">
+                        <div style="font-size: 15px; color: red; font-weight: bold; margin-top: 20px">
+                            '.$prob.'
+                        </div>
+
+                        <div style="display: flex; gap: 30px; flex-wrap: wrap">
                             <button name="cart" class="cart_btn">Add to Cart</button>
                             <button name="buy" class="cart_btn" style="background-color: rgb(101, 91, 245)">Buy Now</button>
                         </div>
@@ -86,35 +118,12 @@
             </div>';
         }
 
-
-        if (isset($_POST['cart'])) {
-             $product_id = (int)$product_id;
-            $quantity = (int)$_POST['quantity'];
-            $totalPrice = (float)$_POST['totalPrice'];
-
-            // Prepare the SQL statement
-            $sql = "INSERT INTO `cart`(`product_id`, `product_price`, `quantity`) 
-            VALUES ($product_id, $totalPrice, $quantity)";
-
-            if ($conn->query($sql) === TRUE) {
-                echo "<script>window.location.href = 'AllProduct.php';</script>";
-                exit; // Make sure to exit after the redirect to prevent further execution
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-            }
-
-        }
-
-
-
     } else {
     echo "0 results";
     }
 
     // Close the connection
     $conn->close();
-
-
     ?>
 
     <?php include('footer.php')?>
@@ -172,11 +181,10 @@
 
 
     function enableInput() {
-            // Enable the disabled input field just before submitting the form
-            document.getElementById("quantityInput").disabled = false;
-            document.getElementById("totalPrice").disabled = false;
+        // Enable the disabled input field just before submitting the form
+        document.getElementById("quantityInput").disabled = false;
+        document.getElementById("totalPrice").disabled = false;
     }
-
     </script>
 
 

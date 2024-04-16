@@ -85,6 +85,11 @@ h3 {
     flex-wrap: wrap;
 }
 
+.grand_1 a {
+    text-decoration: none;
+    color: black;
+}
+
 .parent {
     width: 220px;
     display: flex;
@@ -100,6 +105,7 @@ h3 {
     background-color: rgb(255, 255, 255);
     transition: .5s;
     cursor: pointer;
+    color: black;
 }
 
 .child-1 {
@@ -238,7 +244,7 @@ h3 {
 
 }
 .product_child_2_1:hover {
-    transform: scale(1.04);
+    transform: scale(1.05);
     transition: 0.3s;
 }
 

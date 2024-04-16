@@ -52,23 +52,25 @@
             if ($result->num_rows > 0) {
             // Output data of each row.
                 while($row = $result->fetch_assoc()) {
-                    $product_id[] = $row['product_id'];
+                    $product_id = $row['product_id'];
                     $name = $row['name'];
                     $image = $row['image'];
                     $price = $row['price'];
                     echo '
-                    <div class="parent">
+                    <a href="IndividualProduct.php?data='.$product_id.'">
+                        <div class="parent">
 
-                        <div class="child-1">
-                            <img src="'.$image.'" alt="" width="100%" height="100%">
-                        </div>
+                            <div class="child-1">
+                                <img src="'.$image.'" alt="" width="100%" height="100%">
+                            </div>
 
-                        <div class="child-2">   
-                            <div class="child-2-1-1">'.$name.'</div>
-                            <div class="child-2-1-2">৳' .$price.' /kg</div>
-                        </div>
+                            <div class="child-2">   
+                                <div class="child-2-1-1">'.$name.'</div>
+                                <div class="child-2-1-2">৳' .$price.' /kg</div>
+                            </div>
 
-                    </div>';
+                        </div> 
+                    </a>';
 
                 }//while end
 
@@ -175,7 +177,7 @@
                     </div>
 
                     <div class="product_child_2_1">
-                        <div><img src="image\Category\tools.png"></div>
+                        <div><img src="image\Category\seeds.png"></div>
                         <div>Seeds</div>
                     </div>
 

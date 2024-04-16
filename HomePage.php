@@ -29,7 +29,7 @@
                 <a href="AllProduct.php?data=Spices"><div>Spices</div></a>
                 
                 <a href="AllProduct.php?data=Farming Tools"><div>Farming Tools</div></a>
-                <a href="AllProduct.php?data=Fertilize"><div>Fertilize</div></a>
+                <a href="AllProduct.php?data=Fertilize"><div>Fertilizer</div></a>
                 <a href="AllProduct.php?data=Pesticide"><div>Pesticide</div></a>
                 <a href="AllProduct.php?data=Seeds"><div>Seeds</div></a>
             </div>
@@ -87,7 +87,7 @@
             <a href="AllProduct.php?data=all"><div>All Product</div></a>
         </div>
 
-        <div style="margin:10px; background: white; letter-spacing: 10px;
+        <div style="margin-top: 10px; background: white; letter-spacing: 10px;
                 word-spacing: 15px; text-align: center; border-top: 3px solid;
                 border-bottom: 3px solid;"> 
             <h1>Selective  Category</h1>
@@ -119,17 +119,17 @@
                     </div>
 
                     <div class="product_child_2_1">
-                        <div><img src="image\Category\vegetable.png" alt=""></div>
+                        <div><img src="image\Category\vegetable.png"></div>
                         <div>Vegetable</div>
                     </div>
 
                     <div class="product_child_2_1">
-                        <div><img src="image\Category\grain food.png" alt=""></div>
+                        <div><img src="image\Category\grain food.png"></div>
                         <div>Grain Product</div>
                     </div>
 
                     <div class="product_child_2_1">
-                        <div><img src="image\Category\dairy-products.png" alt=""></div>
+                        <div><img src="image\Category\dairy-products.png"></div>
                         <div>Dairy</div>
                     </div>
 
@@ -160,28 +160,23 @@
                 <div class="product_child_2">
 
                     <div class="product_child_2_1">
-                        <div><img src="image\Category\fruits.png"></div>
-                        <div>Fruits</div>
+                        <div><img src="image\Category\tools.png"></div>
+                        <div style="text-align: center">Tools</div>
                     </div>
 
                     <div class="product_child_2_1">
-                        <div><img src="image\Category\vegetable.png" alt=""></div>
-                        <div>Vegetable</div>
+                        <div><img src="image\Category\fertilizer.png"></div>
+                        <div>Fertilizer</div>
                     </div>
 
                     <div class="product_child_2_1">
-                        <div><img src="image\Category\grain food.png" alt=""></div>
-                        <div>Grain Product</div>
+                        <div><img src="image\Category\pesticide.png"></div>
+                        <div>Pesticide</div>
                     </div>
 
                     <div class="product_child_2_1">
-                        <div><img src="image\Category\dairy-products.png" alt=""></div>
-                        <div>Dairy</div>
-                    </div>
-
-                    <div class="product_child_2_1">
-                        <div><img src="image\Category\spice.png"></div>
-                        <div>Spices</div>
+                        <div><img src="image\Category\tools.png"></div>
+                        <div>Seeds</div>
                     </div>
 
 
@@ -194,7 +189,7 @@
         <!--.....................Product Category End .......................-->
 
 
-        <div style="margin: 60px 0 10px;background: white; letter-spacing: 10px;
+        <div style="margin: 50px 0 10px; background: white; letter-spacing: 10px;
                 word-spacing: 15px; text-align: center; border-top: 3px solid;
                 border-bottom: 3px solid;"> 
             <h1>Farmer Of The Month</h1>

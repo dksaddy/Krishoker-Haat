@@ -23,27 +23,54 @@
 
 
    if (isset($_POST['cart'])) {
-    $product_id = (int)$product_id;
-    $quantity = (int)$_POST['quantity'];
-    $totalPrice = (float)$_POST['totalPrice'];
+        $product_id = (int)$product_id;
+        $quantity = (int)$_POST['quantity'];
+        $totalPrice = (float)$_POST['totalPrice'];
     
 
-    if($log === 0){
-        $prob = "Please Log in First";
-    }else {
-        // Prepare the SQL statement
-        $sql = "INSERT INTO `cart`(user_id, product_id, product_price, quantity) 
-        VALUES ($user_id, $product_id, $totalPrice, $quantity)";
+        if($log === 0){
+            $prob = "Please Log in First";
+        }else {
+            // Prepare the SQL statement
+            $sql = "INSERT INTO `cart`(user_id, product_id, product_price, quantity) 
+            VALUES ($user_id, $product_id, $totalPrice, $quantity)";
 
-        if ($conn->query($sql) === TRUE) {
-        //echo "<script>window.location.href = 'AllProduct.php';</script>";
-        //exit; // Make sure to exit after the redirect to prevent further execution
-        } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-        }   
+            if ($conn->query($sql) === TRUE) {
+                //echo "<script>window.location.href = 'AllProduct.php';</script>";
+                //exit; // Make sure to exit after the redirect to prevent further execution
+            } else {
+                echo "Error: " . $sql . "<br>" . $conn->error;
+            }   
+        }
     }
 
-}
+
+    if (isset($_POST['buy'])) {
+        $product_id = (int)$product_id;
+        $quantity = (int)$_POST['quantity'];
+        $totalPrice = (float)$_POST['totalPrice'];
+    
+
+        if($log === 0){
+            $prob = "How Please Log in First";
+        }else {
+            echo "Will add later";
+            /* Implement later after the payment added
+
+            // Prepare the SQL statement
+            $sql = "INSERT INTO `cart`(user_id, product_id, product_price, quantity) 
+            VALUES ($user_id, $product_id, $totalPrice, $quantity)";
+
+            if ($conn->query($sql) === TRUE) {
+                //echo "<script>window.location.href = 'AllProduct.php';</script>";
+                //exit; // Make sure to exit after the redirect to prevent further execution
+            } else {
+                echo "Error: " . $sql . "<br>" . $conn->error;
+            }   
+             */
+        }
+    }
+
 
 
 

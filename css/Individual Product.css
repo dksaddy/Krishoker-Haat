@@ -24,7 +24,7 @@
     box-shadow: 1px 1px 2px 2px;
     transform: scale(1.04);
     transition: 0.6s;
-    background-color: #C6EBC5;
+    background-color: #ffffff;
 }
 
 .left_div img {
@@ -40,7 +40,7 @@
     font-size: 25px;
     border: 3px solid;
     border-radius: 5%;
-    background-color: rgb(252, 252, 252, 0.9);
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 .right_div form {
@@ -87,10 +87,9 @@
 }
 
 .cart_btn:hover {
-    border-left: 10px solid rgb(252, 136, 101) ;
-    border-right: 10px solid rgb(252, 136, 101) ;
+    box-shadow: 1px 1px 4px 2px rgb(171, 171, 156);
     transform: scale(1.1);
-    transition: 0.2s;
+    transition: 0.3s;
     font-weight: bold;
 }
 

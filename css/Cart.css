@@ -1,48 +1,89 @@
 .central_div {
-    background-color: red;
     display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    
+    flex-direction: column;
 }
 
-.cart_card {
-    background-color: antiquewhite;
-    width: 20%;
+
+
+.cart_parent {
+    background-color: rgb(241, 188, 188);
     display: flex;
-    margin: 20px 35px;
+    justify-content: flex-start;
+}
+
+.holder {
+    width: 20%;
+    background-color: aliceblue;
+    margin: 15px;
+}
+
+ .cart_card {
+    display: flex;
+    justify-content: flex-start;
+    gap: 2%;
 }
 
 .first_portion {
-   
     width: 10%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    margin: 5px 0 5px;
 }
 
-.first_portion input {
-    height: 20px;
+.first_portion input{ 
     width: 20px;
-    cursor: pointer;
+    height: 20px;
+    margin-left: 7px;
 }
 
 .middle_portin {
-   
-    width: 40%;
-    text-align: center;
-}
-
-
-.last_portion {
-   
+    background-color: aquamarine;
     width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5%;
+    margin: 5px 0 5px;
 }
 
-.last_portion button {
-    margin-top: 10px;
+.last_portion {
+    background-color: beige;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+    margin: 5px 0 5px;
 }
+
+p {
+    text-align: right;
+    margin: 100px 20px 5px;
+    background-color: red;
+}
+
+.proceed_parent {
+    background-color: blueviolet;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    font-size: 40px;
+}
+
+.proceed_parent input {
+    font-size: 30px;
+    width: 200px;
+}
+
+.proceed_parent div{
+    margin: 10px 10px;
+}
+
+.proceed_parent  button{
+    font-size: 25px;
+    height: 50px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+    padding-top: 2.5%;
+    margin: 1px 1px; 
+}
+

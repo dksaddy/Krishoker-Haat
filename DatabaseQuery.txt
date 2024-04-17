@@ -1,0 +1,5 @@
+//for adding any query insert your name ,time,table name and query order by order
+//name
+//time
+//Table name
+//query

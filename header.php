@@ -42,8 +42,8 @@ if (!empty($_SESSION['user_id'])) {
     </div> 
                <ul>
                     <li><a href="./HomePage.php" class="link">HOME</a></li>
-                    <li><a href="#" class="link">CONTACT</a></li>
-                    <li><a href="AllProduct.php" class="link">PRODUCTS</a></li>
+                    <li><a href="#" class="link">#</a></li>
+                    <li><a href="AllProduct.php?data=all" class="link">PRODUCTS</a></li>
 
                     <?php if($log): ?>
                <li><a href="community_post.php"class="link">কমিউনিটি</a></li>
@@ -67,10 +67,6 @@ if (!empty($_SESSION['user_id'])) {
              </li>
 
                 </ul>
-                <div class="srch">
-                    <input type="text" class="srch-bar" placeholder="এখানে অনুসন্ধান করুন" >
-                    <button class="srch-btn"><img src="image/Icon/search.png"> </button>
-                </div>
                 <?php else: ?>
                 <div class="nav-button">
                     <button class="signin"><a href="./login.php" class="link">লগইন</a></button>

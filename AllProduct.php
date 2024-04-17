@@ -13,7 +13,12 @@
     <?php include("header.php") ?>
 
     
-    <div style="background-color: rgb(255, 175, 230); height: 50px">Filter Option</div>
+    <div style="background-color: rgb(255, 175, 230); height: 50px">
+     <div class="srch">
+                    <input type="text" class="srch-bar" placeholder="এখানে অনুসন্ধান করুন" >
+                    <button class="srch-btn"><img src="image/Icon/search.png"> </button>
+                </div></div>
+
 
 
     <div class="container_for_product">

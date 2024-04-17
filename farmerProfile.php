@@ -4,7 +4,6 @@
 <?php require('template\db_connect.php') ?>
 
 <?php
-
 //comment...
 
 // Check if the form is submitted
@@ -16,7 +15,6 @@ if (isset($_POST["submit"])){
     $quantity = $_POST["amount-of-the-product"];
     $details = $_POST["details-of-the-product"];
     // Assuming you have a session variable for user_id
-    $userId = $_SESSION["user_id"];
     // Assuming file upload for product photo and saving the file to a directory
     $imageName = $_FILES["photo-of-the-product"]["name"];
     $image = "image/Product/" . $imageName;
@@ -31,7 +29,7 @@ if (isset($_POST["submit"])){
 
     // Insert the product into the database
     $sql = "INSERT INTO product (name, category, price, user_id, image, quantity, description)
-            VALUES ('$productName', '$category', '$price', '$userId', '$image', '$quantity', '$details')";
+            VALUES ('$productName', '$category', '$price', '$user_id', '$image', '$quantity', '$details')";
 
     if ($conn->query($sql) === TRUE) {
         echo "Product added successfully";

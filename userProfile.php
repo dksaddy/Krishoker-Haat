@@ -29,7 +29,7 @@
             <h6>ক্রয় ইতিহাস</h6>
             <h6>সাহায্য কুপন</h6>
             <h6>আমার প্রিয় বিক্রেতা</h6>
-            <h6 style="color: red;">অ্যাকাউন্ট মুছে ফেলুন</h6>
+            <h6 style="color: red;"><a href="account-delete-page.php">অ্যাকাউন্ট মুছে ফেলুন</a></h6>
             <div id="sign-out-btn">সাইন আউট</div>
         </div>
         <div id="special-products-for-sell">

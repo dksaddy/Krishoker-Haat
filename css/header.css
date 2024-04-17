@@ -96,7 +96,7 @@ body {
     transition: .3s ease;
     color: white;
     margin-left: 20px;
-    
+    line-height: revert-layer;
 }
 .nav-button .signin a{
     text-decoration: none;

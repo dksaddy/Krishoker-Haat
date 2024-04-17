@@ -11,7 +11,7 @@
 if (isset($_POST["submit"])){
     // Retrieve form data
     $productName = $_POST["name-of-the-product"];
-    $category = $_POST["category-of-the-product"];
+    $category = isset($_POST['category-of-the-product']) ? $_POST['category-of-the-product'] : false;
     $price = $_POST["price-of-the-product"];
     $quantity = $_POST["amount-of-the-product"];
     $details = $_POST["details-of-the-product"];
@@ -30,8 +30,8 @@ if (isset($_POST["submit"])){
     $details = mysqli_real_escape_string($conn, $details);
 
     // Insert the product into the database
-    $sql = "INSERT INTO product (name, category, price, user_id, image, quantity)
-            VALUES ('$productName', '$category', '$price', '$userId', '$image', '$quantity')";
+    $sql = "INSERT INTO product (name, category, price, user_id, image, quantity, description)
+            VALUES ('$productName', '$category', '$price', '$userId', '$image', '$quantity', '$details')";
 
     if ($conn->query($sql) === TRUE) {
         echo "Product added successfully";
@@ -65,7 +65,7 @@ if (isset($_POST["submit"])){
             <h6>প্রোফাইল আপডেট</h6>
             <h6 style="background-color: green; padding: 10px; border-radius: 10px; color: white;">আমার ড্যাশবোর্ড</h6>
             <h6>আমার প্রিয় ক্রেতা</h6>
-            <h6 style="color: red;">অ্যাকাউন্ট মুছে ফেলুন</h6>
+            <h6 style="color: red;"><a href="account-delete-page.php">অ্যাকাউন্ট মুছে ফেলুন</a></h6>
             <div id="sign-out-btn">সাইন আউট</div>
         </div>
         <div id="special-products-for-sell">
@@ -132,19 +132,32 @@ if (isset($_POST["submit"])){
         </div>
     </section>
     <section style="background-color: #eee; padding: 5%;">
+    <h3 style="text-align: center;">Add a new Product</h3>
         <form action="" method="post" enctype="multipart/form-data">
             <label for="name-of-the-product">পণ্যের নামঃ </label>
-            <input type="text" name="name-of-the-product" id="name-of-the-product"><br><br>
-            <label for="category-of-the-product">পণ্যের ক্যাটেগরিঃ </label>
-            <input type="text" name="category-of-the-product" id="category-of-the-product"><br><br>
+            <input type="text" name="name-of-the-product" id="name-of-the-product" required>
+            <br><br>
+            <label for="category-of-the-product">পণ্যের ক্যাটেগরিঃ</label>
+
+            <select name="category-of-the-product" id="category-of-the-product" required>
+            <option value="Fruits">Fruits</option>
+            <option value="Vegetable">Vegetable</option>
+            <option value="Grain Product">Grain Product</option>
+            <option value="Dairy Product">Dairy Product</option>
+            <option value="Spices">Spices</option>
+            <option value="Pesticide">Pesticide</option>
+            <option value="Seeds">Seeds</option>
+            </select>
+            <br><br>
             <label for="price-of-the-product">পণ্যের দামঃ  </label>
-            <input type="text" name="price-of-the-product" id="price-of-the-product"><br><br>
+            <input type="text" name="price-of-the-product" id="price-of-the-product" required><br><br>
             <label for="amount-of-the-product">পণ্যের পরিমানঃ  </label>
-            <input type="text" name="amount-of-the-product" id="amount-of-the-product"><br><br>
+            <input type="text" name="amount-of-the-product" id="amount-of-the-product" required><br><br>
             <label for="details-of-the-product">পণ্যের বিবরণীঃ </label>
-            <input type="text" name="details-of-the-product" id="details-of-the-product"><br><br>
+            <textarea name="details-of-the-product" id="details-of-the-product" cols="100" rows="3" required></textarea>
+            <br><br>
             <label for="photo-of-the-product">পণ্যের ছবিঃ </label>
-            <input type="file" name="photo-of-the-product" id="photo-of-the-product"><br><br>
+            <input type="file" name="photo-of-the-product" id="photo-of-the-product" required><br><br>
             <input type="submit" name="submit" id="submit">
         </form>
     </section>

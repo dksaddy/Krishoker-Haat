@@ -90,13 +90,16 @@ $conn->close();
 <body>
     <form action="payment.php" enctype="multipart/form-data" method="post">
     <div>
-            <?php 
-            if(isset($_SESSION['order_success'])) {
-                echo "<p style='color:green;  text-align: center;'>{$_SESSION['order_success']}</p>";
-                // Clear the success message after displaying
-                unset($_SESSION['order_success']);
-            }
-            ?>
+    <?php 
+if(isset($_POST['pay_now'])) {
+    if(isset($_SESSION['order_success'])) {
+        echo "<p style='color:green;  text-align: center;'>{$_SESSION['order_success']}</p>";
+        // Clear the success message after displaying
+        unset($_SESSION['order_success']);
+    }
+}
+?>
+
         </div>
         <button class="type" type="submit"name ="pay_now">Payment</button>
     </form>

@@ -49,7 +49,45 @@ if (isset($_POST["submit"])){
     <h3 style="text-align: center;">Add a new Product</h3>
         <form action="" method="post" enctype="multipart/form-data">
             <label for="name-of-the-product">পণ্যের নামঃ </label>
-            <input type="text" name="name-of-the-product" id="name-of-the-product" required>
+        <input type="text" list="productName" name="name-of-the-product" id="name-of-the-product" required>
+            <datalist id="productName">
+            <option value="Korola">Korola</option>
+            <option value="Uchchay ">Uchchay </option>
+            <option value="Chal Kumra">Chal Kumra</option>
+            <option value="Chichinga">Chichinga</option>
+            <option value="Lao">Lao</option>
+            <option value="Kakrol">Kakrol</option>
+            <option value="Misti Kumra">Misti Kumra</option>
+            <option value="Dhundol">Dhundol</option>
+            <option value="Patol">Patol</option>
+            <option value="Shosha">Shosha</option>
+            <option value="Paka Chal Kumra">Paka Chal Kumra</option>
+            <option value="Jinga">Jinga</option>
+            <option value="Khira">Khira</option>
+            <option value="Begun">Begun</option>
+            <option value="Borboti">Borboti</option>
+            <option value="Deshi Seem">Deshi Seem</option>
+            <option value="Motor Shuti">Motor Shuti</option>
+            <option value="Kochur Loti">Kochur Loti</option>
+            <option value="Kachu">Kachu</option>
+            <option value="Moulovi Kachu">Moulovi Kachu </option>
+            <option value="Olkachu">Olkachu</option>
+            <option value="Gol Alu">Gol Alu</option>
+            <option value="Misti Alu">Misti Alu</option>
+            <option value="Data">Data</option>
+            <option value="Morich">Morich</option>
+            <option value="Rampura">Rampura</option>
+            <option value="Kalabagan">Kalabagan</option>
+            <option value="Shahbag">Shahbag</option>
+            <option value="Motijheel">Motijheel</option>
+            <option value="Khilgaon">Khilgaon</option>
+            <option value="Ramna">Ramna</option>
+            <option value="Paltan">Paltan</option>
+            <option value="Newmarket">Newmarket</option>
+            <option value="Adabar">Adabar</option>
+            <option value="Uttarkhan">Uttarkhan</option>
+            <option value="Hatirjheel">Hatirjheel</option>
+          </datalist>
             <br><br>
             <label for="category-of-the-product">পণ্যের ক্যাটেগরিঃ</label>
 

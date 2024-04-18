@@ -52,14 +52,35 @@
     
 
         if($log === 0){
-            $prob = "Please Log In To Buy ..!";
+            $prob = "Please Log In To BUY ..!";
         }else {
             echo "<script>";
-            echo "window.location.href = 'Payment.php?data1=" . urlencode($product_id) . "&data2=" . urlencode($quantity) . "&data3=" . urlencode($totalPrice) . "';";
+            echo "window.location.href = 'payment.php?data1=" . urlencode($product_id) . "&data2=" . urlencode($quantity) . "&data3=" . urlencode($totalPrice) . "';";
             echo "</script>";
             exit; // Make sure to exit after the redirect to prevent further execution
         }
     }
+
+
+
+
+
+    if (isset($_POST['posting'])) {
+        $product_id = (int)$product_id;
+        $quantity = (int)$_POST['quantity'];
+        $totalPrice = (float)$_POST['totalPrice'];
+    
+
+        if($log === 0){
+            $prob = "Please Log In To POST ..!";
+        }else {
+            echo "<script>";
+            echo "window.location.href = 'community_post.php?data1=" . urlencode($product_id) . "&data2=" . urlencode($quantity) . "&data3=" . urlencode($totalPrice) . "';";
+            echo "</script>";
+            exit; // Make sure to exit after the redirect to prevent further execution
+        }
+    }
+
 
 
 
@@ -120,7 +141,7 @@
                         <div style="display: flex; gap: 30px; flex-wrap: wrap">
                             <button name="cart" class="cart_btn">Add to Cart</button>
                             <button name="buy" class="cart_btn" style="background-color: rgb(101, 91, 245)">Buy Now</button>
-                            <button name="post" class="cart_btn" style="background-color: rgb(80, 91, 155)">Add Post</button>
+                            <button name="posting" class="cart_btn" style="background-color: rgb(80, 91, 155)">Add Post</button>
                         </div>
 
                     </form>

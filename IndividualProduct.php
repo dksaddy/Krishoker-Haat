@@ -54,20 +54,10 @@
         if($log === 0){
             $prob = "Please Log In To Buy ..!";
         }else {
-            echo "Will add later";
-            /* Implement later after the payment added
-
-            // Prepare the SQL statement
-            $sql = "INSERT INTO `cart`(user_id, product_id, product_price, quantity) 
-            VALUES ($user_id, $product_id, $totalPrice, $quantity)";
-
-            if ($conn->query($sql) === TRUE) {
-                //echo "<script>window.location.href = 'AllProduct.php';</script>";
-                //exit; // Make sure to exit after the redirect to prevent further execution
-            } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
-            }   
-             */
+            echo "<script>";
+            echo "window.location.href = 'Payment.php?data1=" . urlencode($product_id) . "&data2=" . urlencode($quantity) . "&data3=" . urlencode($totalPrice) . "';";
+            echo "</script>";
+            exit; // Make sure to exit after the redirect to prevent further execution
         }
     }
 

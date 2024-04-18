@@ -122,7 +122,7 @@
                             Total Price: <input type="text" id="totalPrice" name="totalPrice" disabled value="'.$price.'">
                         </div>
 
-                        <div style="font-size: 15px; color: red; font-weight: bold; margin-top: 20px">
+                        <div style="font-size: 15px; color: red; font-weight: bold; margin-top: 20px; animation: erorr .5s infinite linear;">
                             '.$prob.'
                         </div>
 

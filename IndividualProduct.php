@@ -129,6 +129,7 @@
                         <div style="display: flex; gap: 30px; flex-wrap: wrap">
                             <button name="cart" class="cart_btn">Add to Cart</button>
                             <button name="buy" class="cart_btn" style="background-color: rgb(101, 91, 245)">Buy Now</button>
+                            <button name="post" class="cart_btn" style="background-color: rgb(80, 91, 155)">Add Post</button>
                         </div>
 
                     </form>

@@ -96,3 +96,58 @@
     word-spacing: 10px;
     letter-spacing: 5px;
 }
+/*select dropdown*/
+/* Style for the dropdown container */
+.dropdown-container {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    margin-top: 0px;
+    z-index: -9999;
+}
+
+/* Style for each dropdown */
+.dropdown {
+
+    margin-right: 20px; 
+    z-index: -9999;/* Add some space between dropdowns */
+}
+
+/* Style for the dropdown menus */
+.dropdown select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    outline: none;
+    z-index:  -9999;
+
+}
+
+select:hover {
+    transform: scale(1.1);
+    background-color: rgb(255, 255, 255);
+    transition: .4s;
+    cursor: pointer;
+}
+/* Style when the select element is focused */
+select:focus {
+    border-color: #66afe9; /* Changes border color when focused */
+    box-shadow: 0 0 8px rgba(102, 175, 233, 0.6); /* Adds a light blue glow around the dropdown */
+}
+
+/* Style for options in the dropdown */
+option {
+    padding: 8px; /* Padding for each option */
+    background: white; /* Background color for each option */
+    color: black; /* Text color for each option */
+}
+
+option:hover {
+    transform: scale(1.1);
+    background-color: rgb(255, 255, 255);
+    transition: .4s;
+    cursor: pointer;
+}

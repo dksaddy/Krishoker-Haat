@@ -43,7 +43,7 @@ if (!empty($_SESSION['user_id'])) {
                <ul>
                     <li><a href="./HomePage.php" class="link">HOME</a></li>
                     <li><a href="#" class="link">#</a></li>
-                    <li><a href="AllProduct.php?data=all" class="link">PRODUCTS</a></li>
+                    <li><a href="AllProduct.php?data=all" class="link">পণ্যসমুহ</a></li>
 
                     <?php if($log): ?>
                <li><a href="community_post.php"class="link">কমিউনিটি</a></li>
@@ -60,7 +60,7 @@ if (!empty($_SESSION['user_id'])) {
         echo "<h5>Welcome " . $fetch['name'] . " </h5>";
     }
 ?>
-                   <a href="userProfile.php">User Profile</a>
+<a href="<?php echo ($fetch['user_type'] == 'farmer') ? 'farmerprofile.php' : 'userprofile.php'; ?>">User Profile</a>
                    <a href="update_profile.php">Update Profile</a>
                    <a href="functions/logout.php">LOG OUT</a>
                </div>
@@ -70,7 +70,8 @@ if (!empty($_SESSION['user_id'])) {
                 <?php else: ?>
                 <div class="nav-button">
                     <button class="signin"><a href="./login.php" class="link">লগইন</a></button>
-                    
+                    <button class="signin"><a href="./signup.php" class="link">সাইন আপ</a></button>
+
                     <?php endif; ?>
                 </div>
 

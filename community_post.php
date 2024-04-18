@@ -78,36 +78,31 @@ if (isset($_POST['delete_post'])) {
    $userDisliked = hasUserLikedOrDisliked($conn, $user_id, $blog_id, false);
 
    if(isset($_POST['like'])) {
-      if(!$userLiked && !$userDisliked) {
-         // Handle Like
-         mysqli_query($conn, "UPDATE community_post SET likes = likes + 1 WHERE blog_id = '$blog_id'");
-         recordLikeOrDislike($conn, $user_id, $blog_id, true);
-      } elseif($userLiked && !$userDisliked) {
-         // Toggle like to unlike
-         mysqli_query($conn, "UPDATE community_post SET likes = likes - 1 WHERE blog_id = '$blog_id'");
-         removeLikeOrDislike($conn, $user_id, $blog_id, true);
-      } elseif(!$userLiked && $userDisliked) {
-         // Toggle dislike to like
-         mysqli_query($conn, "UPDATE community_post SET likes = likes + 1, dislikes = dislikes - 1 WHERE blog_id = '$blog_id'");
-         removeLikeOrDislike($conn, $user_id, $blog_id, false);
-         recordLikeOrDislike($conn, $user_id, $blog_id, true);
+      if(!$userLiked) {
+          mysqli_query($conn, "UPDATE community_post SET likes = likes + 1 WHERE blog_id = '$blog_id'");
+          if($userDisliked) {
+              mysqli_query($conn, "UPDATE community_post SET dislikes = dislikes - 1 WHERE blog_id = '$blog_id'");
+          }
+          recordLikeOrDislike($conn, $user_id, $blog_id, true);
+      } else {
+          // User is unliking the post
+          mysqli_query($conn, "UPDATE community_post SET likes = likes - 1 WHERE blog_id = '$blog_id'");
+          removeLikeOrDislike($conn, $user_id, $blog_id, true);
       }
-   } elseif(isset($_POST['dislike'])) {
-      if(!$userLiked && !$userDisliked) {
-         // Handle Dislike
-         mysqli_query($conn, "UPDATE community_post SET dislikes = dislikes + 1 WHERE blog_id = '$blog_id'");
-         recordLikeOrDislike($conn, $user_id, $blog_id, false);
-      } elseif(!$userLiked && $userDisliked) {
-         // Toggle dislike to like
-         mysqli_query($conn, "UPDATE community_post SET dislikes = dislikes - 1 WHERE blog_id = '$blog_id'");
-         removeLikeOrDislike($conn, $user_id, $blog_id, false);
-      } elseif($userLiked && !$userDisliked) {
-         // Toggle like to dislike
-         mysqli_query($conn, "UPDATE community_post SET dislikes = dislikes + 1, likes = likes - 1 WHERE blog_id = '$blog_id'");
-         removeLikeOrDislike($conn, $user_id, $blog_id, true);
-         recordLikeOrDislike($conn, $user_id, $blog_id, false);
+  } elseif(isset($_POST['dislike'])) {
+      if(!$userDisliked) {
+          mysqli_query($conn, "UPDATE community_post SET dislikes = dislikes + 1 WHERE blog_id = '$blog_id'");
+          if($userLiked) {
+              mysqli_query($conn, "UPDATE community_post SET likes = likes - 1 WHERE blog_id = '$blog_id'");
+          }
+          recordLikeOrDislike($conn, $user_id, $blog_id, false);
+      } else {
+          // User is un-disliking the post
+          mysqli_query($conn, "UPDATE community_post SET dislikes = dislikes - 1 WHERE blog_id = '$blog_id'");
+          removeLikeOrDislike($conn, $user_id, $blog_id, false);
       }
-   }
+  }
+  
 }
 
 // Fetch and display blog posts
@@ -126,12 +121,19 @@ function hasUserLikedOrDisliked($conn, $user_id, $blog_id, $liked) {
 }
 
 function recordLikeOrDislike($conn, $user_id, $blog_id, $liked) {
-   // Check if the user has already liked or disliked the blog post
-   if(!hasUserLikedOrDisliked($conn, $user_id, $blog_id, $liked)) {
-      $query = "INSERT INTO community_post_likes (user_id, blog_id, liked) VALUES ('$user_id', '$blog_id', '$liked')";
-      mysqli_query($conn, $query) or die('Query failed: '.mysqli_error($conn));
+   $checkQuery = "SELECT * FROM community_post_likes WHERE user_id = '$user_id' AND blog_id = '$blog_id'";
+   $checkResult = mysqli_query($conn, $checkQuery);
+   if(mysqli_num_rows($checkResult) > 0) {
+       // If there is an existing record, update it
+       $updateQuery = "UPDATE community_post_likes SET liked = '$liked' WHERE user_id = '$user_id' AND blog_id = '$blog_id'";
+       mysqli_query($conn, $updateQuery) or die('Update failed: ' . mysqli_error($conn));
+   } else {
+       // If no record, insert a new one
+       $insertQuery = "INSERT INTO community_post_likes (user_id, blog_id, liked) VALUES ('$user_id', '$blog_id', '$liked')";
+       mysqli_query($conn, $insertQuery) or die('Insert failed: ' . mysqli_error($conn));
    }
 }
+
 
 function removeLikeOrDislike($conn, $user_id, $blog_id, $liked) {
    $query = "DELETE FROM community_post_likes WHERE user_id = '$user_id' AND blog_id = '$blog_id' AND liked = '$liked'";
@@ -174,11 +176,16 @@ function removeLikeOrDislike($conn, $user_id, $blog_id, $liked) {
          }
 
          // Like and Dislike Buttons
-         echo '<form action="community_post.php" method="post">';
-         echo '<input type="hidden" name="blog_id" value="'.$row['blog_id'].'">';
-         echo '<button type="submit" name="like">Like '.$row['likes'].'</button>';
-         echo '<button type="submit" name="dislike">Dislike '.$row['dislikes'].'</button>';
-         echo '</form>';
+         
+echo '<form action="community_post.php" method="post">'; 
+      echo '<div class="button-container">';
+      echo '<input type="hidden" name="blog_id" value="' . $row['blog_id'] . '">'; 
+      echo '<button type="submit" name="like" class="button">Like ' . $row['likes'] . '</button>'; 
+     echo '<button type="submit" name="dislike" class="button">Dislike ' . $row['dislike'] . '</button>'; 
+     echo '<button class="button"><a href="#">Send Message</a></button>';
+
+     echo '</div>';
+     echo '</form>';
 
          // Delete option for the blog post if the user is the owner
          if($row['user_id'] == $_SESSION['user_id']) {

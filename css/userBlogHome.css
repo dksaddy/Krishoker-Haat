@@ -121,23 +121,31 @@ body {
  }
  
  
- .blog-post button {
-   margin-top: 2%;
-   margin-bottom: 3%;
-   margin-right: 2px;
-   
-    background-color: transparent;
-    color: rgb(255, 255, 255);
-    padding: 5px 70px;
-    box-shadow: 0 1px 3px 0 rgba(255, 255, 255, 0.381), 0 3px 20px 0 rgba(80, 78, 78, 0.19); 
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 15px;
+ .button-container {
+   display: flex;
+   justify-content: space-between;
+   width: 100%; /* Adjust width as needed */
+   margin: 0 auto; /* Center horizontally */
+   background-color: white;
  }
- .blog-post button:hover{
-   background-color: rgb(98, 97, 97);
-   border-color: #b9e32e;
+
+ .button {
+   padding: 8px 11.33%;
+   background-color: #ffffff;
+   color: #180505;
+   border: none;
+   border-radius: 2px;
+   cursor: pointer;
+   border: 0.5px  solid black;
+   font-size: 14px;
+   transition: all .2s ease-in-out;
  }
+ .button:hover {
+   background-color: #dddba5;
+   color: blue;
+   font-size: large;
+ }
+
 
  .blog-post button.delete_post {
    

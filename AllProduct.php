@@ -11,16 +11,27 @@
 
 <body>
     <?php include("header.php") ?>
+ 
+    <div class="dropdown-container">
+        <div class="dropdown">
+        <select name="category">
+  <option value="new">New Arrival</option>
+  <option value="high">High to Low</option>
+  <option value="low">Low to High</option>
+  <option value="best">Best Selling</option>
+</select>
 
-    
-    <div style="background-color: rgb(255, 175, 230); height: 50px">
-     <div class="srch">
-                    <input type="text" class="srch-bar" placeholder="এখানে অনুসন্ধান করুন" >
-                    <button class="srch-btn"><img src="image/Icon/search.png"> </button>
-                </div></div>
+        </div>
+        <div class="dropdown">
+        <select name="category">
+  <option value="new">New Arrival</option>
+  <option value="high">High to Low</option>
+  <option value="low">Low to High</option>
+  <option value="best">Best Selling</option>
+</select>
 
-
-
+        </div>
+    </div>
     <div class="container_for_product">
 
         <div class="category">

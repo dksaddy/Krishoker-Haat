@@ -4,6 +4,46 @@ h3 {
    
 }
 
+/*slide text*/
+.slideable-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    width:90%;
+    background-color: transparent;
+    color: #080505;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.slideable-text p {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    font-size: 12px;
+    transform: translateY(-50%);
+    animation: slideText 40s linear infinite;
+    margin: 0; /* Remove default margin */
+    width: auto; 
+    color: #198c07;
+}
+
+@keyframes slideText {
+    0% {
+        left: 100%; /* Start off the screen on the right */
+    }
+    100% {
+        left: -100%; /* Move off the screen to the left */
+    }
+}
+
+
+
+
 .main_div {
     background: url('../image/Icon/Fruit.jpg');
     padding-bottom: 10px;

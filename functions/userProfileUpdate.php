@@ -9,7 +9,7 @@ if (isset($_SESSION['user_id'])) {
 }
 
 if (isset($_POST['update_profile'])) {
-    include("../templete/db_connect.php");
+    include("../template/db_connect.php");
 
     // Validate and sanitize input data
     $update_name = mysqli_real_escape_string($conn, $_POST['name']);

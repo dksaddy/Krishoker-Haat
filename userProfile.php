@@ -10,14 +10,29 @@
     <section>
         <div id="cover">
             <div id="profilepicture">
-                <img src="image/User/person.jpg" alt="প্রভাত কুন্ডু শাওন image" id="userpicture">
+                <img src="<?php echo $fetch['profile_picture']; ?>" alt="প্রভাত কুন্ডু শাওন image" id="userpicture">
             </div>
             <div id="nameandmobilenumber">
                 <div id="name">
-                    প্রভাত কুন্ডু শাওন
+                <?php
+    if (!empty($_SESSION['user_id'])) {
+        echo "<h5>" . $fetch['name'] . " </h5>";
+    }
+?>
                 </div>
                 <div id="mobile">
-                    +8801321098087
+                    <?php
+                if (!empty($_SESSION['user_id'])) {
+        echo "<h6>+88 " . $fetch['phone_number'] . " </h6>";
+    }
+    ?>
+                </div>
+                <div id="address">
+                    <?php
+                if (!empty($_SESSION['user_id'])) {
+        echo "<h6>" . $fetch['address'] . " </h6>";
+    }
+    ?>
                 </div>
             </div>
         </div>

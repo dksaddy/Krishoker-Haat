@@ -99,8 +99,8 @@
 }
 
 @keyframes erorr {
-    25% {transform: rotate(2deg);}
-    50% {transform: rotate(0deg);}
-    75% {transform: rotate(-2deg);}
+    25% {transform: rotate(1.5deg); }
+    50% {transform: rotate(0deg); }
+    75% {transform: rotate(-1.5deg);}
 }
 

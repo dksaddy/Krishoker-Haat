@@ -29,7 +29,7 @@
     
 
         if($log === 0){
-            $prob = "Please Log in First";
+            $prob = "Please Log In To Add ..!";
         }else {
             // Prepare the SQL statement
             $sql = "INSERT INTO `cart`(user_id, product_id, product_price, quantity) 
@@ -52,7 +52,7 @@
     
 
         if($log === 0){
-            $prob = "How Please Log in First";
+            $prob = "Please Log In To Buy ..!";
         }else {
             echo "Will add later";
             /* Implement later after the payment added
@@ -122,13 +122,15 @@
                             Total Price: <input type="text" id="totalPrice" name="totalPrice" disabled value="'.$price.'">
                         </div>
 
-                        <div style="font-size: 15px; color: red; font-weight: bold; margin-top: 20px">
+                        <div style="font-size: 17px; color: red; margin-top: 20px; animation: erorr 1s infinite linear;
+                            letter-spacing: 2px; word-spacing: 3px; background-color: white">
                             '.$prob.'
                         </div>
 
                         <div style="display: flex; gap: 30px; flex-wrap: wrap">
                             <button name="cart" class="cart_btn">Add to Cart</button>
                             <button name="buy" class="cart_btn" style="background-color: rgb(101, 91, 245)">Buy Now</button>
+                            <button name="post" class="cart_btn" style="background-color: rgb(80, 91, 155)">Add Post</button>
                         </div>
 
                     </form>

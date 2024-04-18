@@ -17,10 +17,12 @@
     ?>
 
 
-<div class="slideable-text">
-        <p>কৃষকের হাট(F2C) ব্যবসায়িক মডেলের উপর নির্মিত একটি ই-কমার্স প্ল্যাটফর্ম।এই মডেলটি মধ্যস্থতাকারী এবং ঐতিহ্যগত সরবরাহ চেইনকে বাদ দিয়ে কৃষকদের সরাসরি গ্রাহকদের সাথে সংযুক্ত করে।কৃষকরা একটি বিস্তৃত বাজারে প্রবেশাধিকার লাভ করে।ভোক্তাদের জন্য, কৃষকের হাট অনলাইনে তাজা পণ্য কেনার সুবিধা প্রদান করে।
-</p>
-      </div>
+    <div class="slideable-text">
+        <p>কৃষকের হাট(F2C) ব্যবসায়িক মডেলের উপর নির্মিত একটি ই-কমার্স প্ল্যাটফর্ম।এই মডেলটি মধ্যস্থতাকারী এবং ঐতিহ্যগত
+            সরবরাহ চেইনকে বাদ দিয়ে কৃষকদের সরাসরি গ্রাহকদের সাথে সংযুক্ত করে।কৃষকরা একটি বিস্তৃত বাজারে প্রবেশাধিকার
+            লাভ করে।ভোক্তাদের জন্য, কৃষকের হাট অনলাইনে তাজা পণ্য কেনার সুবিধা প্রদান করে।
+        </p>
+    </div>
 
 
 
@@ -31,27 +33,46 @@
         <div class="first_div">
 
             <div class="first_div_1">
-                <a href="AllProduct.php?data=Fruits"><div>Fruits</div></a>
-                <a href="AllProduct.php?data=Vegetable"><div>Vegetable</div></a>
-                <a href="AllProduct.php?data=Grain Product"><div>Grain Product</div></a>
-                <a href="AllProduct.php?data=Dairy Product"><div>Dairy Product</div></a>
-                <a href="AllProduct.php?data=Spices"><div>Spices</div></a>
-                
-                <a href="AllProduct.php?data=Farming Tools"><div>Farming Tools</div></a>
-                <a href="AllProduct.php?data=Fertilize"><div>Fertilizer</div></a>
-                <a href="AllProduct.php?data=Pesticide"><div>Pesticide</div></a>
-                <a href="AllProduct.php?data=Seeds"><div>Seeds</div></a>
+                <a href="AllProduct.php?data=Fruits">
+                    <div>Fruits</div>
+                </a>
+                <a href="AllProduct.php?data=Vegetable">
+                    <div>Vegetable</div>
+                </a>
+                <a href="AllProduct.php?data=Grain Product">
+                    <div>Grain Product</div>
+                </a>
+                <a href="AllProduct.php?data=Dairy Product">
+                    <div>Dairy Product</div>
+                </a>
+                <a href="AllProduct.php?data=Spices">
+                    <div>Spices</div>
+                </a>
+
+                <a href="AllProduct.php?data=Farming Tools">
+                    <div>Farming Tools</div>
+                </a>
+                <a href="AllProduct.php?data=Fertilize">
+                    <div>Fertilizer</div>
+                </a>
+                <a href="AllProduct.php?data=Pesticide">
+                    <div>Pesticide</div>
+                </a>
+                <a href="AllProduct.php?data=Seeds">
+                    <div>Seeds</div>
+                </a>
             </div>
 
             <div class="first_div_2"></div>
 
-        </div><!--First Div End -->
+        </div>
+        <!--First Div End -->
 
 
 
 
         <div class="grand_1">
-        
+
             <?php
             // SQL query to fetch data
             $sql = "SELECT product_id, name, price, image FROM product LIMIT 6";
@@ -91,22 +112,25 @@
             $conn->close();
             ?>
 
-        </div> <!--Grand Div End -->
+        </div>
+        <!--Grand Div End -->
 
 
         <div class="all_product_btn">
-            <a href="AllProduct.php?data=all"><div>All Product</div></a>
+            <a href="AllProduct.php?data=all">
+                <div>All Product</div>
+            </a>
         </div>
 
         <div style="margin-top: 10px; background: white; letter-spacing: 10px;
                 word-spacing: 15px; text-align: center; border-top: 3px solid;
-                border-bottom: 3px solid;"> 
-            <h1>Selective  Category</h1>
+                border-bottom: 3px solid;">
+            <h1>Selective Category</h1>
         </div>
 
 
 
-        
+
         <!--................Product Category Start .....................-->
         <div class="grand">
 
@@ -202,10 +226,10 @@
 
         <div style="margin: 50px 0 10px; background: white; letter-spacing: 10px;
                 word-spacing: 15px; text-align: center; border-top: 3px solid;
-                border-bottom: 3px solid;"> 
+                border-bottom: 3px solid;">
             <h1>Farmer Of The Month</h1>
         </div>
-        
+
         <!--Card Model start-->
         <div class="farmer-parent">
 
@@ -223,14 +247,15 @@
                 }
             ?>
 
-        </div> <!--Card Model End-->
+        </div>
+        <!--Card Model End-->
 
 
-        
+
 
 
     </div> <!-- Main Div End -->
-    
+
 
 
     <?php include('footer.php')?>

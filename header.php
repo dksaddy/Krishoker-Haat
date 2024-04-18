@@ -42,13 +42,8 @@ if (!empty($_SESSION['user_id'])) {
     </div> 
                <ul>
                     <li><a href="./HomePage.php" class="link">HOME</a></li>
-<<<<<<< HEAD
                     <li><a href="#" class="link">#</a></li>
                     <li><a href="AllProduct.php?data=all" class="link">পণ্যসমুহ</a></li>
-=======
-                    <li><a href="about.php" class="link">ABOUT</a></li>
-                    <li><a href="AllProduct.php?data=all" class="link">PRODUCTS</a></li>
->>>>>>> 9d1c9a26f92fee2f72dafabde9db890b4130d162
 
                     <?php if($log): ?>
                <li><a href="community_post.php"class="link">কমিউনিটি</a></li>

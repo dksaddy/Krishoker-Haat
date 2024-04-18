@@ -42,7 +42,7 @@ if (!empty($_SESSION['user_id'])) {
     </div> 
                <ul>
                     <li><a href="./HomePage.php" class="link">HOME</a></li>
-                    <li><a href="#" class="link">#</a></li>
+                    <li><a href="about.php" class="link">ABOUT</a></li>
                     <li><a href="AllProduct.php?data=all" class="link">PRODUCTS</a></li>
 
                     <?php if($log): ?>

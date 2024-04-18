@@ -32,7 +32,7 @@
         <h4>Info</h4>
         <ul class="links">
           <li><a href="#">হোম</a></li>
-          <li><a href="#">আমাদের সম্পর্কে</a></li>
+          <li><a href="about.php">আমাদের সম্পর্কে</a></li>
           <li><a href="#">যোগাযোগ</a></li>
           <li><a href="#">Developer contact</a></li>
           <div class="icons">

@@ -39,8 +39,6 @@ if ($conn->query($sql_insert_order) === TRUE) {
 } else {
 echo "Something Went wrong, Please Try again Later.";
 }
-} else {
-    echo "One or more parameters are missing.";
 }
 
 
@@ -91,12 +89,15 @@ $conn->close();
 </head>
 <body>
     <form action="payment.php" enctype="multipart/form-data" method="post">
-        <div><?phpif(isset($_SESSION['registration_success'])) {
-        echo "<p style='color:green;  text-align: center;'>{$_SESSION['registration_success']}</p>";
-        // Clear the success message after displaying
-        unset($_SESSION['registration_success']);
-    }
-    ?></div>
+    <div>
+            <?php 
+            if(isset($_SESSION['order_success'])) {
+                echo "<p style='color:green;  text-align: center;'>{$_SESSION['order_success']}</p>";
+                // Clear the success message after displaying
+                unset($_SESSION['order_success']);
+            }
+            ?>
+        </div>
         <button class="type" type="submit"name ="pay_now">Payment</button>
     </form>
 </body>

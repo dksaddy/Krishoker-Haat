@@ -6,17 +6,21 @@
 <section>
 
     <div style="padding: 5%;">
-        <h1 style="text-align: center; ">Who We Are</h1>
+        <h1 style="text-align: center; ">Terms and Conditions</h1>
+    </div>
+
+    <div style="padding: 5%;">
+        <h3 style="text-align: center; ">Privecy and Confidentiality Policy</h1>
     </div>
 
     <div style="padding: 2% 5%;">
         <p>
-        Krishoker Haat, a pioneering e-commerce platform, enables farmers to sell agricultural goods directly to consumers. With a rich product range, community forums, news portal, and efficient communication tools like chatbots and messaging, it revolutionizes agricultural trade while fostering solidarity and sustainability within the farming community. Krishoker Haat, a pioneering e-commerce platform, enables farmers to sell agricultural goods directly to consumers. With a rich product range, community forums, news portal, and efficient communication tools like chatbots and messaging, it revolutionizes agricultural trade while fostering solidarity and sustainability within the farming community. 
+        At Krishoker Haat, we are committed to safeguarding the privacy and confidentiality of our users' information. This Privacy and Confidentiality Policy outlines the measures we undertake to protect your personal data and ensure its confidentiality. At Krishoker Haat, we are committed to safeguarding the privacy and confidentiality of our users' information. This Privacy and Confidentiality Policy outlines the measures we undertake to protect your personal data and ensure its confidentiality.
         </p>
     </div>
 
     <div style="padding: 5%;">
-        <h2 style="text-align: center; ">Mission</h1>
+        <h3 style="text-align: center; ">Mission</h1>
     </div>
 
     <div style="padding: 2% 5%;">
@@ -27,7 +31,7 @@
 
 
     <div style="padding: 5%;">
-        <h2 style="text-align: center; ">Vision</h1>
+        <h3 style="text-align: center; ">Vision</h1>
     </div>
 
     <div style="padding: 2% 5%;">

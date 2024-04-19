@@ -1,0 +1,83 @@
+.central_div {
+    background-color: red;
+}
+
+.main_div {
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+}
+
+.right {
+    width: 40%;
+    background-color: orange;
+}
+
+.list_card {
+    display: flex;
+    gap: 5%;
+    background-color: aliceblue;
+    margin: 10px;
+    padding: 5px 5px 1px;
+}
+
+.left {
+    width: 40%;
+    background-color: brown;
+}
+
+.banking_div {
+    display: flex;
+    justify-content: flex-start;
+    padding: 15px;
+    gap: 30px;
+    margin-bottom: 10px;
+    background-color: rebeccapurple;
+}
+
+.option_div {
+    display: flex;
+    gap: 20px;
+}
+
+.wallet {
+    height: 100px;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    background: url('../image/Icon/wallet.png');
+    background-size: 100% 100%;
+}
+
+.wallet input {
+    height: 35px;
+    width: 70px;
+    margin: 32px 2px 0 5px;
+    padding-left: 5px;
+    font-size: 20px;
+    letter-spacing: 2px;
+    
+    background: transparent;
+    color: white;
+    font-weight: bold;
+}
+
+label {
+    font-size: 20px;
+    letter-spacing: 1px;
+    word-spacing: 3px;
+    font-weight: bold;
+}
+
+#payment {
+    width: 150px;
+    height: 30px;
+}
+
+button {
+    width: 200px;
+    margin-left: 20px;
+}
+
+

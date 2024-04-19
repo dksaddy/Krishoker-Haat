@@ -36,8 +36,8 @@
             VALUES ($user_id, $product_id, $totalPrice, $quantity)";
 
             if ($conn->query($sql) === TRUE) {
-                //echo "<script>window.location.href = 'AllProduct.php';</script>";
-                //exit; // Make sure to exit after the redirect to prevent further execution
+                echo "<script>window.location.href = 'Cart.php';</script>";
+                exit; // Make sure to exit after the redirect to prevent further execution
             } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }   

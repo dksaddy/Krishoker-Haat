@@ -60,7 +60,7 @@ if (!empty($_SESSION['user_id'])) {
         echo "<h5>Welcome " . $fetch['name'] . " </h5>";
     }
 ?>
-<a href="<?php echo ($fetch['user_type'] == 'farmer') ? 'farmerprofile.php' : 'userprofile.php'; ?>">User Profile</a>
+<a href="<?php echo ($fetch['user_type'] == 'farmer') ? 'farmerProfile.php' : 'userProfile.php'; ?>">User Profile</a>
                    <a href="update_profile.php">Update Profile</a>
                    <a href="functions/logout.php">LOG OUT</a>
                </div>

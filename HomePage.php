@@ -83,7 +83,7 @@
             // Output data of each row.
                 while($row = $result->fetch_assoc()) {
                     $product_id = $row['product_id'];
-                    $name = $row['name'];
+                    $name = $row['p_name'];
                     $image = $row['image'];
                     $price = $row['price'];
                     echo '

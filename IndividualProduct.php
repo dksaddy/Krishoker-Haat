@@ -90,7 +90,7 @@
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-            $name = $row['name'];
+            $name = $row['p_name'];
             $category = $row['category'];
             $price = $row['price'];
             $farmer = $row['user_id'];

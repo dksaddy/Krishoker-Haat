@@ -1,42 +1,47 @@
-while ($row = $result->fetch_assoc()) {
-              // Store values in session
-              $_SESSION['restaurant_name'] = $row['restaurant_name'];
-              $_SESSION['restaurant_id'] = $row['restaurant_id'];
-              $_SESSION['policeStation'] = $row['policeStaion'];
-              $_SESSION['contact_number'] = $row['contactNumber1'];
-              $_SESSION['details_address'] = $row['detailsAddress'];
-              $_SESSION['r_image'] = $row['r_image'];
-              $_SESSION['map'] = $row['map'];
-              //echo  $_SESSION['restaurant_id'];
-           // $_SESSION['map'] = $row['map'];
-           //echo '<p>';
-           //echo '<iframe src="' . htmlspecialchars($row['map']) . '" ... ></iframe>';
-           //echo '</p>';            
-            
-            //$_SESSION['map'] = $row['map'];
-            ?>
-            <a href="http://localhost/project/restaurantDetails.php?restaurant_name=<?php echo $row['restaurant_name']; ?>&restaurant_id=<?php echo $row['restaurant_id']; ?>&policeStation=<?php echo $row['policeStaion']; ?>&contact_number=<?php echo $row['contactNumber1']; ?>&details_address=<?php echo $row['detailsAddress']; ?> ?&map=<?php echo urlencode($row['map']); ?>" class="card-item">
-              <img src="<?php echo $row['r_image']; ?>" alt="Card Image">
-              <span class="rName">
-                <?php echo $row['restaurant_name']; ?>
-              </span>
-              <span class="rArea">
-                <?php echo "Area : " . $row['policeStaion']; ?>
-              </span>
-              <span class="rNum">
-                <?php echo "Contact : " . $row['contactNumber1']; ?>
-              </span>
-              <span class="cDetails">
-                <?php echo $row['detailsAddress']; ?>
-              </span>
-              <span class="cStatus">
-                <?php echo "OPEN NOW"; ?>
-              </span>
-              <div class="arrow">
-                <i class="fa-solid fa-up-right-and-down-left-from-center card-icon"></i>
-              </div>
-            </a>
-            <?php
-            $count += 1;
+<?php
+include('../template/db_connect.php'); // Ensure you have a connection to the database
 
-          }
+if (isset($_GET['search'])) {
+    $search_term = $_GET['search'];
+
+    // SQL query with a prepared statement
+    $stmt = $conn->prepare("SELECT * FROM `product` WHERE p_name LIKE CONCAT('%', ?, '%')");
+    $stmt->bind_param("s", $search_term);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        // Display each product found
+        while ($row = $result->fetch_assoc()) {
+            echo "<p>";
+            echo "Product Name: " . htmlspecialchars($row['p_name']) . "<br>";
+            echo "Description: " . htmlspecialchars($row['description']) . "<br>";
+            echo "Price: $" . htmlspecialchars($row['price']);
+            echo "</p>";
+        }
+    } else {
+        echo "<p>No products found that match your search criteria.</p>";
+    }
+
+    $stmt->close();
+}
+$conn->close();
+?>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Search</title>
+</head>
+<body>
+    <h1>Search for a Product</h1>
+    <form action="test.php" method="GET">
+        <input type="text" name="search" placeholder="Search products..." required>
+        <button type="submit">Search</button>
+    </form>
+</body>
+</html>

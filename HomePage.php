@@ -75,7 +75,7 @@
 
             <?php
             // SQL query to fetch data
-            $sql = "SELECT product_id, name, price, image FROM product LIMIT 6";
+            $sql = "SELECT * FROM product LIMIT 6";
             $result = $conn->query($sql);
             $product_id = array();
 

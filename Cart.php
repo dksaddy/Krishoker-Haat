@@ -92,7 +92,7 @@
                                 $row_1 = $result_1->fetch_assoc();
 
                                 $image = $row_1['image'];
-                                $product_name = $row_1['name'];
+                                $product_name = $row_1['p_name'];
                                 $seller_id = $row_1['user_id'];
                             }
 

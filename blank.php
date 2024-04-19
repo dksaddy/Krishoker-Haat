@@ -90,7 +90,7 @@
             <div class="banking_div">
     
                 <div class="option_div">
-                    <input type="radio">
+                    <input type="radio" name="payment_option" value="cod">
                     <img src="image\Icon\cod.png" width="100px">
                 </div>
     

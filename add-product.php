@@ -76,17 +76,19 @@ if (isset($_POST["submit"])){
             <option value="Misti Alu">Misti Alu</option>
             <option value="Data">Data</option>
             <option value="Morich">Morich</option>
-            <option value="Rampura">Rampura</option>
-            <option value="Kalabagan">Kalabagan</option>
-            <option value="Shahbag">Shahbag</option>
-            <option value="Motijheel">Motijheel</option>
-            <option value="Khilgaon">Khilgaon</option>
-            <option value="Ramna">Ramna</option>
-            <option value="Paltan">Paltan</option>
-            <option value="Newmarket">Newmarket</option>
-            <option value="Adabar">Adabar</option>
-            <option value="Uttarkhan">Uttarkhan</option>
-            <option value="Hatirjheel">Hatirjheel</option>
+            <option value="Dherosh">Dherosh</option>
+            <option value="Capsicum">Capsicum</option>
+            <option value="Kacha Kola">Kacha Kola</option>
+            <option value="Broccoli">Broccoli</option>
+            <option value="Pui Shak">Pui Shak</option>
+            <option value="Lal Shak">Lal Shak</option>
+            <option value="Kathaler Bichi">Kathaler Bichi</option>
+            <option value="Palong Shak">Palong Shak</option>
+            <option value="Lao Shak">Lao Shak</option>
+            <option value="Path Pata">Path Pata</option>
+            <option value="Gajor">Gajor</option>
+            <option value="Mula">Mula</option>
+            <option value="Mular Shak">Mular Shak</option>
           </datalist>
             <br><br>
             <label for="category-of-the-product">পণ্যের ক্যাটেগরিঃ</label>

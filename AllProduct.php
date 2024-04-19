@@ -23,15 +23,11 @@ include('template/db_connect.php'); // Ensure you have a connection to the datab
 
 <body>
     <?php include("header.php") ?>
-   
-    <form action="AllProduct.php" method="GET">
-        <input type="text" name="search" placeholder="Search products..." required>
-        <button type="submit">Search</button>
-    </form>
 
     <div class="dropdown-container">
         <div class="dropdown">
         <select name="category">
+        <option value="new">Select a category to sort</option>
   <option value="new">New Arrival</option>
   <option value="high">High to Low</option>
   <option value="low">Low to High</option>
@@ -40,12 +36,10 @@ include('template/db_connect.php'); // Ensure you have a connection to the datab
 
         </div>
         <div class="dropdown">
-        <select name="category">
-  <option value="new">New Arrival</option>
-  <option value="high">High to Low</option>
-  <option value="low">Low to High</option>
-  <option value="best">Best Selling</option>
-</select>
+        <form action="AllProduct.php" method="GET">
+        <input type="text" name="search" placeholder="Search products..." required>
+        <button type="submit">Search</button>
+        </form>
 
         </div>
     </div>

@@ -38,16 +38,18 @@ if (!empty($_SESSION['user_id'])) {
            
             <nav class="nav">
            <div class="logo">    
-      <img src="image/Icon/mainlogo.jpg" width="80" height="80">
+           <h1 class="logt"><a href="http://localhost/Krishoker-Haat/HomePage.php">কৃষকের <span>হাট</span></a></h1>
     </div> 
                <ul>
                     <li><a href="./HomePage.php" class="link">হোম</a></li>
                     <li><a href="AllProduct.php?data=all" class="link">পণ্যসমুহ</a></li>
+                    <li><a href="article.php"class="link">আর্টিকেল</a></li>
+                    <li><a href="article.php"class="link">আমাদের সম্পর্কে</a></li>
+
 
                     <?php if($log): ?>
                 <li><a href="<?php echo ($fetch['user_type'] == 'farmer') ? 'add-product.php' : '#'; ?>"class="link">Add Product</a></li>
                <li><a href="community_post.php"class="link">কমিউনিটি</a></li>
-               <li><a href="article.php"class="link">আর্টিকেল</a></li>
                 <li><a href="Cart.php"class="link">কার্ট<img src="image/Icon/cart.png" alt="Profile Picture" class="cart_round-image"></a></li>
                  <li class="dropdown">
                <?php 
@@ -70,7 +72,7 @@ if (!empty($_SESSION['user_id'])) {
                 <?php else: ?>
                 <div class="nav-button">
                     <button class="signin"><a href="./login.php" class="link">লগইন</a></button>
-                    <button class="signin"><a href="./signup.php" class="link">সাইন আপ</a></button>
+                    <button class="signin"><a href="./registration.php" class="link">সাইন আপ</a></button>
 
                     <?php endif; ?>
                 </div>

@@ -29,15 +29,15 @@ body {
 }
 .nav ul li{
     list-style-type: none;
-    height: 100%;
+
+
 }
 .nav ul li:hover {
     transform: scale(1.1);
-    background: rgb(178, 70, 3);
+    
     transition: .2s;
     cursor: pointer;
     font-size: 14px;
-    height: 10%;
 
 }
 .nav ul li .link {
@@ -49,11 +49,18 @@ body {
     margin: 10px 0; 
     transition: color 0.5s;
 }
+.nav ul li .link:hover {
+    transform: scale(1.1);
+    border-bottom: 5px solid white;
+    transition: .2s;
+    cursor: pointer;
+    font-size: 14px;
 
+}
 /* Style for the round cart image */
 .cart_round-image {
-    width: 40px; 
-    height: 40px; 
+    width: 30px; 
+    height: 30px; 
     border-radius: 50%; 
 }
 
@@ -162,4 +169,22 @@ body {
     display: flex;
     border-radius: 15px;
     
+}
+.logt{
+    text-align: center;
+    color: white;
+    margin-top:18%;
+    font-size: 25px;
+    font-weight: 600;
+}
+.logt span{
+    color: #011413;
+    font-size: 35px;
+    
+
+}
+.logt a {
+    text-decoration: none;
+    color: #f1f1f1;
+    font-weight: 600;
 }

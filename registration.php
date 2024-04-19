@@ -34,6 +34,81 @@
             <i class="bx bxs-phone"></i>
         </div>
 
+
+
+        <label for="district">Select a district:</label>
+        <div class="input-container">
+<input type ="text" list="districts" id="district" name="district">
+
+<datalist id="districts">
+  <option value="Bandarban">
+  <option value="Barguna">
+  <option value="Barishal">
+  <option value="Bhola">
+  <option value="Bogura">
+  <option value="Brahmanbaria">
+  <option value="Chandpur">
+  <option value="Chattogram">
+  <option value="Chuadanga">
+  <option value="Cumilla">
+  <option value="Cox's Bazar">
+  <option value="Dhaka">
+  <option value="Dinajpur">
+  <option value="Faridpur">
+  <option value="Feni">
+  <option value="Gaibandha">
+  <option value="Gazipur">
+  <option value="Gopalganj">
+  <option value="Habiganj">
+  <option value="Jamalpur">
+  <option value="Jashore">
+  <option value="Jhalokati">
+  <option value="Jhenaidah">
+  <option value="Joypurhat">
+  <option value="Khagrachari">
+  <option value="Khulna">
+  <option value="Kishoreganj">
+  <option value="Kurigram">
+  <option value="Kushtia">
+  <option value="Lakshmipur">
+  <option value="Lalmonirhat">
+  <option value="Madaripur">
+  <option value="Magura">
+  <option value="Manikganj">
+  <option value="Meherpur">
+  <option value="Moulvibazar">
+  <option value="Munshiganj">
+  <option value="Mymensingh">
+  <option value="Naogaon">
+  <option value="Narail">
+  <option value="Narayanganj">
+  <option value="Narsingdi">
+  <option value="Natore">
+  <option value="Netrokona">
+  <option value="Nilphamari">
+  <option value="Noakhali">
+  <option value="Pabna">
+  <option value="Panchagarh">
+  <option value="Patuakhali">
+  <option value="Pirojpur">
+  <option value="Rajbari">
+  <option value="Rajshahi">
+  <option value="Rangamati">
+  <option value="Rangpur">
+  <option value="Satkhira">
+  <option value="Shariatpur">
+  <option value="Sherpur">
+  <option value="Sirajganj">
+  <option value="Sunamganj">
+  <option value="Sylhet">
+  <option value="Tangail">
+  <option value="Thakurgaon">
+</datalist>
+</div>
+
+
+
+
         <label for="password">পাসওয়ার্ড নিশ্চিত করুন : </label>
         <div class="input-container">
             <input type="text" name="password" id="password">

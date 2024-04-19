@@ -99,18 +99,20 @@
 /*select dropdown*/
 /* Style for the dropdown container */
 .dropdown-container {
+    border-top: 1px solid black;
     display: flex;
-    justify-content: end;
-    align-items: end;
+    justify-content: space-between;
+    align-items: start;
     margin-top: 0px;
-    z-index: -9999;
+    background-color: #F07B3F;
 }
 
 /* Style for each dropdown */
 .dropdown {
-
-    margin-right: 20px; 
-    z-index: -9999;/* Add some space between dropdowns */
+margin-top: 1%;
+margin-bottom: .5%;
+    margin-right: 20px;
+    margin-left: 1%; 
 }
 
 /* Style for the dropdown menus */
@@ -122,7 +124,6 @@
     background-color: #f9f9f9;
     cursor: pointer;
     outline: none;
-    z-index:  -9999;
 
 }
 

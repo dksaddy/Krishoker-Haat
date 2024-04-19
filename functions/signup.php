@@ -4,6 +4,7 @@ include("../template/db_connect.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $errors = array('phone_number' => '', 'password'=>'', 'user_type'=>''); 
 $phone_number = mysqli_real_escape_string($conn,$_POST["phone_number"]);
+$district = mysqli_real_escape_string($conn,$_POST["district"]);
 $password = mysqli_real_escape_string($conn,$_POST["password"]);
 $re_password = mysqli_real_escape_string($conn,$_POST["re_password"]);
 if($password == $re_password){
@@ -61,7 +62,7 @@ if (isset($_POST['farmer'])) {
 // Insert user into the database
 
 // Prepare the SQL statement for insertion
-$stmt = $conn->prepare("INSERT INTO `user`(`phone_number`,`user_type`,`password`) VALUES (?, ?,?)");
+$stmt = $conn->prepare("INSERT INTO `user`(`phone_number`,`user_type`,`district`,`password`) VALUES (?,?,?,?)");
 
 // Check for successful preparation
 if ($stmt === false) {
@@ -69,7 +70,7 @@ if ($stmt === false) {
 }
 
 // Bind parameters
-$stmt->bind_param("sss", $phone_number,$userType, $hashedPassword);
+$stmt->bind_param("ssss", $phone_number,$userType,$district,$hashedPassword);
 
 // Execute the statement
 if ($stmt->execute()) {

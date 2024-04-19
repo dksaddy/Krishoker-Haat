@@ -41,14 +41,14 @@ if (!empty($_SESSION['user_id'])) {
       <img src="image/Icon/mainlogo.jpg" width="80" height="80">
     </div> 
                <ul>
-                    <li><a href="./HomePage.php" class="link">HOME</a></li>
-                    <li><a href="#" class="link">#</a></li>
+                    <li><a href="./HomePage.php" class="link">হোম</a></li>
                     <li><a href="AllProduct.php?data=all" class="link">পণ্যসমুহ</a></li>
 
                     <?php if($log): ?>
+                <li><a href="<?php echo ($fetch['user_type'] == 'farmer') ? 'add-product.php' : '#'; ?>"class="link">Add Product</a></li>
                <li><a href="community_post.php"class="link">কমিউনিটি</a></li>
                <li><a href="article.php"class="link">আর্টিকেল</a></li>
-     
+                <li><a href="Cart.php"class="link">কার্ট<img src="image/Icon/cart.png" alt="Profile Picture" class="cart_round-image"></a></li>
                  <li class="dropdown">
                <?php 
                    echo '<img src="image/image.jpg" alt="Profile Picture" class="round-image">';
@@ -60,9 +60,9 @@ if (!empty($_SESSION['user_id'])) {
         echo "<h5>Welcome " . $fetch['name'] . " </h5>";
     }
 ?>
-<a href="<?php echo ($fetch['user_type'] == 'farmer') ? 'farmerProfile.php' : 'userProfile.php'; ?>">User Profile</a>
-                   <a href="update_profile.php">Update Profile</a>
-                   <a href="functions/logout.php">LOG OUT</a>
+<a href="<?php echo ($fetch['user_type'] == 'farmer') ? 'farmerProfile.php' : 'userProfile.php'; ?>">আমার প্রোফাইল </a>
+                   <a href="update_profile.php">প্রোফাইল  আপডেট</a>
+                   <a href="functions/logout.php">লগ আউট</a>
                </div>
              </li>
 

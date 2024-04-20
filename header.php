@@ -44,7 +44,7 @@ if (!empty($_SESSION['user_id'])) {
                     <li><a href="./HomePage.php" class="link">হোম</a></li>
                     <li><a href="AllProduct.php?data=all" class="link">পণ্যসমুহ</a></li>
                     <li><a href="article.php"class="link">আর্টিকেল</a></li>
-                    <li><a href="article.php"class="link">আমাদের সম্পর্কে</a></li>
+                    <li><a href="about.php"class="link">আমাদের সম্পর্কে</a></li>
 
 
                     <?php if($log): ?>

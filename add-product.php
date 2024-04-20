@@ -28,7 +28,7 @@ if (isset($_POST["submit"])){
     $details = mysqli_real_escape_string($conn, $details);
 
     // Insert the product into the database
-    $sql = "INSERT INTO product (name, category, price, user_id, image, quantity, description)
+    $sql = "INSERT INTO product (p_name, category, price, user_id, image, quantity, description)
             VALUES ('$productName', '$category', '$price', '$user_id', '$image', '$quantity', '$details')";
 
     if ($conn->query($sql) === TRUE) {

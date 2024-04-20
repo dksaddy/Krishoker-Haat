@@ -17,6 +17,8 @@ include('template/db_connect.php'); // Ensure you have a connection to the datab
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <link rel="stylesheet" href="css\All Product.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css\footer.css">
 </head>
@@ -24,24 +26,40 @@ include('template/db_connect.php'); // Ensure you have a connection to the datab
 <body>
     <?php include("header.php") ?>
 
+    
+
     <div class="dropdown-container">
         <div class="dropdown">
-        <select name="category">
-        <option value="new">Select a category to sort</option>
-  <option value="new">New Arrival</option>
-  <option value="high">High to Low</option>
-  <option value="low">Low to High</option>
-  <option value="best">Best Selling</option>
-</select>
+        
+        <form action="AllProduct.php" method="post">
+    <select name="category">
+        <option> একটি বিভাগ নির্বাচন করুন</option>
+        <option value="new">নতুন পণ্য</option>
+        <option value="high">দাম উচ্চ থেকে কম</option>
+        <option value="low">দাম কম থেকে বেশি</option>
+        <option value="best">Best Selling</option>
+    </select>
+    <button type="submit">Sort Now</button>
+</form>
 
         </div>
-        <div class="dropdown">
+
+
+
+
+        <div class="slideable-text">
+        <p>কৃষকের হাটে স্বাগতম।</p>
+    </div>
+
+
+        <div class="search">
         <form action="AllProduct.php" method="GET">
-        <input type="text" name="search" placeholder="Search products..." required>
-        <button type="submit">Search</button>
+        <input type="text" name="search" placeholder="পণ্য খুজুন..." required>
+        <button type="submit">খুজুন</button>
         </form>
-
         </div>
+
+
     </div>
     <div class="container_for_product">
 
@@ -94,6 +112,66 @@ include('template/db_connect.php'); // Ensure you have a connection to the datab
                     show($sqlinput);
                 }
 
+
+//sort functionality start
+
+
+$category = isset($_POST['category']) ? $_POST['category'] : '';
+//echo $category;
+
+// Modify the query based on the category
+if (($category == "new") || ($category == "high") || ($category == "low")) {
+    $sql1 = "SELECT * FROM product";
+    // Add a ORDER BY clause to sort by price, newest first or oldest last
+switch ($category) {
+        case 'new':
+            $sql1 .= " ORDER BY timestamp DESC"; // Newest products first
+            break;
+        case 'high':
+            $sql1 .= " ORDER BY price DESC"; // Price from high to low
+            break;
+        case 'low':
+            $sql1 .= " ORDER BY price ASC"; // Price from low to high
+            break;
+        //case 'best':
+            //$sql1 .= " ORDER BY timestamp DESC"; // Best-selling products first
+          //  break;
+        default:
+            // If an invalid category is provided, default sorting by timestamp
+            $sql1 .= " ORDER BY timestamp DESC"; 
+            break;
+    }
+
+//echo $sql1;
+// Execute the query
+$result = $conn->query($sql1);
+
+// Check for results and display them
+if ($result->num_rows > 0) {
+    while ($product = $result->fetch_assoc()) {
+        $product_id = $product['product_id'];
+        $name = $product['p_name'];
+        $image = $product['image'];
+        $price = $product['price'];
+        echo '
+        <a class="card_link" href="IndividualProduct.php?data='.$product_id.'">
+        <div class="parent">
+        <div class="child-1">
+            <img src="'.$image.'" alt="" width="100%" height="100%">
+        </div>
+
+        <div class="child-2">
+            <div class="child-2-1">'.$name.'</div>
+            <div class="child-2-2">৳'.$price.' /kg</div>
+        </div>
+    </div>
+        </a>
+        '; 
+    }
+} else {
+    echo "No products found.";
+}
+}
 //search functionality Start
                 if (isset($_GET['search'])) {
                     $search_term = $_GET['search'];

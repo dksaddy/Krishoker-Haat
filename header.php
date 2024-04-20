@@ -48,26 +48,33 @@ if (!empty($_SESSION['user_id'])) {
 
 
                     <?php if($log): ?>
-                <li><a href="<?php echo ($fetch['user_type'] == 'farmer') ? 'add-product.php' : '#'; ?>"class="link">Add Product</a></li>
+                        <?php if ($fetch['user_type'] == 'farmer'): ?>
+    <li><a href="add-product.php" class="link">এড প্রোডাক্ট</a></li>
+<?php endif; ?>
                <li><a href="community_post.php"class="link">কমিউনিটি</a></li>
                 <li><a href="Cart.php"class="link">কার্ট<img src="image/Icon/cart.png" alt="Profile Picture" class="cart_round-image"></a></li>
-                 <li class="dropdown">
-               <?php 
+                
+                <li class="profile_dropdown">
+    <!-- Picture -->
+    <div class="dropdown">
+    <?php 
                    echo '<img src="image/image.jpg" alt="Profile Picture" class="round-image">';
-                 ?>
-                 
-                  <div class="dropdown-content">
-                  <?php
-    if (!empty($_SESSION['user_id'])) {
-        echo "<h5>Welcome " . $fetch['name'] . " </h5>";
-    }
-?>
-<a href="<?php echo ($fetch['user_type'] == 'farmer') ? 'farmerProfile.php' : 'userProfile.php'; ?>">আমার প্রোফাইল </a>
-                   <a href="update_profile.php">প্রোফাইল  আপডেট</a>
-                   <a href="functions/logout.php">লগ আউট</a>
-               </div>
-             </li>
+                 ?>      <!-- Dropdown Content -->
+      <div class="dropdown-content">
+      <?php
+                   if (!empty($_SESSION['user_id'])) {
+                    echo "<p>Welcome " . $fetch['name'] . " </p>";
+                  }
+                ?>
+                <div class="drp"><a href="<?php echo ($fetch['user_type'] == 'farmer') ? 'farmerProfile.php' : 'userProfile.php'; ?>">আমার প্রোফাইল</a></div>
+        <div class="drp"><a href="update_profile.php">আপডেট প্রোফাইল</a></div>
+        <div class="log_out"><a href="functions/logout.php">Log Out</a></div>
 
+      </div>
+    </div>
+  </li>
+                
+   
                 </ul>
                 <?php else: ?>
                 <div class="nav-button">

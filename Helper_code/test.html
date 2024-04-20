@@ -1,40 +1,114 @@
-<input type="text" list="policeStation" placeholder="OR Select Area" name="policeStation" />
-          <datalist id="policeStation">
-            <option value="Khilkhet">Khilkhet</option>
-            <option value="Kafrul ">Kafrul </option>
-            <option value="Dhanmondi">Dhanmondi</option>
-            <option value="Mohammadpur">Mohammadpur</option>
-            <option value="Sutrapur">Sutrapur</option>
-            <option value="Jatrabari">Jatrabari</option>
-            <option value="Airport">Airport</option>
-            <option value="Gulshan">Gulshan</option>
-            <option value="Uttara West">Uttara West</option>
-            <option value="Mugda">Mugda</option>
-            <option value="Rupnagar">Rupnagar</option>
-            <option value="Vashantek">Vashantek</option>
-            <option value="Bhatara">Bhatara</option>
-            <option value="Banani">Banani</option>
-            <option value="Wari">Wari</option>
-            <option value="Shahjahanpur">Shahjahanpur</option>
-            <option value="Sher-e-Bangla Nagar">Sher-e-Bangla Nagar</option>
-            <option value="Mirpur">Mirpur</option>
-            <option value="Darussalam">Darussalam</option>
-            <option value="Dakshin Khan">Dakshin Khan </option>
-            <option value="Uttarkhan">Uttarkhan</option>
-            <option value="Cantonment">Cantonment</option>
-            <option value="Badda">Badda</option>
-            <option value="Pallabi">Pallabi</option>
-            <option value="Tejgaon Industrial Area">Tejgaon Industrial Area</option>
-            <option value="Rampura">Rampura</option>
-            <option value="Kalabagan">Kalabagan</option>
-            <option value="Shahbag">Shahbag</option>
-            <option value="Motijheel">Motijheel</option>
-            <option value="Khilgaon">Khilgaon</option>
-            <option value="Ramna">Ramna</option>
-            <option value="Paltan">Paltan</option>
-            <option value="Newmarket">Newmarket</option>
-            <option value="Adabar">Adabar</option>
-            <option value="Uttarkhan">Uttarkhan</option>
-            <option value="Hatirjheel">Hatirjheel</option>
-          </datalist>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hover Dropdown Menu</title>
+<style>
+  /* Styling for the dropdown */
+  .round-image {
+    border-radius: 50%;
+    width: 50px; /* Adjust the width and height as needed */
+    height: 50px;
+}
+
+   /* Styling for the dropdown */
+   .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Styling for the dropdown content */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    margin-top: 1%;
+    background-color: #c8a582;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 100%; /* Position dropdown below the image */
+    left: 1%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    opacity: 0;
+    pointer-events: none; /* Prevents the dropdown from interfering with other elements while hidden */
+    transition: opacity 1.9s ease-in-out;
+  }
+
+  /* Styling for the dropdown items */
+  .dropdown-content a {
+    color: black;
+    padding: 5px 5px;
+    text-decoration: none;
+    display: block;
+  }
+
+  /* Styling for the dropdown items on hover */
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+
+  /* Show the dropdown content when hovering over the dropdown container */
+  .dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    pointer-events: auto; /* Allows interaction with the dropdown when visible */
+  }
+</style>
+</head>
+<body>
+
+<!-- Example list with dropdown -->
+<ul>
+  <li>
+    <!-- Picture -->
+    <div class="dropdown">
+      <img src="../image/image.jpg" alt="Profile Picture" class="round-image">      <!-- Dropdown Content -->
+      <div class="dropdown-content">
+        <a href="#">Option 1</a>
+        <a href="#">Option 2</a>
+        <a href="#">Option 3</a>
+      </div>
+    </div>
+  </li>
+  <!-- Add more list items as needed -->
+</ul>
+
+</body>
+</html>
+
+
+
+
+
+             
+                
+                
+<li>
+  <div class="round_image">
+      <div class="dropdown">
+     
+ <?php 
+     echo '<img src="image/image.jpg" alt="Profile Picture" class="round-image">';
+   ?>
+   
+    <div class="dropdown_content">
+    <?php
+     if (!empty($_SESSION['user_id'])) {
+      echo "<h5>Welcome " . $fetch['name'] . " </h5>";
+    }
+  ?>
+  </div>
+  <div class=drp1><a href="<?php echo ($fetch['user_type'] == 'farmer') ? 'farmerProfile.php' : 'userProfile.php'; ?>">আমার প্রোফাইল </a>
+</div>
+      <div class="drp1">
+      <a href="update_profile.php">প্রোফাইল  আপডেট</a>
+      </div>
+     <div class="drp1">
+      <a href="functions/logout.php">লগ আউট</a>
+  </div>
+     
+ </div>
+</li>
+*/

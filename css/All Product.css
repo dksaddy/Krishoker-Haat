@@ -96,6 +96,8 @@
     word-spacing: 10px;
     letter-spacing: 5px;
 }
+
+
 /*select dropdown*/
 /* Style for the dropdown container */
 .dropdown-container {
@@ -126,7 +128,21 @@ margin-bottom: .5%;
     outline: none;
 
 }
-
+.dropdown button{
+    padding: 6px 10px;
+    border: 2px solid transparent; /* Transparent border to maintain button size when border changes */
+    background-color: #2D4059; /* Blue background */
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+.dropdown button:hover {
+    background-color: #05a327; 
+    transform: scale(1.04);
+    transition: .4s;
+    border: 2px  solid #ffffff; 
+}
 select:hover {
     transform: scale(1.1);
     background-color: rgb(255, 255, 255);
@@ -151,4 +167,96 @@ option:hover {
     background-color: rgb(255, 255, 255);
     transition: .4s;
     cursor: pointer;
+}
+
+
+
+
+
+
+/* General styling for the search container */
+.search {
+    width: 500px; 
+    padding: 8px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Styling for the input field */
+.search input[type="text"] {
+    width: 60%; 
+    padding: 8px 10px 8px 30px; 
+    margin-right: 0; 
+    border: 2px solid #2D4059; 
+    border-radius: 30px; 
+    outline: none; 
+    transition: border-color 0.3s; /* Smooth transition for the border color */
+}
+
+/* Styling for the button */
+.search button {
+    padding: 6px 10px;
+    border: 2px solid transparent; /* Transparent border to maintain button size when border changes */
+    background-color: #2D4059; /* Blue background */
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+/* Hover effects for input */
+.search input[type="text"]:hover,
+.search input[type="text"]:focus {
+    border-color: #0aad1d; 
+    /* Change border color on hover/focus */
+    transform: scale(1.04);
+    transition: .4s;
+}
+
+/* Hover effects for button */
+.search button:hover {
+    background-color: #05a327; 
+    transform: scale(1.04);
+    transition: .4s;
+    border: 2px  solid #ffffff; 
+}
+
+
+
+/*slide text*/
+.slideable-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    width:30%;
+    background-color: transparent;
+    color: #080505;
+    padding: 30px;
+    
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.slideable-text p {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    font-size: 20px;
+    transform: translateY(-50%);
+    animation: slideText 20s linear infinite;
+    margin: 0; /* Remove default margin */
+    width: auto; 
+    color: #ffffff;
+}
+
+@keyframes slideText {
+    0% {
+        left: 100%; /* Start off the screen on the right */
+    }
+    100% {
+        left: -100%; /* Move off the screen to the left */
+    }
 }

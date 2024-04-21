@@ -107,7 +107,7 @@
                         <p>Category: '.$category.' </p>
                         <p>Farmer: '.$farmer.' </p>
                     </div>
-                    <div><img src="'.$image.'" width="100% height="100%"></div>
+                    <div><img src="'.$image.'" width="100%" height="100%"></div>
                 </div>
 
                 <div class="right_div">

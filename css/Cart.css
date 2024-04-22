@@ -15,17 +15,17 @@
 
 .holder {
     width: 20%;
+    height: 200px;
     background-color: rgba(255, 255, 255, 0.911);
     margin: 15px 35px;
     box-shadow: 2px 2px 6px 3px rgba(82, 73, 73, 0.548);
     border-radius: 10px;
-    border: 3px solid rgb(236, 140, 30);
+    border: 3px solid rgb(251, 97, 2);
 }
 
 .holder:hover {
     transform: scale(1.1);
     transition: .4s;
-    border-color: black;
     background-color: white;
 }
 
@@ -63,7 +63,7 @@
     display: flex;
     flex-direction: column;
     gap: 5%;
-    margin: 5px 0 5px;
+    margin: 0px 0 5px;
 }
 
 

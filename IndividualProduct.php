@@ -107,12 +107,13 @@
                         <p>Category: '.$category.' </p>
                         <p>Farmer: '.$farmer.' </p>
                     </div>
-                    <div><img src="'.$image.'" width="100%" height="100%"></div>
+                    <div style="height: 400px; width:100%"><img src="'.$image.'" width="100%" height="100%"></div>
                 </div>
+
 
                 <div class="right_div">
                     <form id="quantityForm" action="IndividualProduct.php?data='.$product_id.'" method="post" onsubmit="enableInput()">
-                        <div style="font-weight: bold; margin-top: 40px">Quantity (kg)</div>
+                        <div style="font-weight: bold; margin-top: 20px">Quantity (kg)</div>
 
                         <div style="display: flex; gap: 20px">
                             <div><button type="button" id="minusButton" name="minus" onclick="decrementQuantity()">-</button></div>
@@ -120,7 +121,7 @@
                             <div><button type="button" id="plusButton" name="plus" onclick="incrementQuantity()">+</button></div>
                         </div>
 
-                        <div style="margin: 20px 0 0 70px">
+                        <div style="margin: 0 0 0 70px">
                             Remaining: <input type="text" id="remaining" name="remaining" disabled
                             value="'.($quantity - 1).'"> (kg)
                         </div>
@@ -133,14 +134,20 @@
                             Total Price: <input type="text" id="totalPrice" name="totalPrice" disabled value="'.$price.'">
                         </div>
 
-                        <div style="font-size: 17px; color: red; margin-top: 20px; animation: erorr 1s infinite linear;
+                        <div style="font-size: 17px; color: red; animation: erorr 1s infinite linear;
                             letter-spacing: 2px; word-spacing: 3px; background-color: white">
                             '.$prob.'
                         </div>
 
-                        <div style="display: flex; gap: 30px; flex-wrap: wrap">
+                        <div style="display: flex; gap: 30px; flex-wrap: wrap;">
                             <button name="cart" class="cart_btn">Add to Cart</button>
                             <button name="buy" class="cart_btn" style="background-color: rgb(101, 91, 245)">Buy Now</button>
+                        </div>
+
+                        <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 10px">
+                            <p style="font-size: 18px; font-weight: bold; animation: attention 2s infinite linear">
+                            If you want to Buy the Products with other Contributor.
+                            </p>
                             <button name="posting" class="cart_btn" style="background-color: rgb(80, 91, 155)">Add Post</button>
                         </div>
 

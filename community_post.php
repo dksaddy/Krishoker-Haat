@@ -27,14 +27,12 @@
 
   <?php
 
+    include("template/db_connect.php");
 
-// Include necessary files
-include("template/db_connect.php");
-// Check if the user is logged in
-if (!isset($_SESSION['user_id'])) {
-   
-   header("Location: community_post.php");
-   exit(); 
+    // Check if the user is logged in
+    if (!isset($_SESSION['user_id'])) {
+    header("Location: community_post.php");
+    exit(); 
 }
 
 
@@ -42,7 +40,6 @@ if (!isset($_SESSION['user_id'])) {
 
 // Handle form submissions
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
- 
     // Check if the form is for creating a new post
     if (isset($_POST['submit_post'])) {
         $title = mysqli_real_escape_string($conn, $_POST['title']);
@@ -69,44 +66,29 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Redirect to the same page after post creation
         header("Location: community_post.php");
         exit();
-    }
-
-    
+    } 
 }
-
-// Fetch and display group selling posts
-
-$query = "SELECT group_purchase.*, user.name, user.profile_picture, COUNT(group_purchase_contributor.id) AS contributor_count
-          FROM group_purchase
-          LEFT JOIN user ON group_purchase.leader_id = user.user_id
-          LEFT JOIN group_purchase_contributor ON group_purchase.group_id = group_purchase_contributor.group_id
-          GROUP BY group_purchase.group_id
-          ORDER BY group_purchase.timestamp DESC";
-
-$result = mysqli_query($conn, $query) or die('Query failed: ' . mysqli_error($conn));
 ?>
 
 
 
-
 <?php
-$product_name = " ";
-$price = "";
-$description= "";
-$category = "";
-$image_path = "";
+            $product_name = " ";
+            $price = "";
+            $description= "";
+            $category = "";
+            $image_path = "";
 // Retrieve values from URL parameters
 if (isset($_GET['data1']) && isset($_GET['data2']) && isset($_GET['data3'])) {
     $product_id = urldecode($_GET['data1']);
     echo $product_id;
     $quantity = urldecode($_GET['data2']);
     $totalPrice = urldecode($_GET['data3']);
-    // Now you can use these variables as needed in your code
-    // Define the SQL query to retrieve all columns from the product table
-$product_query = "SELECT * FROM `product` WHERE product_id =$product_id";
+    
+        $product_query = "SELECT * FROM `product` WHERE product_id =$product_id";
 
-// Execute the query
-$product_result = mysqli_query($conn, $product_query);
+        // Execute the query
+        $product_result = mysqli_query($conn, $product_query);
 
 // Check if the query was successful
 if ($product_result) {
@@ -114,10 +96,11 @@ if ($product_result) {
     while ($row = mysqli_fetch_assoc($product_result)) {
         // Access each column data using associative array keys
         $product_name = htmlspecialchars($row['p_name']);
-        $price = number_format((int)$row["price"]);
+        $price = floatval($price);
         $description= htmlspecialchars($row['description']);
         $category = htmlspecialchars($row['category']);
         $image_path = htmlspecialchars($row['image']);
+        echo $image_path;
         // Repeat the above for all columns in the product table
         // For example:
         // echo "Column Name: " . $row['column_name'] . "<br>";
@@ -130,8 +113,7 @@ if ($product_result) {
 // Free result set
 mysqli_free_result($product_result);
 
-// Close connection
-mysqli_close($conn);
+
 }
 
 ?>
@@ -190,8 +172,13 @@ if (isset($_SESSION['user_id'])) {
      <input type="number" name="quantity" placeholder="Quantity" value="<?php echo $quantity; ?>" required><br> 
      <label class="post_form_label">Choose image :</label>
 
-     <input type="file" name="image"><br> <!-- File input for image upload -->
-      <!-- Button to show confirmation popup --> 
+<!-- Display the current image -->
+<?php if (!empty($image_path)): ?>
+    <img src="<?php echo $image_path; ?>" alt="Current Image">
+<?php endif; ?>
+
+<!-- File input for image upload -->
+<input type="file" name="image" accept="image/*">      <!-- Button to show confirmation popup --> 
       <button type="submit" name="submit_post">Submit Post</button> 
      </form>
 </div>
@@ -215,6 +202,20 @@ if (isset($_SESSION['user_id'])) {
 <div class="blogHome">
    <h2>Group Selling Posts</h2>
    <?php
+
+// Fetch and display group selling posts
+
+$query = "SELECT group_purchase.*, user.name, user.profile_picture, COUNT(group_purchase_contributor.id) AS contributor_count
+          FROM group_purchase
+          LEFT JOIN user ON group_purchase.leader_id = user.user_id
+          LEFT JOIN group_purchase_contributor ON group_purchase.group_id = group_purchase_contributor.group_id
+          GROUP BY group_purchase.group_id
+          ORDER BY group_purchase.timestamp DESC";
+
+$result = mysqli_query($conn, $query) or die('Query failed: ' . mysqli_error($conn));
+
+
+
    while ($row = mysqli_fetch_assoc($result)):
       echo '<div class="blog-post">';
       echo '<h5><img src="' . $row['profile_picture'] . '" alt="Profile Picture" class="round-image"> ' . $row['name'] .'</h5>';
@@ -275,7 +276,7 @@ if(isset($_POST['bid'])) {
      echo "You have already contributed to this group post.";
  } else {
     // Query to find out quantity for each group
-$query = "SELECT quantity
+$query = "SELECT *
 FROM group_purchase
 WHERE  group_id='$group_id'";
 
@@ -290,6 +291,7 @@ die('Query failed: ' . mysqli_error($conn));
 // Fetch and display the results
 while ($row = mysqli_fetch_assoc($result)) {
 $quantity_remain= $row['quantity'];
+$product_id_group=$row['product_id'] ;
 }
 
 
@@ -308,6 +310,21 @@ if (mysqli_query($conn, $insert_query)) {
 // Bid successfully inserted, now update the quantity in group_purchase table
 $update_query = "UPDATE group_purchase SET quantity = quantity - '$bid_quantity' WHERE group_id = '$group_id'";
 if (mysqli_query($conn, $update_query)) {
+    $product_cart_query="SELECT * FROM `product` WHERE product_id= '$product_id_group' ";
+                        $product_cart_res = mysqli_query($conn,$product_cart_query);
+                         while($row=mysqli_fetch_array($product_cart_res)){
+                            $price_per_unit = $row['price'];
+                            }
+                            
+                           $total_price= $price_per_unit*$bid_quantity;
+    $cart_update_query ="INSERT INTO `cart`(`user_id`, `product_id`, `product_price`, `quantity`, `order_type`) VALUES ('$user_id','$product_id_group','$total_price','$bid_quantity','group')";
+    echo $cart_update_query;
+    // Display a success message
+    if (mysqli_query($conn, $cart_update_query)) {
+        echo  "The product is added to your cart.";
+
+    }
+
     echo  "Your contribution is recorded.";
   unset($_POST['bid_amount']); 
   // Redirect to the same page using GET request to prevent form resubmission
@@ -326,9 +343,6 @@ echo "Error inserting bid: " . mysqli_error($conn);
 
 }
  }
-
-
-
 
 $conn->close();
  }

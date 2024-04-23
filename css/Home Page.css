@@ -11,13 +11,14 @@ h3 {
     justify-content: center;
     position: relative;
     overflow: hidden;
-    width:90%;
-    background-color: transparent;
-    color: #080505;
+    width:100%;
+    background-color: #FFD460;
+    color: #ffffff;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     white-space: nowrap; /* Prevent text from wrapping */
+    z-index: -9999;
 }
 
 .slideable-text p {
@@ -29,7 +30,7 @@ h3 {
     animation: slideText 40s linear infinite;
     margin: 0; /* Remove default margin */
     width: auto; 
-    color: #198c07;
+    color: #000000;
 }
 
 @keyframes slideText {
@@ -98,7 +99,7 @@ h3 {
 
 
 .first_div_2 {
-    width: 50%;
+    width: 60%;
     margin: 3px 0 3px;
     
     box-shadow: 2px 2px 10px 3px rgb(180, 176, 176);
@@ -114,7 +115,16 @@ h3 {
     75% {background-image: url("../image/Category/slide4.jpg");}
 }
 
+.first_div_3{
+    width: 23%;
+    background-color: rgba(255, 255, 255, 0.92);
+    display: flex;
+    flex-direction: column;
+    padding: 10px 50px;
+    margin: 3px 0 3px 5px;
 
+    border-radius: 10px;
+}
 
 /*This CSS for Product Salling ...................*/
 
@@ -150,7 +160,7 @@ h3 {
 }
 
 .child-1 {
-    height: 150px;
+    height: 130px;
 }
 
 .child-1 img {
@@ -176,7 +186,13 @@ h3 {
     word-spacing: 10px;
     letter-spacing: 5px;
 }
-
+.child-2-1-3 {
+    font-size: 10px;
+    word-spacing: 3px;
+    letter-spacing: 1px;
+    color: #198c07;
+    height: 8px;
+}
 
 
 /*..END.. CSS of Product Selling ...............*/

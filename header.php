@@ -58,8 +58,8 @@ if (!empty($_SESSION['user_id'])) {
     <!-- Picture -->
     <div class="dropdown">
     <?php 
-                   echo '<img src="image/image.jpg" alt="Profile Picture" class="round-image">';
-                 ?>      <!-- Dropdown Content -->
+echo '<img src="' . $fetch['profile_picture'] . '" alt="প্রভাত কুন্ডু শাওন image" class="round-image">';
+?>      <!-- Dropdown Content -->
       <div class="dropdown-content">
       <?php
                    if (!empty($_SESSION['user_id'])) {

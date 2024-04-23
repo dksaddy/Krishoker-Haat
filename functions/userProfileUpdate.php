@@ -14,9 +14,8 @@ if (isset($_POST['update_profile'])) {
     // Validate and sanitize input data
     $update_name = mysqli_real_escape_string($conn, $_POST['name']);
     $update_email = mysqli_real_escape_string($conn, $_POST['email']);
+    $update_district = mysqli_real_escape_string($conn, $_POST['district']);
     $update_address = mysqli_real_escape_string($conn, $_POST['address']);
-    $update_user_type = mysqli_real_escape_string($conn, $_POST['user_type']);
-
 
     if (isset($_FILES['profile_picture']) && $_FILES['profile_picture']['error'] == 0) {
         // Your existing code for handling the image upload
@@ -43,10 +42,10 @@ if (isset($_POST['update_profile'])) {
         }
         
         // Update user information using a prepared statement
-        $update_query = "UPDATE `user` SET `name`=' $update_name',`email`='$update_email',`address`='$update_address',`user_type`='$update_user_type',`profile_picture`='$updatedImage' WHERE user_id = $user_id";
+        $update_query = "UPDATE `user` SET `name`=' $update_name',`email`='$update_email',`district`='$update_district',`address`='$update_address',`profile_picture`='$updatedImage' WHERE user_id = $user_id";
     } else {
         // Update user information without changing the image path
-        $update_query = "UPDATE `user` SET `name`=' $update_name',`email`='$update_email',`address`='$update_address',`user_type`='$update_user_type' WHERE user_id = $user_id";
+        $update_query = "UPDATE `user` SET `name`=' $update_name',`email`='$update_email',`district`='$update_district',`address`='$update_address' WHERE user_id = $user_id";
     }
     // Execute the statement
     if (mysqli_query($conn, $update_query)) {

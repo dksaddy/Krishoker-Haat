@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>কৃষকের হাট - বাংলাদেশের প্রথম 'F2C' ই-কমার্স সাইট</title>
     <link rel="stylesheet" href="css\Home Page.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css\footer.css">
 </head>
@@ -52,7 +52,7 @@
                 <a href="AllProduct.php?data=Farming Tools">
                     <div>Farming Tools</div>
                 </a>
-                <a href="AllProduct.php?data=Fertilize">
+                <a href="AllProduct.php?data=Fertilizer">
                     <div>Fertilizer</div>
                 </a>
                 <a href="AllProduct.php?data=Pesticide">
@@ -65,6 +65,27 @@
 
             <div class="first_div_2"></div>
 
+
+            <div class="first_div_3">
+
+            <div class="slider-container">
+  <div class="slider-track">
+    <div class="slide">
+      <img src="image1.jpg" alt="Slide 1">
+    </div>
+    <div class="slide">
+      <img src="image2.jpg" alt="Slide 2">
+    </div>
+    <div class="slide">
+      <img src="image3.jpg" alt="Slide 3">
+    </div>
+  </div>
+  <button class="prev" onclick="prevSlide()">&#10094;</button>
+  <button class="next" onclick="nextSlide()">&#10095;</button>
+</div>
+
+            </div>
+       
         </div>
         <!--First Div End -->
 
@@ -86,6 +107,7 @@
                     $name = $row['p_name'];
                     $image = $row['image'];
                     $price = $row['price'];
+                    $timestamp  = $row["timestamp"];
                     echo '
                     <a href="IndividualProduct.php?data='.$product_id.'">
                         <div class="parent">
@@ -97,7 +119,9 @@
                             <div class="child-2">   
                                 <div class="child-2-1-1">'.$name.'</div>
                                 <div class="child-2-1-2">৳' .$price.' /kg</div>
-                            </div>
+                                
+                                <div class="child-2-1-3">' . "<p>Listed " . formatTimeDifference($timestamp) . "</p>" . '</div> 
+                          </div>
 
                         </div> 
                     </a>';
@@ -256,7 +280,27 @@
 
     </div> <!-- Main Div End -->
 
+<?php //function for showing time
+// Function to calculate time difference and format it
+function formatTimeDifference($timestamp) {
+    $currentTime = time(); // Current timestamp
+    $messageTime = strtotime($timestamp); // Convert stored timestamp to Unix timestamp
 
+    $timeDifference = $currentTime - $messageTime;
+    if ($timeDifference <60) { // Less than 1 min
+        return "Just Now" ;
+    }elseif ($timeDifference < 3600) { // Less than 1 hour
+        $minutes = floor($timeDifference / 60);
+        return $minutes . " minutes ago";
+    } elseif ($timeDifference < 86400) { // Less than 24 hours
+        $hours = floor($timeDifference / 3600);
+        return $hours . " hours ago";
+    } else {
+        $days = floor($timeDifference / 86400);
+        return $days . " days ago";
+    }
+}
+?>
 
     <?php include('footer.php')?>
 

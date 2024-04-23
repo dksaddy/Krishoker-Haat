@@ -77,6 +77,7 @@
             echo "<script>";
             echo "window.location.href = 'community_post.php?data1=" . urlencode($product_id) . "&data2=" . urlencode($quantity) . "&data3=" . urlencode($totalPrice) . "';";
             echo "</script>";
+
             exit; // Make sure to exit after the redirect to prevent further execution
         }
     }

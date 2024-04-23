@@ -49,9 +49,26 @@
                     <h6>নতুন অর্ডার</h6>
                     <h6> 5</h6>
                </div>
+
+
+
+               <?php
+                    $total_pendings = 0;
+                    $select_pendings = mysqli_query($conn, "SELECT * FROM `order_table` WHERE status = 'pending' AND seller_id = $user_id;
+                    ") or die('query failed');
+
+                    if (mysqli_num_rows($select_pendings) > 0) {
+                        $total_pendings = mysqli_num_rows($select_pendings);
+
+
+                    }
+                    ?>
+
+
                <div class="product dashboardMatrixes">
                 <h6>পেন্ডিং অর্ডার</h6>
-                <h6>6</h6>
+                <h6><?= $total_pendings; ?></h6>
+                <a href="#" class="btn">see orders</a>
                </div>
             </div>
             <div style="display: flex; margin-top: 50px;">

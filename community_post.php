@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,244 +8,331 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="CSS/header.css">
    <link rel="stylesheet" href="css/userBlogHome.css">
-   <title>Blog Home</title>
+   <title>Group Sell Post Home</title>
+   <script>
+       // JavaScript function to show the confirmation popup
+       function showConfirmation() {
+           // Display confirmation popup
+           var confirmation = confirm("Are you sure to order this in a group? After this confirmation you cannot able to cancel this order.If you click 'OK', then check your cart your order will be in a process.Thanks for being with krishoker haat");
+           if (confirmation) {
+               // If user confirms, submit the form
+               document.getElementById('postForm').submit();
+           }
+       }
+   </script>
 </head>
 <body>
   <?php include('header.php') ?>
-<?php
+
+
+  <?php
+
+
+// Include necessary files
 include("template/db_connect.php");
-
-if($_SERVER["REQUEST_METHOD"] === "POST") {
-   $user_id = $_SESSION['user_id'];
-   $blog_id = mysqli_real_escape_string($conn, $_POST['blog_id']);
-   if(isset($_POST['submit_comment'])) {
-      $comment_text = mysqli_real_escape_string($conn, $_POST['comment_text']);
-   }
-   // Check if the comment text is not empty
-   if(!empty($comment_text)) {
-      // Insert comment into the database
-      $commentQuery = "INSERT INTO community_post_comments (user_id, blog_id, comment_text) VALUES ('$user_id', '$blog_id', '$comment_text')";
-      mysqli_query($conn, $commentQuery) or die('Comment query failed: '.mysqli_error($conn));
-      header("Location: community_post.php");
-      exit();
-   }
-
-   // Handle comment deletion
-   if(isset($_POST['delete_comment'])) {
-      $comment_id = mysqli_real_escape_string($conn, $_POST['comment_id']);
-
-      // Perform delete operation
-      $deleteCommentQuery = "DELETE FROM community_post_comments WHERE comment_id = '$comment_id'";
-      mysqli_query($conn, $deleteCommentQuery) or die('Comment deletion failed: '.mysqli_error($conn));
-
-
-      // Redirect to the same page after deletion
-      header("Location: community_post.php");
-      exit();
-   }
-
-
-   // Handle post deletion
-if (isset($_POST['delete_post'])) {
-   $post_id = mysqli_real_escape_string($conn, $_POST['blog_id']);
-
-   // Check if the user is the owner of the post
-   $checkOwnershipQuery = "SELECT user_id FROM community_post WHERE blog_id = '$post_id' LIMIT 1";
-   $ownershipResult = mysqli_query($conn, $checkOwnershipQuery) or die('Ownership check failed: ' . mysqli_error($conn));
-   $ownershipRow = mysqli_fetch_assoc($ownershipResult);
-
-   if ($ownershipRow['user_id'] == $_SESSION['user_id']) {
-       // Manually delete likes for the post
-       $deleteLikesQuery = "DELETE FROM community_post_likes WHERE blog_id = '$post_id'";
-       mysqli_query($conn, $deleteLikesQuery) or die('Likes deletion failed: ' . mysqli_error($conn));
-
-       // Manually delete comments for the post
-       $deleteCommentsQuery = "DELETE FROM community_post_comments WHERE blog_id = '$post_id'";
-       mysqli_query($conn, $deleteCommentsQuery) or die('Comments deletion failed: ' . mysqli_error($conn));
-
-       // Perform delete operation for the post
-       $deletePostQuery = "DELETE FROM community_post WHERE blog_id = '$post_id'";
-       mysqli_query($conn, $deletePostQuery) or die('Post deletion failed: ' . mysqli_error($conn));
-
-       // Redirect to the same page after deletion
-       header("Location: community_post.php");
-       exit();
-   }
+// Check if the user is logged in
+if (!isset($_SESSION['user_id'])) {
+   
+   header("Location: community_post.php");
+   exit(); 
 }
 
 
 
-   // Check if the user has already liked or disliked the post
-   $userLiked = hasUserLikedOrDisliked($conn, $user_id, $blog_id, true);
-   $userDisliked = hasUserLikedOrDisliked($conn, $user_id, $blog_id, false);
 
-   if(isset($_POST['like'])) {
-      if(!$userLiked) {
-          mysqli_query($conn, "UPDATE community_post SET likes = likes + 1 WHERE blog_id = '$blog_id'");
-          if($userDisliked) {
-              mysqli_query($conn, "UPDATE community_post SET dislikes = dislikes - 1 WHERE blog_id = '$blog_id'");
-          }
-          recordLikeOrDislike($conn, $user_id, $blog_id, true);
-      } else {
-          // User is unliking the post
-          mysqli_query($conn, "UPDATE community_post SET likes = likes - 1 WHERE blog_id = '$blog_id'");
-          removeLikeOrDislike($conn, $user_id, $blog_id, true);
-      }
-  } elseif(isset($_POST['dislike'])) {
-      if(!$userDisliked) {
-          mysqli_query($conn, "UPDATE community_post SET dislikes = dislikes + 1 WHERE blog_id = '$blog_id'");
-          if($userLiked) {
-              mysqli_query($conn, "UPDATE community_post SET likes = likes - 1 WHERE blog_id = '$blog_id'");
-          }
-          recordLikeOrDislike($conn, $user_id, $blog_id, false);
-      } else {
-          // User is un-disliking the post
-          mysqli_query($conn, "UPDATE community_post SET dislikes = dislikes - 1 WHERE blog_id = '$blog_id'");
-          removeLikeOrDislike($conn, $user_id, $blog_id, false);
-      }
-  }
-  
+// Handle form submissions
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+ 
+    // Check if the form is for creating a new post
+    if (isset($_POST['submit_post'])) {
+        $title = mysqli_real_escape_string($conn, $_POST['title']);
+        $content = mysqli_real_escape_string($conn, $_POST['content']);
+        $quantity = mysqli_real_escape_string($conn, $_POST['quantity']);
+        $product_id=mysqli_real_escape_string($conn,$_POST['product_id']);
+        echo $title;
+        // Check if an image file is uploaded
+        if (isset($_FILES['image'])) {
+            $image = $_FILES['image']['name'];
+            $image_tmp = $_FILES['image']['tmp_name'];
+            $image_path = "image/community_post/" . $image;
+            
+            // Move uploaded file to the uploads directory
+            move_uploaded_file($image_tmp, $image_path);
+        } else {
+            $image_path = ''; // If no image is uploaded, set default value
+        }
+        
+        // Insert post into the database
+        $insertPostQuery = "INSERT INTO group_purchase (leader_id,product_id, title, content, p_image, quantity) VALUES ('$user_id','$product_id', '$title', '$content', '$image_path', '$quantity')";
+        mysqli_query($conn, $insertPostQuery) or die('Post creation failed: ' . mysqli_error($conn));
+        
+        // Redirect to the same page after post creation
+        header("Location: community_post.php");
+        exit();
+    }
+
+    
 }
 
-// Fetch and display blog posts
-$query = "SELECT 	community_post.*, user.name, profile_picture
-FROM community_post
-INNER JOIN user ON 	community_post.user_id = user.user_id
-ORDER BY community_post.timestamp DESC";
+// Fetch and display group selling posts
 
-$result = mysqli_query($conn, $query) or die('Query failed: '.mysqli_error($conn));
+$query = "SELECT group_purchase.*, user.name, user.profile_picture, COUNT(group_purchase_contributor.id) AS contributor_count
+          FROM group_purchase
+          LEFT JOIN user ON group_purchase.leader_id = user.user_id
+          LEFT JOIN group_purchase_contributor ON group_purchase.group_id = group_purchase_contributor.group_id
+          GROUP BY group_purchase.group_id
+          ORDER BY group_purchase.timestamp DESC";
 
-//function for check like and dislike
-function hasUserLikedOrDisliked($conn, $user_id, $blog_id, $liked) {
-   $query = "SELECT * FROM 	community_post_likes WHERE user_id = '$user_id' AND blog_id = '$blog_id' AND liked = '$liked'";
-   $result = mysqli_query($conn, $query);
-   return mysqli_num_rows($result) > 0;
-}
-
-function recordLikeOrDislike($conn, $user_id, $blog_id, $liked) {
-   $checkQuery = "SELECT * FROM community_post_likes WHERE user_id = '$user_id' AND blog_id = '$blog_id'";
-   $checkResult = mysqli_query($conn, $checkQuery);
-   if(mysqli_num_rows($checkResult) > 0) {
-       // If there is an existing record, update it
-       $updateQuery = "UPDATE community_post_likes SET liked = '$liked' WHERE user_id = '$user_id' AND blog_id = '$blog_id'";
-       mysqli_query($conn, $updateQuery) or die('Update failed: ' . mysqli_error($conn));
-   } else {
-       // If no record, insert a new one
-       $insertQuery = "INSERT INTO community_post_likes (user_id, blog_id, liked) VALUES ('$user_id', '$blog_id', '$liked')";
-       mysqli_query($conn, $insertQuery) or die('Insert failed: ' . mysqli_error($conn));
-   }
-}
-
-
-function removeLikeOrDislike($conn, $user_id, $blog_id, $liked) {
-   $query = "DELETE FROM community_post_likes WHERE user_id = '$user_id' AND blog_id = '$blog_id' AND liked = '$liked'";
-   mysqli_query($conn, $query) or die('Query failed: '.mysqli_error($conn));
-}
+$result = mysqli_query($conn, $query) or die('Query failed: ' . mysqli_error($conn));
 ?>
 
 
-<div class="createPost">
-      <h2>Create a New Post</h2>
-      <form action="functions/process_post.php" method="post" enctype="multipart/form-data">
-         <label for="title">Title:</label>
-         <input type="text" name="title" required>
 
-         <label for="content">Content:</label>
-         <textarea name="content" required></textarea>
 
-         <label for="image">Upload Image:</label>
-         <input type="file" name="image">
+<?php
+$product_name = " ";
+$price = "";
+$description= "";
+$category = "";
+$image_path = "";
+// Retrieve values from URL parameters
+if (isset($_GET['data1']) && isset($_GET['data2']) && isset($_GET['data3'])) {
+    $product_id = urldecode($_GET['data1']);
+    echo $product_id;
+    $quantity = urldecode($_GET['data2']);
+    $totalPrice = urldecode($_GET['data3']);
+    // Now you can use these variables as needed in your code
+    // Define the SQL query to retrieve all columns from the product table
+$product_query = "SELECT * FROM `product` WHERE product_id =$product_id";
 
-         <input type="submit" value="Create Post">
-      </form>
-   </div>
+// Execute the query
+$product_result = mysqli_query($conn, $product_query);
 
-   <div class="blogHome">
-      <h2>Krishoker Haat Blog Home</h2>
+// Check if the query was successful
+if ($product_result) {
+    // Fetch and display the results
+    while ($row = mysqli_fetch_assoc($product_result)) {
+        // Access each column data using associative array keys
+        $product_name = htmlspecialchars($row['p_name']);
+        $price = number_format((int)$row["price"]);
+        $description= htmlspecialchars($row['description']);
+        $category = htmlspecialchars($row['category']);
+        $image_path = htmlspecialchars($row['image']);
+        // Repeat the above for all columns in the product table
+        // For example:
+        // echo "Column Name: " . $row['column_name'] . "<br>";
+    }
+} else {
+    // Display error message if query fails
+    echo "Error: " . mysqli_error($conn);
+}
+
+// Free result set
+mysqli_free_result($product_result);
+
+// Close connection
+mysqli_close($conn);
+}
+
+?>
+<?php
+if (isset($_SESSION['user_id'])) {
+   ?>
+
+<div class="dropdown-container">
+        <div class="dropdown">
+        
+        <form action="AllProduct.php" method="post">
+    <select name="category">
+        <option> একটি বিভাগ নির্বাচন করুন</option>
+        <option value="new">নতুন পণ্য</option>
+        <option value="high">দাম উচ্চ থেকে কম</option>
+        <option value="low">দাম কম থেকে বেশি</option>
+        <option value="best">Best Selling</option>
+    </select>
+    <button type="submit">Sort Now</button>
+</form>
+
+        </div>
+
+        <div class="slideable-text">
+        <p>কৃষকের হাটে স্বাগতম।</p>
+    </div>
+
+
+        <div class="search">
+        <form action="AllProduct.php" method="GET">
+        <input type="text" name="search" placeholder="পণ্য খুজুন..." required>
+        <button type="submit">খুজুন</button>
+        </form>
+        </div>
+
+
+    </div>
+ 
+
+<div class="first_container">
+    <div class="side-box">Main Box</div>
+    <div class="main-box"><div class="post_form">
+    <form id="postForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data"> 
+    
+    <p class="post_head">Create a New Post to buy with a group</p>
+
+
+    <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
+    <label class="post_form_label">Title :</label>
+     <input type="text" name="title" placeholder="Post Content" value="<?php echo $product_name; ?>" required><br> 
+     <label class="post_form_label">Content :</label>
+
+     <textarea name="content" placeholder="Post Content" required><?php echo $description; ?></textarea><br> 
+     <label class="post_form_label">Quantity :</label>
+
+     <input type="number" name="quantity" placeholder="Quantity" value="<?php echo $quantity; ?>" required><br> 
+     <label class="post_form_label">Choose image :</label>
+
+     <input type="file" name="image"><br> <!-- File input for image upload -->
+      <!-- Button to show confirmation popup --> 
+      <button type="submit" name="submit_post">Submit Post</button> 
+     </form>
+</div>
+ 
+<?php 
+}else{
+    echo "You have to log in to create a post";
+}
+?></div>
+    <div class="side-box">Side Box 2</div>
+</div>
+
+
+
+
+
+
+    
+
+
+<div class="blogHome">
+   <h2>Group Selling Posts</h2>
+   <?php
+   while ($row = mysqli_fetch_assoc($result)):
+      echo '<div class="blog-post">';
+      echo '<h5><img src="' . $row['profile_picture'] . '" alt="Profile Picture" class="round-image"> ' . $row['name'] .'</h5>';
+      echo '<h4>Posted at '.$row['timestamp'].'</h4>';
+      echo '<h3>'.$row['title'].'</h3>';
+      echo '<p>'.$row['content'].'</p>';
+
+      
+
+      // Retrieve district information from the user table based on leader_id
+      $leader_id = $row['leader_id'];
+      $district_query = "SELECT * FROM user WHERE user_id = '$leader_id'";
+      $district_result = mysqli_query($conn, $district_query);
+      if ($district_result && mysqli_num_rows($district_result) > 0) {
+          $district_row = mysqli_fetch_assoc($district_result);
+          $district = $district_row['district'];
+          echo '<p>District: ' . $district . '</p>';
+      } else {
+          echo '<p>District: Unknown</p>';
+      }
+      // Check if the post has an image
+      if (!empty($row['p_image'])) {
+          echo '<img src="' . $row['p_image'] . '" alt="Post Image">';
+      }
+
+      // Form for placing bids
+echo '<form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="post" onsubmit="return confirmBid()">';
+echo '<input type="hidden" name="post_id" value="'.$row['group_id'].'">';
+echo '<p>Quantity Available: '.$row['quantity'].'</p>';
+// Display the number of contributors
+echo '<p>Number of Contributors: '.$row['contributor_count'].'</p>';
+
+echo '<p for="bid_price">Do you want to purchase in a group?Bid here.</p>';
+echo '<input type="number" name="bid_amount" placeholder="Enter the amount you want to bid" required>';
+// Change the button type to "button" to prevent automatic form submission
+echo '<button type="submit" name="bid" onclick="showConfirmation()">Contribute</button>';
+echo '</form>';
+
+
+      echo '</div>'; // Closing blog-post div
+   endwhile;
+   ?>
+</div>
       <?php
 
-      while($row = mysqli_fetch_assoc($result)):
-         echo '<div class="blog-post">';
-         echo '<h5><img src="' . $row['profile_picture'] . '" alt="Profile Picture" class="round-image"> ' . $row['name'] .'</h5>';
-         echo '<h4>Post at '.$row['timestamp'].'</h4>';
-
-         echo '<h3>'.$row['title'].'</h3>';
-         echo '<p>'.$row['content'].'</p>';
-         echo '<h4></h4>';
-
-         if(!empty($row['image'])) {
-            echo '<img src="'.$row['image'].'" alt="Blog Image" class>';
-         }
-
-         // Like and Dislike Buttons
-         
-echo '<form action="community_post.php" method="post">'; 
-      echo '<div class="button-container">';
-      echo '<input type="hidden" name="blog_id" value="' . $row['blog_id'] . '">'; 
-      echo '<button type="submit" name="like" class="button">Like ' . $row['likes'] . '</button>'; 
-     echo '<button type="submit" name="dislike" class="button">Dislike ' . $row['dislike'] . '</button>'; 
-     echo '<button class="button"><a href="#">Send Message</a></button>';
-
-     echo '</div>';
-     echo '</form>';
-
-         // Delete option for the blog post if the user is the owner
-         if($row['user_id'] == $_SESSION['user_id']) {
-            echo '<form method="post" action="community_post.php">';
-            echo '<input type="hidden" name="blog_id" value="'.$row['blog_id'].'">';
-            echo '<button type="submit" name="delete_post" class="delete_post">Delete Post</button>';
-            echo '</form>';
-         }
+// Handle bids on posts
+if(isset($_POST['bid'])) {
+    $group_id = $_POST['post_id'];
+    $bid_quantity = intval($_POST['bid_amount']); // Convert to integer for numerical operations
 
 
-         //Delete options for comments
-         echo '<div class="comments-section">';
-         echo '<h4>Comments:</h4>';
+ // Check if the user has already contributed to this group post
+ $contribution_check_query = "SELECT * FROM group_purchase_contributor WHERE user_id = '$user_id' AND group_id = '$group_id'";
+ $contribution_check_result = mysqli_query($conn, $contribution_check_query);
 
-         $blogId = $row['blog_id'];
-         $commentQuery = "SELECT community_post_comments.*, user.name,user.profile_picture
-                   FROM community_post_comments
-                   INNER JOIN user ON community_post_comments.user_id = user.user_id
-                   WHERE blog_id = '$blogId'
-                   ORDER BY community_post_comments.timestamp DESC";
+ if (mysqli_num_rows($contribution_check_result) > 0) {
+     
+     echo "You have already contributed to this group post.";
+ } else {
+    // Query to find out quantity for each group
+$query = "SELECT quantity
+FROM group_purchase
+WHERE  group_id='$group_id'";
 
-         $commentResult = mysqli_query($conn, $commentQuery) or die('Comment query failed: '.mysqli_error($conn));
+// Execute the query
+$result = mysqli_query($conn, $query);
 
-         while($comment = mysqli_fetch_assoc($commentResult)):
-            echo '<div class="comment">';
-            echo '<p><img src="' . $comment['profile_picture'] . '" alt="Profile Picture" class="round-image"> ' .' <strong>'.$comment['name'].'</strong>. </p>';
+// Check if the query was successful
+if (!$result) {
+die('Query failed: ' . mysqli_error($conn));
+}
 
-            echo '<p>'.$comment['comment_text'].'</p>';
-            echo '<p>'.$comment['timestamp'].'</p>';
-
-
-            // Add delete option for comments if the user is the owner
-            if($comment['user_id'] == $_SESSION['user_id']) {
-               echo '<form method="post" action="community_post.php">';
-               echo '<input type="hidden" name="comment_id" value="'.$comment['comment_id'].'">';
-               echo '<button type="submit" name="delete_comment">Delete Comment</button>';
-               echo '</form>';
-            }
-            echo '</div>';
-         endwhile;
+// Fetch and display the results
+while ($row = mysqli_fetch_assoc($result)) {
+$quantity_remain= $row['quantity'];
+}
 
 
+// Validate bid quantity
+if (!is_numeric($bid_quantity) || $bid_quantity <= 0) {
+echo "Invalid bid quantity";
+exit();
+}
+$sum=$quantity_remain-$bid_quantity;
+if($sum>=0){
+// Prepare the INSERT statement
+$insert_query = "INSERT INTO group_purchase_contributor (user_id, group_id, bid, quantity) VALUES ('$user_id', '$group_id', 1, '$bid_quantity')";
 
-         // Comment form
-         echo '<form method="post" action="community_post.php">';
-         echo '<input type="hidden" name="blog_id" value="'.$row['blog_id'].'">';
-         echo '<textarea name="comment_text" required></textarea>';
-         echo '<button type="submit" name="submit_comment" value="Submit Comment">Submit Comment</button>';
-         echo '</form>';
+// Execute the INSERT statement
+if (mysqli_query($conn, $insert_query)) {
+// Bid successfully inserted, now update the quantity in group_purchase table
+$update_query = "UPDATE group_purchase SET quantity = quantity - '$bid_quantity' WHERE group_id = '$group_id'";
+if (mysqli_query($conn, $update_query)) {
+    echo  "Your contribution is recorded.";
+  unset($_POST['bid_amount']); 
+  // Redirect to the same page using GET request to prevent form resubmission
+  //header("Location: ".$_SERVER['PHP_SELF']);
+  exit();
 
-         echo '</div>'; // Closing comments-section div
-      
-         // Display other blog details as needed
-         echo '</div>'; // Closing blog-post div
-      
-      endwhile;
+} else {
+  echo "Error updating quantity: " . mysqli_error($conn);
+}
+} else {
+echo "Error inserting bid: " . mysqli_error($conn);
+}
+}else{
+//echo "<script>alert('The number of contributions exceeded the limit!') </script>";
+//header("Refresh:0");
 
-      ?>
+}
+ }
+
+
+
+
+$conn->close();
+ }
+?>
+
 </body>
-
 </html>

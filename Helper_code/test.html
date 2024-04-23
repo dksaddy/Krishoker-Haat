@@ -3,112 +3,74 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hover Dropdown Menu</title>
+<title>Picture Slider</title>
+<link rel="stylesheet" href="styles.css">
 <style>
-  /* Styling for the dropdown */
-  .round-image {
-    border-radius: 50%;
-    width: 50px; /* Adjust the width and height as needed */
-    height: 50px;
+  .slider-container {
+  position: relative;
+  max-width: 60%; /* Adjust container width as needed */
+  margin: auto;
+  overflow: hidden;
 }
 
-   /* Styling for the dropdown */
-   .dropdown {
-    position: relative;
-    display: inline-block;
-  }
+.slider-track {
+  display: flex;
+  
+}
 
-  /* Styling for the dropdown content */
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    margin-top: 1%;
-    background-color: #c8a582;
-    min-width: 100px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    top: 100%; /* Position dropdown below the image */
-    left: 1%;
-    transform: translateX(-50%);
-    border-radius: 5px;
-    opacity: 0;
-    pointer-events: none; /* Prevents the dropdown from interfering with other elements while hidden */
-    transition: opacity 1.9s ease-in-out;
-  }
+.slide {
+  flex: 0 0 auto;
+  width: 100%;
+}
 
-  /* Styling for the dropdown items */
-  .dropdown-content a {
-    color: black;
-    padding: 5px 5px;
-    text-decoration: none;
-    display: block;
-  }
+img {
+  width: 100%;
+  height: auto;
+}
 
-  /* Styling for the dropdown items on hover */
-  .dropdown-content a:hover {
-    background-color: #ddd;
-  }
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1;
+}
 
-  /* Show the dropdown content when hovering over the dropdown container */
-  .dropdown:hover .dropdown-content {
-    display: block;
-    opacity: 1;
-    pointer-events: auto; /* Allows interaction with the dropdown when visible */
-  }
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
 </style>
 </head>
 <body>
 
-<!-- Example list with dropdown -->
-<ul>
-  <li>
-    <!-- Picture -->
-    <div class="dropdown">
-      <img src="../image/image.jpg" alt="Profile Picture" class="round-image">      <!-- Dropdown Content -->
-      <div class="dropdown-content">
-        <a href="#">Option 1</a>
-        <a href="#">Option 2</a>
-        <a href="#">Option 3</a>
-      </div>
+<div class="slider-container">
+  <div class="slider-track">
+    <div class="slide">
+      <img src="../image/Category/slide1.jpg" alt="Slide 1">
     </div>
-  </li>
-  <!-- Add more list items as needed -->
-</ul>
+    <div class="slide">
+      <img src="../image/Category/slide2.jpg" alt="Slide 2">
+    </div>
+    <div class="slide">
+      <img src="../image/Category/slide3.jpg" alt="Slide 3">
+    </div>
+    <div class="slide">
+      <img src="../image/Category/slide4.jpg" alt="Slide 3">
+    </div>
+  </div>
+  <button class="prev" onclick="prevSlide()">&#10094;</button>
+  <button class="next" onclick="nextSlide()">&#10095;</button>
+</div>
 
+<script src="../script.js"></script>
 </body>
 </html>
-
-
-
-
-
-             
-                
-                
-<li>
-  <div class="round_image">
-      <div class="dropdown">
-     
- <?php 
-     echo '<img src="image/image.jpg" alt="Profile Picture" class="round-image">';
-   ?>
-   
-    <div class="dropdown_content">
-    <?php
-     if (!empty($_SESSION['user_id'])) {
-      echo "<h5>Welcome " . $fetch['name'] . " </h5>";
-    }
-  ?>
-  </div>
-  <div class=drp1><a href="<?php echo ($fetch['user_type'] == 'farmer') ? 'farmerProfile.php' : 'userProfile.php'; ?>">আমার প্রোফাইল </a>
-</div>
-      <div class="drp1">
-      <a href="update_profile.php">প্রোফাইল  আপডেট</a>
-      </div>
-     <div class="drp1">
-      <a href="functions/logout.php">লগ আউট</a>
-  </div>
-     
- </div>
-</li>
-*/

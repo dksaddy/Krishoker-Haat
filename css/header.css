@@ -70,7 +70,7 @@ body {
  
  .round-image {
     border-radius: 50%;
-    width: 50px; /* Adjust the width and height as needed */
+    width: 50px; 
     height: 50px;
 }
 
@@ -89,19 +89,17 @@ body {
     margin: 0 0;
     background-color: #ffffff;
     min-width: 200px;
-    border-radius: 40px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index:  99;
-    top: 90%; /* Position dropdown below the image */
-
+    z-index:  9999;
+    top: 90%; 
     transform: translateX(-50%);
-    border-radius: 5px;
     opacity: 0;
-    pointer-events: none; /* Prevents the dropdown from interfering with other elements while hidden */
+    cursor: pointer; /* Prevents the dropdown from interfering with other elements while hidden */
     transition: opacity 0.3s ease-in-out;
   }
   .dropdown-content p{
     font-size: 12px;
+    font-weight: bold;
     color: rgb(255, 255, 255);
     background-color: darkorange;
     display: flex;
@@ -111,14 +109,14 @@ body {
   /* Styling for the dropdown items */
   .dropdown-content a {
     color: rgb(0, 0, 0);
-    padding: 0px 0px;
+    padding: 5px 5px;
     text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 0;
-    margin-bottom: 1%;
-    height: 40px;
+    margin-bottom:0;
+    height: 60px;
   }
 
   /* Styling for the dropdown items on hover */
@@ -131,12 +129,18 @@ body {
   .dropdown:hover .dropdown-content {
     display: block;
     opacity: 1;
-    pointer-events: auto; /* Allows interaction with the dropdown when visible */
+    pointer-events: visible;
   }
 
 .log_out a{
     color: red;
-    font-weight: 500;
+    font-weight: 700;
+}
+.log_out a:hover{
+    color: rgb(255, 255, 255);
+    background-color: red;
+    font-weight: 700;
+    border: 10px solid white;
 }
 
 
@@ -204,11 +208,12 @@ body {
     color: white;
     margin-top:18%;
     font-size: 25px;
-    font-weight: 600;
+    font-weight: bolder;
 }
 .logt span{
-    color: #011413;
+    color: #ffffff;
     font-size: 35px;
+    font-weight: bolder;
     
 
 }

@@ -2,14 +2,6 @@
 include('template/db_connect.php'); // Ensure you have a connection to the database
 
 ?>
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,9 +35,6 @@ include('template/db_connect.php'); // Ensure you have a connection to the datab
 </form>
 
         </div>
-
-
-
 
         <div class="slideable-text">
         <p>কৃষকের হাটে স্বাগতম।</p>
@@ -153,6 +142,7 @@ if ($result->num_rows > 0) {
         $name = $product['p_name'];
         $image = $product['image'];
         $price = $product['price'];
+        $timestamp =$product['timestamp'];
         echo '
         <a class="card_link" href="IndividualProduct.php?data='.$product_id.'">
         <div class="parent">
@@ -163,6 +153,7 @@ if ($result->num_rows > 0) {
         <div class="child-2">
             <div class="child-2-1">'.$name.'</div>
             <div class="child-2-2">৳'.$price.' /kg</div>
+            <div class="child-2-1-3">' . "<p>Listed " . formatTimeDifference($timestamp) . "</p>" . '</div>
         </div>
     </div>
         </a>
@@ -188,6 +179,7 @@ if ($result->num_rows > 0) {
                             $name = $row['p_name'];
                             $image = $row['image'];
                             $price = $row['price'];
+                            $timestamp =$row['timestamp'];
                 
                             echo '
                             <a class="card_link" href="IndividualProduct.php?data='.$product_id.'">
@@ -199,6 +191,8 @@ if ($result->num_rows > 0) {
                             <div class="child-2">
                                 <div class="child-2-1">'.$name.'</div>
                                 <div class="child-2-2">৳'.$price.' /kg</div>
+                                <div class="child-2-1-3">' . "<p>Listed " . formatTimeDifference($timestamp) . "</p>" . '</div>
+
                             </div>
                         </div>
                             </a>
@@ -250,6 +244,8 @@ include('template\db_connect.php');
                 $name = $row['p_name'];
                 $image = $row['image'];
                 $price = $row['price'];
+                $timestamp =$row['timestamp'];
+
 
                 echo '
                 <a class="card_link" href="IndividualProduct.php?data='.$product_id.'">
@@ -261,6 +257,8 @@ include('template\db_connect.php');
                 <div class="child-2">
                     <div class="child-2-1">'.$name.'</div>
                     <div class="child-2-2">৳'.$price.' /kg</div>
+                    <div class="child-2-1-3">' . "<p>Listed " . formatTimeDifference($timestamp) . "</p>" . '</div>
+
                 </div>
             </div>
                 </a>
@@ -273,6 +271,26 @@ include('template\db_connect.php');
         $conn->close();
 }
 
+
+ //function for showing time
+// Function to calculate time difference and format it
+function formatTimeDifference($timestamp) {
+    $currentTime = time(); // Current timestamp
+    $messageTime = strtotime($timestamp); 
+    $timeDifference = $currentTime - $messageTime;
+    if ($timeDifference <60) { // Less than 1 min
+        return "Just Now" ;
+    }elseif ($timeDifference < 3600) { // Less than 1 hour
+        $minutes = floor($timeDifference / 60);
+        return $minutes . " minutes ago";
+    } elseif ($timeDifference < 86400) { // Less than 24 hours
+        $hours = floor($timeDifference / 3600);
+        return $hours . " hours ago";
+    } else {
+        $days = floor($timeDifference / 86400);
+        return $days . " days ago";
+    }
+}
 ?>
 
 </body>

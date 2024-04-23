@@ -119,8 +119,8 @@
                                     </div>
 
                                     <div class="middle_portin">
-                                        <div><img src="'.$image.'" width="100%"></div>
-                                        <div>'.$product_name.'</div>
+                                        <div style="height: 100px"><img src="'.$image.'" width="100%" height="100%"></div>
+                                        <div style="margin-top: 5px">'.$product_name.'</div>
                                     </div>
 
                                     <div class="last_portion">

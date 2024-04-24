@@ -120,7 +120,7 @@
                                 <div class="child-2-1-1">'.$name.'</div>
                                 <div class="child-2-1-2">৳' .$price.' /kg</div>
                                 
-                                <div class="child-2-1-3">' . "<p>Listed " . formatTimeDifference($timestamp) . "</p>" . '</div> 
+                                <div class="child-2-1-3">' . "<p>Listed " . calculateTimeDifference($timestamp) . "</p>" . '</div> 
                           </div>
 
                         </div> 
@@ -280,25 +280,46 @@
 
     </div> <!-- Main Div End -->
 
-<?php //function for showing time
+<?php 
+//function for showing time
 // Function to calculate time difference and format it
-function formatTimeDifference($timestamp) {
-    $currentTime = time(); // Current timestamp
-    $messageTime = strtotime($timestamp); // Convert stored timestamp to Unix timestamp
+function calculateTimeDifference($timestamp) {
+    // Set the default time zone to Dhaka, Bangladesh
+    date_default_timezone_set('Asia/Dhaka');
 
-    $timeDifference = $currentTime - $messageTime;
-    if ($timeDifference <60) { // Less than 1 min
-        return "Just Now" ;
-    }elseif ($timeDifference < 3600) { // Less than 1 hour
-        $minutes = floor($timeDifference / 60);
-        return $minutes . " minutes ago";
-    } elseif ($timeDifference < 86400) { // Less than 24 hours
-        $hours = floor($timeDifference / 3600);
-        return $hours . " hours ago";
-    } else {
-        $days = floor($timeDifference / 86400);
-        return $days . " days ago";
-    }
+    // Get the current time
+    $currentTime = new DateTime();
+
+    // Convert the database timestamp to a DateTime object
+    $dbTime = new DateTime($timestamp);
+
+    // Calculate the difference
+    $interval = $currentTime->diff($dbTime);
+
+    // Format the difference
+   // Format the difference
+$format = '';
+
+if ($interval->y > 0) {
+    $format .= '%y years ago';
+} elseif ($interval->m > 0) {
+    $format .= '%m months ago';
+} elseif ($interval->d > 0) {
+    $format .= '%d days ago';
+} elseif ($interval->h > 0) {
+    $format .= '%h hours ago';
+} elseif ($interval->i < 1) {
+    $format .= 'Just now';
+} elseif ($interval->h < 1) {
+    $format .= '%i minutes ago';
+} elseif ($interval->d < 1) {
+    $format .= '%h hours ago';
+}else{
+    $format.='Listed in future';
+}
+
+    // Format the difference and return
+    return $interval->format($format);
 }
 ?>
 

@@ -17,3 +17,8 @@
 
 </body>
 </html>
+// Prepare the SQL query
+    $sql_group = "SELECT g.*
+    FROM group_purchase g
+    INNER JOIN group_purchase_contributor gc ON g.group_id = gc.group_id
+    WHERE g.leader_id = $user_id";

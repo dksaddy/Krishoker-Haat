@@ -9,7 +9,18 @@
 </head>
 
 <body>
-    <?php include('header.php')?>
+    <?php 
+    include('header.php');
+    include('template\db_connect.php');
+    $sql = "SELECT * FROM user WHERE user_id = $user_id";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+
+        $balance = $row['curr_balance'];
+    }
+    ?>
+
 <?php
     if (isset($_GET['carts']) && isset($_GET['bill'])) {
         $cart = $_GET['carts'];
@@ -90,7 +101,7 @@
                         <div class="option_div">
                             <input type="radio" name="payment_option" value="wallet">
                             <div class="wallet">
-                                <input type="text" value="20000" disabled>
+                                <input type="text" value="<?php echo $balance?>" disabled>
                             </div>
                         </div>
 
@@ -113,7 +124,7 @@
 
                         <div class="option_div">
                             <div style="font-size: 20px; padding-top: 5px">Payable Amount</div>
-                            <input type="text">
+                            <input type="text" name="bill" value="<?php if(isset($_GET['bill'])) echo $_GET['bill'];?>" disabled>
                             <button name="payment">Payment</button>
                         </div>
 
@@ -151,6 +162,7 @@
                             }elseif ($_POST['payment_option'] === 'wallet') {
                                 $data = unserialize(urldecode($_POST['carts']));
                                 $totalPrice = $_POST['bill'];
+                                $new_balance = $balance - $totalPrice;
 
                                 foreach($data as $cart_id){
                                     include('template\db_connect.php');
@@ -180,6 +192,67 @@
                                     if ($conn->query($insertSql) === TRUE) {
 
                                         $deleteSql = "DELETE FROM `cart` WHERE cart_id = $cart_id";
+
+                                        if ($conn->query($deleteSql) === TRUE) {
+                                            $updateSql = "UPDATE user SET curr_balance = $new_balance WHERE user_id = $user_id";
+                                            
+                                            if ($conn->query($updateSql) === TRUE) {
+                                                echo "success";
+                                            }else {
+                                                echo "Error: " . $sql . "<br>" . $conn->error;
+        
+                                            }  //update
+
+                                        }else {
+                                        echo "Error: " . $sql . "<br>" . $conn->error;
+
+                                        }  //delete
+
+                                    } else {
+                                        echo "Error: " . $sql . "<br>" . $conn->error;
+
+                                    }  //insert
+
+
+                                } //foreach Loop
+
+                                $conn->close();
+
+
+                                
+                            }elseif ($_POST['payment_option'] === 'cod') {
+                                $data = unserialize(urldecode($_POST['carts']));
+                                $totalPrice = $_POST['bill'];
+
+                                foreach($data as $cart_id){
+                                    include('template\db_connect.php');
+                                    $sql = "SELECT * FROM cart WHERE cart_id = $cart_id";
+                                    $result = $conn->query($sql);
+                                    if ($result->num_rows > 0) {
+                                        $row = $result->fetch_assoc();
+
+                                        $product_id = $row['product_id'];
+                                        $quantity = $row['quantity'];
+
+                                        $sql_1 = "SELECT * FROM product WHERE product_id = $product_id";
+                                        $result_1 = $conn->query($sql_1);
+                                        if ($result_1->num_rows > 0) {
+                                            $row_1 = $result_1->fetch_assoc();
+
+                                            $seller_id = $row_1['user_id'];
+                                        }
+
+                                    } //result checking if clause.
+
+
+                                    // Prepare the SQL statement
+                                    $insertSql = "INSERT INTO `order_table`(buyer_id, seller_id, product_id, quantity, delivery_status, payment_method) 
+                                    VALUES ($user_id, $seller_id, $product_id, $quantity, 'pending', 'cod')";
+
+                                    if ($conn->query($insertSql) === TRUE) {
+
+                                        $deleteSql = "DELETE FROM `cart` WHERE cart_id = $cart_id";
+
                                         if ($conn->query($deleteSql) === TRUE) {
                                             echo "Success";
 
@@ -196,11 +269,9 @@
 
                                 } //foreach Loop
 
-
-
-
                                 
-                            } //else if closing
+
+                            } //else if end.
 
 
 

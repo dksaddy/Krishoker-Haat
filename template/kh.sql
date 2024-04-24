@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2024 at 05:21 PM
+-- Generation Time: Apr 24, 2024 at 06:07 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -63,6 +63,7 @@ CREATE TABLE `cart` (
   `product_price` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
   `order_type` varchar(255) NOT NULL DEFAULT 'individual',
+  `group_id` int(11) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -70,11 +71,11 @@ CREATE TABLE `cart` (
 -- Dumping data for table `cart`
 --
 
-INSERT INTO `cart` (`cart_id`, `user_id`, `product_id`, `product_price`, `quantity`, `order_type`, `timestamp`) VALUES
-(38, 21, 25, 140, 4, 'group', '2024-04-24 07:37:07'),
-(43, 21, 25, 140, 4, 'individual', '2024-04-24 12:45:58'),
-(44, 21, 25, 175, 5, 'individual', '2024-04-24 12:49:55'),
-(45, 21, 25, 35, 1, 'individual', '2024-04-24 13:47:58');
+INSERT INTO `cart` (`cart_id`, `user_id`, `product_id`, `product_price`, `quantity`, `order_type`, `group_id`, `timestamp`) VALUES
+(38, 21, 25, 140, 4, 'group', 0, '2024-04-24 07:37:07'),
+(43, 21, 25, 140, 4, 'individual', 0, '2024-04-24 12:45:58'),
+(44, 21, 25, 175, 5, 'individual', 0, '2024-04-24 12:49:55'),
+(45, 21, 25, 35, 1, 'individual', 0, '2024-04-24 13:47:58');
 
 -- --------------------------------------------------------
 

@@ -88,12 +88,6 @@
         }
 
 
-       
-
-
-
-       
-
 
         if(isset($_POST['proceed1'])) {
             if(isset($_POST['chose1'])) {
@@ -102,7 +96,7 @@
                 $dataString = urlencode(serialize($selected_values));
 
                 $total = $_POST['total1'];
-                echo "<script>window.location.href = 'blank.php?carts=$dataString&bill=$total';</script>";
+                echo "<script>window.location.href = 'blank_1.php?carts=$dataString&bill=$total';</script>";
 
 
             }else {

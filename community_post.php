@@ -101,9 +101,7 @@ if ($product_result) {
         $category = htmlspecialchars($row['category']);
         $image_path = htmlspecialchars($row['image']);
         echo $image_path;
-        // Repeat the above for all columns in the product table
-        // For example:
-        // echo "Column Name: " . $row['column_name'] . "<br>";
+        
     }
 } else {
     // Display error message if query fails
@@ -154,7 +152,43 @@ if (isset($_SESSION['user_id'])) {
  
 
 <div class="first_container">
-    <div class="side-box">Main Box</div>
+    <div class="side-box">
+        <p>My groups </p>
+        <?php
+        
+    // Prepare the SQL query
+    $sql_group = "SELECT *
+    FROM group_purchase 
+    WHERE leader_id = $user_id";
+
+// Execute the query
+$result_group = mysqli_query($conn, $sql_group);
+
+// Check if the query was successful
+if (!$result_group) {
+die('Query failed: ' . mysqli_error($conn));
+}
+
+// Fetch and display the results
+while ($row = mysqli_fetch_assoc($result_group)) {
+$group_id= $row['title'];
+echo "<a href=\"\">Group for purchase " . $row['title'] . "</a><br>";
+} 
+?>
+<a href=""></a>
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
     <div class="main-box"><div class="post_form">
     <form id="postForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data"> 
     
@@ -188,7 +222,36 @@ if (isset($_SESSION['user_id'])) {
     echo "You have to log in to create a post";
 }
 ?></div>
-    <div class="side-box">Side Box 2</div>
+
+
+
+    <div class="side-box">
+        
+    <?php
+        
+        // Prepare the SQL query
+        $sql_group_contributor = "SELECT *
+        FROM group_purchase 
+        WHERE leader_id = $user_id";
+        
+            echo $sql_group_contributor;
+    // Execute the query
+    $result_group_contributor = mysqli_query($conn, $sql_group_contributor);
+    
+    // Check if the query was successful
+    if (!$result_group_contributor) {
+    die('Query failed: ' . mysqli_error($conn));
+    }
+    
+    // Fetch and display the results
+    while ($row = mysqli_fetch_assoc($result_group_contributor)) {
+    $group_id= $row['title'];
+    echo $group_id;
+    } 
+    ?>
+    
+
+    </div>
 </div>
 
 
@@ -317,7 +380,7 @@ if (mysqli_query($conn, $update_query)) {
                             }
                             
                            $total_price= $price_per_unit*$bid_quantity;
-    $cart_update_query ="INSERT INTO `cart`(`user_id`, `product_id`, `product_price`, `quantity`, `order_type`) VALUES ('$user_id','$product_id_group','$total_price','$bid_quantity','group')";
+    $cart_update_query ="INSERT INTO `cart`(`user_id`, `product_id`, `product_price`, `quantity`, `order_type`,`group_id`) VALUES ('$user_id','$product_id_group','$total_price','$bid_quantity','group','$group_id')";
     echo $cart_update_query;
     // Display a success message
     if (mysqli_query($conn, $cart_update_query)) {

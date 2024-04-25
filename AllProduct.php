@@ -20,8 +20,8 @@ include('template/db_connect.php'); // Ensure you have a connection to the datab
 
     
 
-    <div class="dropdown-container">
-        <div class="dropdown">
+    <div class="dropdown-container_sort">
+        <div class="dropdown_sort">
         
         <form action="AllProduct.php" method="post">
     <select name="category">

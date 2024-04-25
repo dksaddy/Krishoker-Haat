@@ -119,8 +119,8 @@ mysqli_free_result($product_result);
 if (isset($_SESSION['user_id'])) {
    ?>
 
-<div class="dropdown-container">
-        <div class="dropdown">
+<div class="dropdown-container_sort">
+        <div class="dropdown_sort">
         
         <form action="AllProduct.php" method="post">
     <select name="category">
@@ -152,35 +152,36 @@ if (isset($_SESSION['user_id'])) {
  
 
 <div class="first_container">
-    <div class="side-box">
-        <p>My groups </p>
+<div class="side-box">
+        <div class="side-box-header"><p>My groups</p></div>
+
         <?php
         
-    // Prepare the SQL query
-    $sql_group = "SELECT *
-    FROM group_purchase 
-    WHERE leader_id = $user_id";
+        // Prepare the SQL query
+        $sql_group = "SELECT *
+                      FROM group_purchase 
+                      WHERE leader_id = $user_id";
 
-// Execute the query
-$result_group = mysqli_query($conn, $sql_group);
+        // Execute the query
+        $result_group = mysqli_query($conn, $sql_group);
 
-// Check if the query was successful
-if (!$result_group) {
-die('Query failed: ' . mysqli_error($conn));
-}
+        // Check if the query was successful
+        if (!$result_group) {
+            die('Query failed: ' . mysqli_error($conn));
+        }
 
-// Fetch and display the results
-while ($row = mysqli_fetch_assoc($result_group)) {
-$group_id= $row['title'];
-echo "<a href=\"\">Group for purchase " . $row['title'] . "</a><br>";
-} 
-?>
-<a href=""></a>
-
-
-
-
+        // Fetch and display the results
+        while ($row = mysqli_fetch_assoc($result_group)) {
+            $group_id = $row['title'];
+            echo '
+            <div class="product_child_2_1">
+                <a href="">Group for purchase ' . $row['title'] . '</a><br>
+            </div>';
+        }
+        ?>
     </div>
+
+
 
 
 
@@ -226,15 +227,16 @@ echo "<a href=\"\">Group for purchase " . $row['title'] . "</a><br>";
 
 
     <div class="side-box">
-        
+    <div class="side-box-header"><p>My Bids</p></div>
+
     <?php
         
         // Prepare the SQL query
         $sql_group_contributor = "SELECT *
-        FROM group_purchase 
-        WHERE leader_id = $user_id";
+        FROM group_purchase_contributor 
+        WHERE user_id = $user_id";
         
-            echo $sql_group_contributor;
+            //echo $sql_group_contributor;
     // Execute the query
     $result_group_contributor = mysqli_query($conn, $sql_group_contributor);
     
@@ -245,10 +247,38 @@ echo "<a href=\"\">Group for purchase " . $row['title'] . "</a><br>";
     
     // Fetch and display the results
     while ($row = mysqli_fetch_assoc($result_group_contributor)) {
-    $group_id= $row['title'];
-    echo $group_id;
+    $group_id= $row['group_id'];
+
+// Prepare the SQL query
+$sql_group_contributor_find_group = "SELECT *
+FROM group_purchase 
+WHERE group_id = $group_id";
+
+    //echo $sql_group_contributor;
+// Execute the query
+$result_group_contributor_find_group = mysqli_query($conn, $sql_group_contributor_find_group);
+
+// Check if the query was successful
+if (!$result_group_contributor_find_group) {
+die('Query failed: ' . mysqli_error($conn));
+}
+
+// Fetch and display the results
+while ($row = mysqli_fetch_assoc($result_group_contributor_find_group)) {
+//$group_title= $row['title'];
+//echo $group_title;
+echo '
+            <div class="product_child_2_1">
+                <a href="">Bid for purchase ' . $row['title'] . '</a><br>
+            </div>' ;
+
+} 
+
+
+
     } 
     ?>
+
     
 
     </div>

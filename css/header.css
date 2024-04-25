@@ -16,19 +16,22 @@ body {
     display: flex;
     justify-content: space-around;
     width: 100%;
-    height: 100px;
-    line-height: 100px;
-    background: rgb(251, 97, 2);
+    height: 80px;
+    line-height: 70px;
+    background: #12372A;
     z-index: 100;
 
 }
 .nav ul{
-    margin-left: 50px;
+    margin-left: 20%;
     display: contents;
     
 }
 .nav ul li{
     list-style-type: none;
+    padding: 10px 0px;
+    margin: 0 0;
+    font-size: 20px;
 
 
 }
@@ -42,20 +45,21 @@ body {
 }
 .nav ul li .link {
     text-decoration: none;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
-    color: rgb(255, 255, 255);
-    padding-bottom: 8px; 
-    margin: 10px 0; 
+    color: #E7F6F2;
+    padding: 1px 5px;
+    padding-bottom: 2px; 
+    margin: 5px 0; 
     transition: color 0.5s;
 }
 .nav ul li .link:hover {
     transform: scale(1.1);
-    border-bottom: 5px solid white;
+    border-bottom: 5px solid rgb(74, 255, 14);
     transition: .2s;
     cursor: pointer;
-    font-size: 14px;
-
+    font-size: 13px;
+    color: rgb(74, 255, 14);
 }
 /* Style for the round cart image */
 .cart_round-image {
@@ -101,7 +105,7 @@ body {
     font-size: 12px;
     font-weight: bold;
     color: rgb(255, 255, 255);
-    background-color: darkorange;
+    background-color: #12372A;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -121,7 +125,7 @@ body {
 
   /* Styling for the dropdown items on hover */
   .dropdown-content a:hover {
-    box-shadow: 9px 2px 16px 5px rgba(240, 116, 0, 0.776);
+    box-shadow: 9px 2px 16px 5px #12372A;
     color: rgb(0, 0, 0);
   }
 
@@ -205,20 +209,27 @@ body {
 }
 .logt{
     text-align: center;
-    color: white;
-    margin-top:18%;
-    font-size: 25px;
+    margin-top:12%;
+    margin-left: 0;
+    font-size: 15px;
     font-weight: bolder;
+    padding: 0 50px;
 }
 .logt span{
-    color: #ffffff;
-    font-size: 35px;
+    color: #f70000;
+    font-size: 20px;
     font-weight: bolder;
     
 
 }
 .logt a {
     text-decoration: none;
-    color: #f1f1f1;
+    color: rgb(74, 255, 14);
     font-weight: 600;
+}
+.logo_image{
+    
+    width: 70px; 
+    height: 70px;
+    border-radius: 70%; 
 }

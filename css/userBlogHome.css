@@ -1,6 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color:	#666666;
+    background-color:	#E7F6F2;
     margin: 0;
     padding: 0;
  }
@@ -9,45 +9,54 @@ body {
 
 /*select dropdown*/
 /* Style for the dropdown container */
-.dropdown-container {
+.dropdown-container_sort {
    border-top: 1px solid black;
    display: flex;
    flex-direction: row;
    justify-content: space-between;
-   align-items: start;
+
    margin-top: 0px;
-   background-color: #F07B3F;
+   background-color: #E7F6F2;
 }
 
 /* Style for each dropdown */
-.dropdown {
-margin-top: 7px;
-margin-bottom: .5%;
-   margin-right: 0;
-   margin-left: 1%; 
+.dropdown_sort {
+   width: 500px; 
+   padding: 8px;
+   box-sizing: border-box;
+   text-align: center;
 }
 
 /* Style for the dropdown menus */
-.dropdown select {
+.dropdown_sort select {
    padding: 10px;
    font-size: 16px;
-   border: 1px solid #0c0f3c;
+   border: 2px solid rgb(21, 78, 50);
    border-radius: 30px;
-   background-color: #f9f9f9;
+   background-color: #A5C9CA;
    cursor: pointer;
    outline: none;
+   width: 70%; 
+
 
 }
-.dropdown button{
+.dropdown_sort button{
    padding: 6px 10px;
    border: 2px solid transparent; /* Transparent border to maintain button size when border changes */
    background-color: #2D4059; /* Blue background */
    color: white;
    border-radius: 10px;
    cursor: pointer;
+   transition: background-color 0.3s; /* Smooth transition for background color */padding: 6px 10px;
+   border: 2px solid transparent; /* Transparent border to maintain button size when border changes */
+   background-color: rgb(21, 78, 50); /* Blue background */
+   color: white;
+   border-radius: 10px;
+   cursor: pointer;
    transition: background-color 0.3s; /* Smooth transition for background color */
 }
-.dropdown button:hover {
+
+.dropdown_sort button:hover {
    background-color: #05a327; 
    transform: scale(1.04);
    transition: .4s;
@@ -97,7 +106,7 @@ option:hover {
    width: 60%; 
    padding: 8px 10px 8px 30px; 
    margin-right: 0; 
-   border: 2px solid #2D4059; 
+   border: 2px solid rgb(21, 78, 50); 
    border-radius: 30px; 
    outline: none; 
    transition: border-color 0.3s; /* Smooth transition for the border color */
@@ -107,7 +116,7 @@ option:hover {
 .search button {
    padding: 6px 10px;
    border: 2px solid transparent; /* Transparent border to maintain button size when border changes */
-   background-color: #2D4059; /* Blue background */
+   background-color: rgb(21, 78, 50); /* Blue background */
    color: white;
    border-radius: 10px;
    cursor: pointer;
@@ -141,12 +150,12 @@ option:hover {
    position: relative;
    overflow: hidden;
    width:30%;
-   background-color: transparent;
+   background-color: rgb(21, 78, 50);
    color: #080505;
-   padding: 30px;
-   
+   padding: 18px;
+   margin-top: 1%;
    border-radius: 5px;
-   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+   box-shadow: 0 0 10px rgb(21, 78, 50);
    white-space: nowrap; /* Prevent text from wrapping */
 }
 
@@ -154,7 +163,7 @@ option:hover {
    position: absolute;
    top: 50%;
    left: 100%;
-   font-size: 20px;
+   font-size: 15px;
    transform: translateY(-50%);
    animation: slideText 20s linear infinite;
    margin: 0; /* Remove default margin */
@@ -194,17 +203,48 @@ option:hover {
 
 .side-box {
    width: 25%; 
-   background-color: #eb7337; 
-   padding: 10px;    
+   background-color: #12372A;; 
+   padding: 10px;   
+   color: white; 
 }
+.side-box-header{
+   text-align: center;
+   
+}
+.side-box-header p{
+   font-size: 15px;
+}
+.product_child_2_1{
+   padding: 8px 20px;
+   border: 1px  solid rgb(255, 255, 255);
+   margin-bottom: 4px;
+   cursor: pointer;
 
+}
+.product_child_2_1 a{
+   text-decoration: none;
+   color: #ffffff;
+   font-size: 16px;
+}
+.product_child_2_1:hover{
+   transition: all 0.4s ease-in-out;
+   -webkit-transition: all 0.4s ease-in-out; 
+   box-shadow: inset 0 12px 20px -10px rgb(8, 255, 8);
+   border-left: 20px solid rgb(8, 255, 8);
+   
+   }
+   .product_child_2_1 a:hover{
+      color: #ffffff;
+   }
  
 .post_form{
-   background-color:rgb(247, 247, 247);
+   background-color:#5c8576;
    width: 100%;
    display: flex;
    align-items: center;
    flex-direction: column;
+   border: 1px solid green;
+   margin-top:1% ;
 }
 
  .post_form form{
@@ -221,8 +261,7 @@ option:hover {
 .post_form_label{
    margin: 0 0;
    display: flex;
-   justify-content: left;
-   text-align: left;
+   text-align: self-start;
    color: #ffffff;
    font-weight: 400;
    font-size: 15px;
@@ -233,7 +272,7 @@ option:hover {
    height: 35px;
    margin: 0 0;   
    padding: 0 20px;
-   border: 3px solid#021142;
+   border: 3px solid #12372A;
  }
  .post_form form textarea{
  width: 90%;
@@ -241,21 +280,21 @@ option:hover {
    height: 50px;
    margin: 0 0;   
    padding: 0 20px;
-   border: 3px solid#021142;
+   border: 3px solid#12372A;
 
  }
  .post_form form textarea:hover{
-   max-width: 88%;
    border-radius: 30px;
    padding: 0 20px;
-   border: 3px solid#0e0101;
+   border: 3px solidrgb(12, 179, 34);
 
  }
 
  .post_form form button{
    padding: 10px 20px;
-   background-color: #BEE3DB;
-   color: black;
+   margin: 1%;
+   background-color: #12372A;
+   color: rgb(255, 255, 255);
    cursor: pointer;
    border-radius: 30px;
    border: 3px solid rgb(0, 0, 0);
@@ -263,26 +302,26 @@ option:hover {
  }
 
  .post_form form button:hover{
-   background-color: gold;
+   background-color: rgb(12, 179, 34);
    border: 3px solid white;
    color: rgb(255, 255, 255);
  }
 .post_head{
    font-size: 20px;
    padding: 5px 5px;
-   color: rgb(46, 4, 86);
+   color: rgb(255, 255, 255);
 }
 .blogHome{
    max-width: 50%;
    margin: 20px auto;
-   background-color:#89B0AE;
+   background-color:rgb(21, 78, 50);
    padding: 20px;
    border-radius: 4px;
    box-shadow: 0 0 10px rgba(239, 235, 235, 0.358);
 }
  
  h2 {
-    color: #030000;
+    color: #ffffff;
     text-align: center;
     margin-bottom: 2%;
  }
@@ -291,32 +330,32 @@ option:hover {
     margin-bottom: 20px;
     height: auto;
     padding: 15px;
-    border: 1px solid #021142;
+    border: 1px solid #0aff1e;
     border-radius: 8px;
-    background-color: #BEE3DB;
+    background-color: #12372A;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
  }
  
  .blog-post h3 {
-    color: #140000;
+    color: #ffffff;
     margin-bottom: 10px;
     font-size: 18px;
  }
  
  .blog-post p {
-    color: #000000;
+    color: #ffffff;
     margin-bottom: 10px;
     font-size: 16px;
  }
 
  .blog-post h4 {
-   color: rgb(0, 0, 0);
+   color: rgb(255, 255, 255);
    margin-bottom: 10px;
    font-size: 12px;
    padding-left: 7%;
 }
 .blog-post h5 {
-   color: rgb(0, 0, 0);
+   color: rgb(255, 255, 255);
    margin-bottom: 10px;
    font-size: 20px;
    margin-top: 3%;

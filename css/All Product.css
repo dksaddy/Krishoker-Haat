@@ -105,148 +105,157 @@
 
 /*select dropdown*/
 /* Style for the dropdown container */
-.dropdown-container {
+.dropdown-container_sort {
     border-top: 1px solid black;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: start;
+ 
     margin-top: 0px;
-    background-color: #F07B3F;
-}
-
-/* Style for each dropdown */
-.dropdown {
-margin-top: 7px;
-margin-bottom: .5%;
-    margin-right: 0;
-    margin-left: 1%; 
-}
-
-/* Style for the dropdown menus */
-.dropdown select {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #0c0f3c;
-    border-radius: 30px;
-    background-color: #f9f9f9;
-    cursor: pointer;
-    outline: none;
-
-}
-.dropdown button{
-    padding: 6px 10px;
-    border: 2px solid transparent; /* Transparent border to maintain button size when border changes */
-    background-color: #2D4059; /* Blue background */
-    color: white;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s; /* Smooth transition for background color */
-}
-.dropdown button:hover {
-    background-color: #05a327; 
-    transform: scale(1.04);
-    transition: .4s;
-    border: 2px  solid #ffffff; 
-}
-select:hover {
-    transform: scale(1.1);
-    background-color: rgb(255, 255, 255);
-    transition: .4s;
-    cursor: pointer;
-}
-/* Style when the select element is focused */
-select:focus {
-    border-color: #66afe9; /* Changes border color when focused */
-    box-shadow: 0 0 8px rgba(102, 175, 233, 0.6); /* Adds a light blue glow around the dropdown */
-}
-
-/* Style for options in the dropdown */
-option {
-    padding: 8px; /* Padding for each option */
-    background: white; /* Background color for each option */
-    color: black; /* Text color for each option */
-}
-
-option:hover {
-    transform: scale(1.1);
-    background-color: rgb(255, 255, 255);
-    transition: .4s;
-    cursor: pointer;
-}
-
-
-
-
-
-
-/* General styling for the search container */
-.search {
+    background-color: #E7F6F2;
+ }
+ 
+ /* Style for each dropdown */
+ .dropdown_sort {
     width: 500px; 
     padding: 8px;
     box-sizing: border-box;
     text-align: center;
-}
-
-/* Styling for the input field */
-.search input[type="text"] {
-    width: 60%; 
-    padding: 8px 10px 8px 30px; 
-    margin-right: 0; 
-    border: 2px solid #2D4059; 
-    border-radius: 30px; 
-    outline: none; 
-    transition: border-color 0.3s; /* Smooth transition for the border color */
-}
-
-/* Styling for the button */
-.search button {
+ }
+ 
+ /* Style for the dropdown menus */
+ .dropdown_sort select {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid rgb(21, 78, 50);
+    border-radius: 30px;
+    background-color: #A5C9CA;
+    cursor: pointer;
+    outline: none;
+    width: 70%; 
+ 
+ 
+ }
+ .dropdown_sort button{
     padding: 6px 10px;
     border: 2px solid transparent; /* Transparent border to maintain button size when border changes */
     background-color: #2D4059; /* Blue background */
     color: white;
     border-radius: 10px;
     cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition for background color */padding: 6px 10px;
+    border: 2px solid transparent; /* Transparent border to maintain button size when border changes */
+    background-color: rgb(21, 78, 50); /* Blue background */
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
     transition: background-color 0.3s; /* Smooth transition for background color */
-}
-
-/* Hover effects for input */
-.search input[type="text"]:hover,
-.search input[type="text"]:focus {
-    border-color: #0aad1d; 
-    /* Change border color on hover/focus */
-    transform: scale(1.04);
-    transition: .4s;
-}
-
-/* Hover effects for button */
-.search button:hover {
+ }
+ 
+ .dropdown_sort button:hover {
     background-color: #05a327; 
     transform: scale(1.04);
     transition: .4s;
     border: 2px  solid #ffffff; 
-}
-
-
-
-/*slide text*/
-.slideable-text {
+ }
+ select:hover {
+    transform: scale(1.1);
+    background-color: rgb(255, 255, 255);
+    transition: .4s;
+    cursor: pointer;
+ }
+ /* Style when the select element is focused */
+ select:focus {
+    border-color: #66afe9; /* Changes border color when focused */
+    box-shadow: 0 0 8px rgba(102, 175, 233, 0.6); /* Adds a light blue glow around the dropdown */
+ }
+ 
+ /* Style for options in the dropdown */
+ option {
+    padding: 8px; /* Padding for each option */
+    background: white; /* Background color for each option */
+    color: black; /* Text color for each option */
+ }
+ 
+ option:hover {
+    transform: scale(1.1);
+    background-color: rgb(255, 255, 255);
+    transition: .4s;
+    cursor: pointer;
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ /* General styling for the search container */
+ .search {
+    width: 500px; 
+    padding: 8px;
+    box-sizing: border-box;
+    text-align: center;
+ }
+ 
+ /* Styling for the input field */
+ .search input[type="text"] {
+    width: 60%; 
+    padding: 8px 10px 8px 30px; 
+    margin-right: 0; 
+    border: 2px solid rgb(21, 78, 50); 
+    border-radius: 30px; 
+    outline: none; 
+    transition: border-color 0.3s; /* Smooth transition for the border color */
+ }
+ 
+ /* Styling for the button */
+ .search button {
+    padding: 6px 10px;
+    border: 2px solid transparent; /* Transparent border to maintain button size when border changes */
+    background-color: rgb(21, 78, 50); /* Blue background */
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition for background color */
+ }
+ 
+ /* Hover effects for input */
+ .search input[type="text"]:hover,
+ .search input[type="text"]:focus {
+    border-color: #0aad1d; 
+    /* Change border color on hover/focus */
+    transform: scale(1.04);
+    transition: .4s;
+ }
+ 
+ /* Hover effects for button */
+ .search button:hover {
+    background-color: #05a327; 
+    transform: scale(1.04);
+    transition: .4s;
+    border: 2px  solid #ffffff; 
+ }
+ 
+ 
+ 
+ /*slide text*/
+ .slideable-text {
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
     width:30%;
-    background-color: transparent;
+    background-color: rgb(21, 78, 50);
     color: #080505;
     padding: 30px;
     
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgb(21, 78, 50);
     white-space: nowrap; /* Prevent text from wrapping */
-}
-
-.slideable-text p {
+ }
+ 
+ .slideable-text p {
     position: absolute;
     top: 50%;
     left: 100%;
@@ -256,13 +265,16 @@ option:hover {
     margin: 0; /* Remove default margin */
     width: auto; 
     color: #ffffff;
-}
-
-@keyframes slideText {
+ }
+ 
+ @keyframes slideText {
     0% {
         left: 100%; /* Start off the screen on the right */
     }
     100% {
         left: -100%; /* Move off the screen to the left */
     }
-}
+ }
+ 
+ 
+ 

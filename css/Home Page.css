@@ -12,10 +12,8 @@ h3 {
     position: relative;
     overflow: hidden;
     width:100%;
-    background-color: #FFD460;
-    color: #ffffff;
+    background-color: #005B41;
     padding: 10px;
-    border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     white-space: nowrap; /* Prevent text from wrapping */
     z-index: -9999;
@@ -30,7 +28,7 @@ h3 {
     animation: slideText 40s linear infinite;
     margin: 0; /* Remove default margin */
     width: auto; 
-    color: #000000;
+    color: #ffffff;
 }
 
 @keyframes slideText {
@@ -86,8 +84,8 @@ h3 {
 .first_div_1 div:hover {
     transform: scale(1.1);
     transition: 0.3s;
-    border-left: 5px solid black;
-    background-color: rgb(251, 97, 2);
+    border-left: 5px solid rgb(74, 255, 14);
+    background-color: #12372A;
     color: rgb(255, 255, 255);
 }
 
@@ -220,13 +218,13 @@ h3 {
 }
 
 @keyframes allProduct {
-    25% {background-color:rgb(255, 152, 67); transform: scale(1.09);}
-    50% {background-color: rgb(255, 221, 149); transform: scale(1.12);}
-    75% {background-color: rgb(134, 167, 252); transform: scale(1.15);}
+    25% {background-color:#12372A;}
+    50% {background-color: #14513c; transform: scale(1.12);}
+    75% {background-color: #103628; transform: scale(1.15);}
 }
 
 .all_product_btn div:hover {
-    color: black;
+    color: rgb(45, 255, 12);
 }
 
 .all_product_btn a {
@@ -234,7 +232,7 @@ h3 {
     font-size: 20px;
     font-weight: bold;
     text-align: center;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
 

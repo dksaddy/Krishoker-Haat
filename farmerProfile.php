@@ -28,7 +28,7 @@
     <section style="display: flex;">
         <div id="menu">
             <h4 style="font-weight: 700;">আমার মেনু</h4>
-            <h6>প্রোফাইল আপডেট</h6>
+            <h6><a href="individual-shop.php">আমার দোকান</a></h6>
             <h6 style="background-color: green; padding: 10px; border-radius: 10px; color: white;">আমার ড্যাশবোর্ড</h6>
             <h6>আমার প্রিয় ক্রেতা</h6>
             <h6 style="color: red;"><a href="account-delete-page.php">অ্যাকাউন্ট মুছে ফেলুন</a></h6>

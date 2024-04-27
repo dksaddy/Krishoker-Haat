@@ -266,6 +266,14 @@ option:hover {
    font-weight: 400;
    font-size: 15px;
 }
+.post_form form p{
+   background-color: #12372A;
+   color: #ffffff;
+   font-size: 15px;
+   display: flex;
+   text-align: start;
+   padding: 5px 5px;
+}
  .post_form form input{
    width: 90%;
    border-radius: 30px;
@@ -273,6 +281,10 @@ option:hover {
    margin: 0 0;   
    padding: 0 20px;
    border: 3px solid #12372A;
+ }
+ .post_form form input:hover{
+   border: 3px solid rgb(0, 255, 34);
+
  }
  .post_form form textarea{
  width: 90%;
@@ -284,10 +296,14 @@ option:hover {
 
  }
  .post_form form textarea:hover{
-   border-radius: 30px;
-   padding: 0 20px;
-   border: 3px solidrgb(12, 179, 34);
+   border: 3px solid rgb(0, 255, 34);
 
+ }
+ .post_form form img{
+   height: 50%;
+   width: 50%;
+   border-radius: 30px;
+   margin-bottom: 1%;
  }
 
  .post_form form button{
@@ -338,27 +354,29 @@ option:hover {
  
  .blog-post h3 {
     color: #ffffff;
-    margin-bottom: 10px;
+    margin-top: 5%;
+    margin-bottom: 5px;
+    padding-left: 5%;
     font-size: 18px;
  }
  
  .blog-post p {
     color: #ffffff;
-    margin-bottom: 10px;
     font-size: 16px;
+    padding-left: 5%;
  }
 
  .blog-post h4 {
    color: rgb(255, 255, 255);
-   margin-bottom: 10px;
-   font-size: 12px;
-   padding-left: 7%;
+   margin-bottom: 15px;
+   margin-top: -20px;
+   font-size: 10px;
+   padding-left: 65px;
 }
 .blog-post h5 {
-   color: rgb(255, 255, 255);
-   margin-bottom: 10px;
+   color: rgb(11, 255, 60);
    font-size: 20px;
-   margin-top: 3%;
+   margin-top: 1%;
 }
 
 .blog-post h5 .round-image {
@@ -380,8 +398,81 @@ option:hover {
     object-fit: cover;
    
  }
- 
- 
+ .district {
+   background-color: #1d7d3d;
+   margin-left: 70%;
+ }
+ .district p{
+   margin-left: 10%;
+   color: #ffffff !important;
+   text-align: center;
+   font-size: 20px;
+ }
+ .blog-post input{
+   width: 60%;
+   background-color: transparent;
+   color: #ffffff;
+   border: 2px solid white;
+   margin-bottom: 10%;
+
+ }
+
+
+ .info-container {
+   display: flex;
+   margin-top: 2%;
+   align-items: center;
+   justify-content: space-around;
+}
+
+.quantity-info, .contributor-info {
+   margin-right: 20px;
+   color: #0aff1e;
+   /* Adjust as needed for spacing between the divs */
+}
+.info-bid-container {
+   display: flex;
+   margin-top: 2%;
+   align-items: center;
+   justify-content: space-around;
+}
+
+.bid-container, .message-container {
+   margin-right: 20px;
+   color: #0aff1e;
+   /* Adjust as needed for spacing between the divs */
+}
+.bid-container p{
+   color: #ffffff;
+   font-size: 12px;
+   margin-left: -6%;
+}
+
+.info-bid-container input{
+   width: 60%;
+   height: 30px;
+   background-color: transparent;
+   color: white;
+   font-size: 14px;
+   margin-right: 3%;
+   border-radius: 30px;
+   border: 2px solid rgb(0, 255, 0);
+}
+.info-bid-container button{
+   cursor: pointer;
+   padding: 2px 2px;
+   border-radius: 10px;
+   margin-left: 1%;
+   background-color: green;
+   border: 2px solid rgb(0, 255, 0);
+   color: white;
+}
+
+.info-bid-container button:hover{
+   background-color: rgb(0, 255, 0);
+   color: #180505;
+   border: 2px solid white;
+}
  .button-container {
    display: flex;
    justify-content: space-between;
@@ -389,23 +480,20 @@ option:hover {
    margin: 0 auto; /* Center horizontally */
    background-color: white;
  }
-
- .button {
-   padding: 8px 11.33%;
-   background-color: #ffffff;
-   color: #180505;
-   border: none;
-   border-radius: 2px;
-   cursor: pointer;
-   border: 0.5px  solid black;
-   font-size: 14px;
-   transition: all .2s ease-in-out;
+ .message-container p{
+   font-size: 12px;
+   margin: 0;
  }
- .button:hover {
-   background-color: #dddba5;
-   color: blue;
-   font-size: large;
+ .message-container button{
+   width: 40px;
+   height: 30px;
+   padding: 0 0;
  }
+ .message-container button img {
+height: 25px;
+width: 25px;
+ }
+ 
 
 
  .blog-post button.delete_post {
@@ -428,37 +516,97 @@ option:hover {
 
 
  .comments-section{
-   background-color: #393939;
+   background-color: transparent;
    margin-top: 2%;
    border-radius: 8px;
  }
+ .comments-section h1{
+   padding-top: 2%;
+   margin-left: 2%;
+   font-size: 12px;
+   color: white;
+}
 .comment_text textarea {
-   background-color: #454545;
+   background-color: transparent;
    color: White;
    width: 200px;
 }
-.comment p{
-   margin-left: 15%;
-   font-size: 15px;
+.comments-section p{
+   margin-top: 1%;
+   margin-left: 10%;
+   font-size: 12px;
+}
+.comments-section p strong{
+   padding-left: 3%;
+   margin-left: 2%;
 }
 .comment p .round-image {
 
-   width: 40px; 
-   height: 40px; 
+   width: 35px; 
+   height: 35px; 
    border-radius: 50%; 
    object-fit: cover; 
-   margin-left: -10%;
-   
+   margin-left: -10%;   
 }
-.comment button{
-   margin-left: 35%;
-   padding: 2px 17px;
-   font-size: 13px;
-   margin-top: 0;
-   margin-bottom: 0;
-   box-shadow: none;
-}
-.delete_comment{
-   float: right;
+.comments-section h2{
+   background-color: #046210;
+   font-size: 12px;
+   color: white;
+   text-align: left;
+   margin-left: 20%;
+   padding-left: 2%;
+   margin-right: 14%;
 
+}
+.comments-section h3{
+   background-color: #046210;
+   font-size: 12px;
+   color: white;
+   text-align: right;
+   margin-left: 20%;
+   margin-right: 14%;
+   margin-top: -1%;
+
+
+}
+
+.comment-container {
+   display: flex; /* Use flexbox to arrange items */
+   align-items: center; /* Align items vertically */
+}
+
+.timestamp {
+   flex: 1; /* The timestamp div will take up all available space */
+   margin-right: 10px;
+}
+
+.delete-form {
+   flex: 0 0 auto; /* The delete button div will not grow or shrink */
+}
+.delete-form button{
+   border: 2px solid rgb(0, 255, 0);
+   background-color: green;
+   color: white;
+   font-size: 12px;
+}
+.comment_form form textarea{
+   width: 70%;
+   height: 30px;
+   background-color: transparent;
+   color: white;
+   font-size: 14px;
+   margin-right: 3%;
+   border-radius: 30px;
+   border: 2px solid rgb(0, 255, 0);
+}
+.comment_form form button{
+   border: 2px solid rgb(0, 255, 0);
+   background-color: green;
+   color: white;
+   font-size: 12px;
+}
+.comment_form form button:hover{
+   cursor: pointer;
+   background-color: rgb(0, 255, 0);
+   border: 2px solid white;   
 }

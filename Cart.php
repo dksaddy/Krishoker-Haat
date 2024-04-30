@@ -21,6 +21,16 @@
 
     <div class="central_div">
 
+
+        <div style="display: flex; background-color: white">
+            <div style="width: 49%; text-align: center; font-size: 30px; font-weight: bold; border-right: 3px solid;
+            font-family: TeX Gyre Termes Math, serif; letter-spacing: 2px">Individual</div>
+            <div style="width: 49%; text-align: center; font-size: 30px; font-weight: bold;
+            font-family: TeX Gyre Termes Math, serif; letter-spacing: 2px">Group</div>
+        </div>
+
+
+
         <?php
 
         if(isset($_POST['dlt_btn'])) {
@@ -71,21 +81,62 @@
                 $selected_values = $_POST['chose1'];
 
                 foreach($selected_values as $value) {
-                    $sql = "DELETE FROM cart WHERE cart_id = $value";
+                    $cart_sql = "SELECT group_id, quantity FROM cart WHERE cart_id = $value";
+                    $cart_result =  $conn->query($cart_sql);
+                    $cart_row =  $cart_result->fetch_assoc();
 
-                    if ($conn->query($sql) === TRUE) {
-                        echo "Record deleted successfully";
+                    $cart_quantity = $cart_row['quantity'];
+                    $cart_group_id = $cart_row['group_id'];
+
+                    $group_purchase_sql = "SELECT quantity, contributors FROM  group_purchase WHERE group_id = $cart_group_id";
+                    $group_purchase_result = $conn->query($group_purchase_sql);
+                    $group_purchase_row =  $group_purchase_result->fetch_assoc();
+
+                    $group_purchase_quantity = $group_purchase_row['quantity'];
+                    $group_purchase_contributor = $group_purchase_row['contributors'];
+
+                    $final_quantity = $cart_quantity + $group_purchase_quantity;
+                    $final_contributor = $group_purchase_contributor - 1;
+
+
+
+                    $update_sql = "UPDATE group_purchase SET quantity = $final_quantity, contributors = $final_contributor WHERE group_id = $cart_group_id";
+                    if ($conn->query($update_sql) === TRUE) {
+
+                        $group_purchase_contributor_sql = "DELETE FROM group_purchase_contributor WHERE group_id = $cart_group_id AND user_id = $user_id";
+
+                        if ($conn->query($group_purchase_contributor_sql) === TRUE) {
+
+                            $sql = "DELETE FROM cart WHERE cart_id = $value";
+
+                            if ($conn->query($sql) === TRUE) {
+                                echo "Record deleted successfully";
+                            } else {
+                                echo "Error deleting record: " . $conn->error;
+                            }
+                        } else {
+                            echo "Error deleting contributor record: " . $conn->error;
+                        }
                     } else {
-                        echo "Error deleting record: " . $conn->error;
+                        echo "Error update record: " . $conn->error;
                     }
 
+
+
                 }
+
                 $conn->close();
 
             } else {
             $prob = "Please Select the product";
             }
         }
+
+
+
+
+
+
 
 
 
@@ -169,7 +220,6 @@
                                     <div class="middle_portin">
                                         <div style="height: 100px"><img src="'.$image.'" width="100%" height="100%"></div>
                                         <div style="margin-top: 5px">'.$product_name.'</div>
-                                        <div style="margin: 5px 0 5px">'.$order_type.'</div>
                                     </div>
 
                                     <div class="last_portion">
@@ -272,7 +322,6 @@
                                     <div class="middle_portin">
                                         <div style="height: 100px"><img src="'.$image.'" width="100%" height="100%"></div>
                                         <div style="margin-top: 5px">'.$product_name.'</div>
-                                        <div style="margin: 5px 0 5px">'.$order_type.'</div>
                                     </div>
 
                                     <div class="last_portion">

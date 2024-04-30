@@ -73,6 +73,7 @@
                     
                     ';
                 }
+                $conn->close();
                 
                 ?>
 
@@ -326,6 +327,7 @@
 
 
                                 } //foreach Loop
+                                $conn->close();
     }
     
     ?>

@@ -172,30 +172,40 @@
 
                 <div class="product_child_2">
 
+                    <a href="AllProduct.php?data=Fruits">
                     <div class="product_child_2_1">
                         <div><img src="image\Category\fruits.png"></div>
                         <div>Fruits</div>
                     </div>
+                    </a>
 
+                    <a href="AllProduct.php?data=Vegetable">
                     <div class="product_child_2_1">
                         <div><img src="image\Category\vegetable.png"></div>
                         <div>Vegetable</div>
                     </div>
+                    </a>
 
+                    <a href="AllProduct.php?data=Grain Product">
                     <div class="product_child_2_1">
                         <div><img src="image\Category\grain food.png"></div>
                         <div>Grain Product</div>
                     </div>
+                    </a>
 
-                    <div class="product_child_2_1">
+                    <a href="AllProduct.php?data=Dairy Product">
+                        <div class="product_child_2_1">
                         <div><img src="image\Category\dairy-products.png"></div>
                         <div>Dairy</div>
                     </div>
+                    </a>
 
-                    <div class="product_child_2_1">
+                   <a href="AllProduct.php?data=Spices">
+                   <div class="product_child_2_1">
                         <div><img src="image\Category\spice.png"></div>
                         <div>Spices</div>
                     </div>
+                   </a>
 
 
                 </div> <!-- product_child_2 End-->
@@ -218,25 +228,33 @@
 
                 <div class="product_child_2">
 
+                    <a href="AllProduct.php?data=Farming Tools">
                     <div class="product_child_2_1">
                         <div><img src="image\Category\tools.png"></div>
                         <div style="text-align: center">Tools</div>
                     </div>
+                    </a>
 
+                    <a href="AllProduct.php?data=Fertilizer">
                     <div class="product_child_2_1">
                         <div><img src="image\Category\fertilizer.png"></div>
                         <div>Fertilizer</div>
                     </div>
+                    </a>
 
-                    <div class="product_child_2_1">
+                   <a href="AllProduct.php?data=Pesticide">
+                   <div class="product_child_2_1">
                         <div><img src="image\Category\pesticide.png"></div>
                         <div>Pesticide</div>
                     </div>
+                   </a>
 
+                    <a href="AllProduct.php?data=Seeds">
                     <div class="product_child_2_1">
                         <div><img src="image\Category\seeds.png"></div>
                         <div>Seeds</div>
                     </div>
+                    </a>
 
 
                 </div> <!-- product_child_2 End-->

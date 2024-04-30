@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css\blank.css">
-    <title>Payment OG</title>
+    <link rel="stylesheet" href="css\footer.css">
+    <title>Payment</title>
 </head>
 
 <body>
@@ -26,8 +27,6 @@
         $cart = $_GET['carts'];
         $totalPrice = $_GET['bill'];
         $data = unserialize(urldecode($cart));
-        print_r($data);
-        echo $totalPrice;
 
         
     }
@@ -38,6 +37,7 @@
         <div class="main_div">
 
             <div class="right">
+                <h1>PRODUCT LIST</h1>
 
                 <?php
                 include('template\db_connect.php');
@@ -80,9 +80,9 @@
             </div>
 
 
-
             <div class="left">
-                
+                <h1>PAYMENT METHODS</h1>
+
                 <form action="blank.php" method="post">
                      <!-- Serialize the cart data and pass it as a hidden input -->
                      <input type="hidden" name="carts" value="<?php echo isset($data) ? urlencode(serialize($data)) : ''; ?>">
@@ -153,8 +153,8 @@
                     <div class="banking_div">
 
                         <div class="option_div">
-                            <div style="font-size: 20px; padding-top: 5px">Payable Amount</div>
-                            <input type="text" name="bill" value="<?php if(isset($_GET['bill'])) echo $_GET['bill'];?>" disabled>
+                            <div style="font-size: 18px; padding-top: 8px; font-weight: bold">Payable Amount:</div>
+                            <input id="amount" type="text" name="bill" value="<?php if(isset($_GET['bill'])) echo $_GET['bill'];?>" disabled>
                             <button name="payment">Payment</button>
                         </div>
 
@@ -331,6 +331,8 @@
     }
     
     ?>
+
+    <?php include('footer.php')?>
 
 </body>
 

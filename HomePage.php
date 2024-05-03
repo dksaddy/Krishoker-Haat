@@ -70,15 +70,44 @@
 
 
             <div class="first_div_3">
-                <div>
-                <p>Top article</p>
+                
+                <p>TOP ORDERED PRODUCTS </p>
+                    <?php
+                    // SQL query
+$sql = "SELECT product_id,title, COUNT(*) AS row_count
+FROM group_purchase
+GROUP BY product_id
+ORDER BY row_count DESC
+LIMIT 3";
+
+// Execute query
+$result = $conn->query($sql);
+
+// Check if there are any results
+if ($result->num_rows > 0) {
+// Output data of each row
+while ($row = $result->fetch_assoc()) {
+    echo '<a href="IndividualProduct.php?data=' . $row["product_id"] . '"><div>' . $row["title"] ." ". $row["row_count"] ." ordered" .'</div><br></a>';
+
+}
+
+
+} else {
+echo "No results found";
+}
+
+
+?>
+
+    <p>Top article</p>
+
+<div>
+
+</div>
+
 
                 </div>
-                <div>
-                <p>Top article</p>
-
-                </div>
-
+                
             </div>
        
         </div>

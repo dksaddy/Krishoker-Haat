@@ -62,7 +62,7 @@
   
   <div class="col-3">
     <label for="inputAddress" class="form-label">Phone Number</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St"value="<?php echo $fetch['address']; ?>" name="address">
+    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" value="<?php echo $fetch['phone_number']; ?>" name="address">
   </div>
   <div class="col-3 text-dark">
   <label for="inputState" class="form-label">District</label>

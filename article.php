@@ -30,7 +30,7 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         $title = $row['tittle'];
         $content = $row['content'];
-        $image = $row['image'];
+        $image = $row['article_image'];
         $posted_date = $row['timestamp']; // Assuming you have this column in your database
 
         // Display the article card for each article

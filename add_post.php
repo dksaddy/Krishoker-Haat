@@ -14,7 +14,7 @@ move_uploaded_file($file_tmp, $targetFilePath);
 // echo $post;
 // echo $file_name;
 
-$sql = "INSERT INTO `article_post`(`user_id`, `tittle`, `content`, `image`) VALUES ('$user_id','$title','$post','$targetFilePath')";
+$sql = "INSERT INTO `article_post`(`user_id`, `tittle`, `content`, `article_image`) VALUES ('$user_id','$title','$post','$targetFilePath')";
 $result = $conn->query($sql);
 header("location: article.php");
 // echo "OKay";

@@ -29,7 +29,7 @@
 
             <button id="myButton" class="hidden" name="go">
                 <p>Continue Shopping</p>
-                <img src="image\Category\cupid-bow.gif" width="100px" height="80px">
+                <img src="image\Category\arrow.gif" width="100px" height="80px">
             </button>
 
         </form>

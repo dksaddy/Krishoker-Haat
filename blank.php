@@ -149,7 +149,7 @@
                     </div>
 
 
-                    <div>Error</div>
+                    <div><!--Error msg--></div>
                     <div class="banking_div">
 
                         <div class="option_div">

@@ -1,0 +1,113 @@
+body {
+    background: url(../image/Icon/Fruit.jpg);
+}
+
+.central_div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 3%;
+    background-color: rgba(255, 254, 254, 0.904);
+
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.container {
+    position: relative;
+    height: 120px;
+    width: 90%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.left-div,
+.right-div {
+    position: absolute;
+    top: 0;
+    width: 100px;
+    /* Adjust width as needed */
+}
+
+.left-div {
+    left: 0;
+    width: 90px;
+    height: 90px;
+}
+
+.right-div {
+    right: 0;
+    width: 90px;
+    height: 90px;
+}
+
+.middle-div {
+    margin: 0 0 0 10%;
+    width: 80px;
+    height: 80px;
+    padding-top: 3%;
+    animation: moveMiddle 4s forwards;
+    /* Adjust width as needed */
+}
+
+@keyframes moveMiddle {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(1300%);
+    }
+}
+
+.welcome {
+    
+    text-align: center;
+    font-weight: bold;
+    font-size: 45px;
+    font-family: "Comic Sans MS", sans-serif;
+    letter-spacing: 2px;
+    margin: 5% 0;
+    animation: welcome 4s infinite linear;
+}
+
+@keyframes welcome {
+    0%{transform: rotate(1deg);}
+    50%{transform: rotate(-1deg);}
+    100%{transform: rotate(1deg);}
+}
+
+.hidden {
+    display: none;
+    width: 30%;
+    height: 90px;
+}
+
+button {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+}
+
+button:hover {
+    animation: gobt 1s infinite linear;
+    cursor: pointer;
+}
+
+@keyframes gobt {
+    0% {border: 4px solid rgb(255, 102, 0);}
+    50% {border: 4px solid rgb(0, 0, 235);}
+    75% {border: 4px solid rgb(137, 241, 39);}
+    100% {border: 4px solid rgb(255, 102, 0);}
+}
+
+button p {
+    margin-top: 5%;
+    font-weight: bold;
+    font-size: 30px;
+}

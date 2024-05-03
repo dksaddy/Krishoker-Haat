@@ -1,44 +1,76 @@
+h1 {
+    letter-spacing: 4px;
+    word-spacing: 2px;
+    border-bottom: 2px solid;
+    text-align: center;
+}
+
 .central_div {
-    background-color: red;
+    background: url(../image/Icon/Fruit.jpg);
 }
 
 .main_div {
-    background-color: blue;
     display: flex;
     justify-content: center;
-    gap: 5%;
+    gap: 2%;
 }
 
 .right {
-    width: 40%;
-    background-color: orange;
+    width: 45%;
+    background-color: rgba(255, 255, 255, 0.925);
+    border-left: 3px solid;
+    border-right: 3px solid;
+    border-bottom: 3px solid;
+    margin-bottom: 5px;
 }
 
 .list_card {
     display: flex;
     gap: 5%;
-    background-color: aliceblue;
+    box-shadow: 1px 1px 2px 1px;
     margin: 10px;
-    padding: 5px 5px 1px;
+    padding: 5px 5px 5px;
+    border-radius: 5px;
+    background-color: white;
 }
 
 .left {
-    width: 40%;
-    background-color: brown;
+    width: 45%;
+    background-color: rgba(255, 255, 255, 0.925);
+    border-left: 3px solid;
+    border-right: 3px solid;
+    border-bottom: 3px solid;
+    margin-bottom: 5px;
 }
 
 .banking_div {
     display: flex;
     justify-content: flex-start;
     padding: 15px;
-    gap: 30px;
-    margin-bottom: 10px;
-    background-color: rebeccapurple;
+    gap: 40px;
+    margin: 1px 60px;
+}
+
+label {
+    margin: 1px 60px;
 }
 
 .option_div {
     display: flex;
     gap: 20px;
+}
+
+.option_div:hover {
+    transform: scale(1.15);
+    transition: .3s;
+}
+
+#amount {
+    width: 150px;
+    box-shadow: 1px 1px 2px 1px;
+    font-size: 25px;
+    font-family: TeX Gyre Termes Math, serif;
+    letter-spacing: 1px;
 }
 
 .wallet {
@@ -64,20 +96,25 @@
 }
 
 label {
-    font-size: 20px;
+    font-size: 17px;
     letter-spacing: 1px;
     word-spacing: 3px;
     font-weight: bold;
 }
 
-#payment {
-    width: 150px;
-    height: 30px;
+
+.option_div button {
+    width: 180px;
+    margin-left: 10px; 
+    border-radius: 10px;
+    font-size: 20px;
 }
 
-button {
-    width: 200px;
-    margin-left: 20px;
+button:hover {
+    font-weight: bold;
+    border-left: 5px solid;
+    border-right: 5px solid;
+    
 }
 
 

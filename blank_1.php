@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css\blank.css">
-    <title>Payment OG</title>
+    <link rel="stylesheet" href="css\footer.css">
+    <title>Payment</title>
 </head>
 
 <body>
@@ -26,8 +27,6 @@
         $cart = $_GET['carts'];
         $totalPrice = $_GET['bill'];
         $data = unserialize(urldecode($cart));
-        print_r($data);
-        echo $totalPrice;
 
         
     }
@@ -38,6 +37,7 @@
         <div class="main_div">
 
             <div class="right">
+            <h1>PRODUCT LIST</h1>
 
                 <?php
                 include('template\db_connect.php');
@@ -73,16 +73,18 @@
                     
                     ';
                 }
+
+                $conn->close();
                 
                 ?>
 
             </div>
 
 
-
             <div class="left">
-                
-                <form action="blank.php" method="post">
+                <h1>PAYMENT METHODS</h1>
+
+                <form action="blank_1.php" method="post">
                      <!-- Serialize the cart data and pass it as a hidden input -->
                      <input type="hidden" name="carts" value="<?php echo isset($data) ? urlencode(serialize($data)) : ''; ?>">
                     <!-- Pass the total price as a hidden input -->
@@ -152,8 +154,8 @@
                     <div class="banking_div">
 
                         <div class="option_div">
-                            <div style="font-size: 20px; padding-top: 5px">Payable Amount</div>
-                            <input type="text" name="bill" value="<?php if(isset($_GET['bill'])) echo $_GET['bill'];?>" disabled>
+                        <div style="font-size: 18px; padding-top: 8px; font-weight: bold">Payable Amount:</div>
+                            <input id="amount" type="text" name="bill" value="<?php if(isset($_GET['bill'])) echo $_GET['bill'];?>" disabled>
                             <button name="payment">Payment</button>
                         </div>
 
@@ -202,6 +204,7 @@
 
                                         $product_id = $row['product_id'];
                                         $quantity = $row['quantity'];
+                                        $group_id =  $row['group_id'];
 
                                         $sql_1 = "SELECT * FROM product WHERE product_id = $product_id";
                                         $result_1 = $conn->query($sql_1);
@@ -215,18 +218,41 @@
 
 
                                     // Prepare the SQL statement
-                                    $insertSql = "INSERT INTO `order_table`(buyer_id, seller_id, product_id, quantity, delivery_status, payment_method) 
-                                    VALUES ($user_id, $seller_id, $product_id, $quantity, 'pending', 'wallet')";
+                                    $insertSql = "INSERT INTO `group_order_table`(group_id, seller_id, product_id, quantity, delivery_status, payment_method) 
+                                    VALUES ($group_id, $seller_id, $product_id, $quantity, 'pending', 'wallet')";
 
                                     if ($conn->query($insertSql) === TRUE) {
 
-                                        $deleteSql = "DELETE FROM `cart` WHERE cart_id = $cart_id";
+                                        $group_purchase_sql = "SELECT group_wallet FROM group_purchase WHERE group_id = $group_id";
+                                        $group_purchase_result = $conn->query($group_purchase_sql);
+                                        $group_purchase_row =  $group_purchase_result->fetch_assoc();
 
-                                        if ($conn->query($deleteSql) === TRUE) {
+                                        $final_payment = $group_purchase_row['group_wallet'] + $totalPrice;
+
+                                        $group_purchase_update_sql = "UPDATE group_purchase SET group_wallet = $final_payment WHERE group_id = $group_id";
+
+                                        if ($conn->query($group_purchase_update_sql) === TRUE) {
                                             $updateSql = "UPDATE user SET curr_balance = $new_balance WHERE user_id = $user_id";
                                             
                                             if ($conn->query($updateSql) === TRUE) {
-                                                echo "<script>window.location.href = 'OrderConfirmation.php';</script>";
+                                                
+                                                $group_purchase_contributor_sql = "UPDATE group_purchase_contributor SET order_status = 'paid' WHERE group_id = $group_id AND user_id = $user_id";
+
+                                                if ($conn->query($group_purchase_contributor_sql) === TRUE) {
+                                                    
+                                                    $delete_sql = "DELETE FROM cart WHERE cart_id = $cart_id";
+
+                                                    if ($conn->query($delete_sql) === TRUE) {
+
+                                                        echo "<script>window.location.href = 'OrderConfirmation.php';</script>";
+                                                    }else {
+                                                        echo "Error: " . $sql . "<br>" . $conn->error;
+                
+                                                    }  //delete from cart
+                                                }else {
+                                                    echo "Error: " . $sql . "<br>" . $conn->error;
+            
+                                                }  //update
                                             }else {
                                                 echo "Error: " . $sql . "<br>" . $conn->error;
         
@@ -291,6 +317,8 @@
 
                                         $product_id = $row['product_id'];
                                         $quantity = $row['quantity'];
+                                        $group_id =  $row['group_id'];
+
 
                                         $sql_1 = "SELECT * FROM product WHERE product_id = $product_id";
                                         $result_1 = $conn->query($sql_1);
@@ -303,16 +331,40 @@
                                     } //result checking if clause.
 
 
-                                    // Prepare the SQL statement
-                                    $insertSql = "INSERT INTO `order_table`(buyer_id, seller_id, product_id, quantity, delivery_status, payment_method) 
-                                    VALUES ($user_id, $seller_id, $product_id, $quantity, 'pending', '$method')";
+                                     // Prepare the SQL statement
+                                    $insertSql = "INSERT INTO `group_order_table`(group_id, seller_id, product_id, quantity, delivery_status, payment_method) 
+                                    VALUES ($group_id, $seller_id, $product_id, $quantity, 'pending', '$method')";
 
                                     if ($conn->query($insertSql) === TRUE) {
 
-                                        $deleteSql = "DELETE FROM `cart` WHERE cart_id = $cart_id";
+                                        $group_purchase_sql = "SELECT group_wallet FROM group_purchase WHERE group_id = $group_id";
+                                        $group_purchase_result = $conn->query($group_purchase_sql);
+                                        $group_purchase_row =  $group_purchase_result->fetch_assoc();
 
-                                        if ($conn->query($deleteSql) === TRUE) {
-                                            echo "<script>window.location.href = 'OrderConfirmation.php';</script>";
+                                        $final_payment = $group_purchase_row['group_wallet'] + $totalPrice;
+
+                                        $group_purchase_update_sql = "UPDATE group_purchase SET group_wallet = $final_payment WHERE group_id = $group_id";
+
+                                        if ($conn->query($group_purchase_update_sql) === TRUE) {
+                                            
+                                                
+                                            $group_purchase_contributor_sql = "UPDATE group_purchase_contributor SET order_status = 'paid' WHERE group_id = $group_id AND user_id = $user_id";
+
+                                            if ($conn->query($group_purchase_contributor_sql) === TRUE) {
+                                                    
+                                                $delete_sql = "DELETE FROM cart WHERE cart_id = $cart_id";
+
+                                                if ($conn->query($delete_sql) === TRUE) {
+                                                        
+                                                    echo "<script>window.location.href = 'OrderConfirmation.php';</script>";
+                                                }else {
+                                                    echo "Error: " . $sql . "<br>" . $conn->error;
+                
+                                                }  //delete from cart
+                                            }else {
+                                                echo "Error: " . $sql . "<br>" . $conn->error;
+            
+                                            }  //update
 
                                         }else {
                                         echo "Error: " . $sql . "<br>" . $conn->error;
@@ -325,10 +377,15 @@
                                     }  //insert
 
 
+
                                 } //foreach Loop
+
+                                $conn->close();
     }
     
     ?>
+
+    <?php include('footer.php')?>
 
 </body>
 

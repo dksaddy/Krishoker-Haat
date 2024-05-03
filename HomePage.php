@@ -167,30 +167,40 @@
 
                 <div class="product_child_2">
 
+                    <a href="AllProduct.php?data=Fruits">
                     <div class="product_child_2_1">
                         <div><img src="image\Category\fruits.png"></div>
                         <div><a href="http://localhost/Krishoker-Haat/AllProduct.php?data=Fruits">Fruits</a></div>
                     </div>
+                    </a>
 
+                    <a href="AllProduct.php?data=Vegetable">
                     <div class="product_child_2_1">
                         <div><img src="image\Category\vegetable.png"></div>
                         <div><a href="http://localhost/Krishoker-Haat/AllProduct.php?data=Vegetable">Vegetable</a></div>
                     </div>
+                    </a>
 
+                    <a href="AllProduct.php?data=Grain Product">
                     <div class="product_child_2_1">
                         <div><img src="image\Category\grain food.png"></div>
                         <div><a href="http://localhost/Krishoker-Haat/AllProduct.php?data=Grain%20Product">Grain Product</a></div>
                     </div>
+                    </a>
 
-                    <div class="product_child_2_1">
+                    <a href="AllProduct.php?data=Dairy Product">
+                        <div class="product_child_2_1">
                         <div><img src="image\Category\dairy-products.png"></div>
                         <div><a href="http://localhost/Krishoker-Haat/AllProduct.php?data=Dairy%20Product">Dairy</a></div>
                     </div>
+                    </a>
 
-                    <div class="product_child_2_1">
+                   <a href="AllProduct.php?data=Spices">
+                   <div class="product_child_2_1">
                         <div><img src="image\Category\spice.png"></div>
                         <div><a href="http://localhost/Krishoker-Haat/AllProduct.php?data=Spices">Spices</a></div>
                     </div>
+                   </a>
 
 
                 </div> <!-- product_child_2 End-->
@@ -213,25 +223,33 @@
 
                 <div class="product_child_2">
 
+                    <a href="AllProduct.php?data=Farming Tools">
                     <div class="product_child_2_1">
                         <div><img src="image\Category\tools.png"></div>
                         <div style="text-align: center"><a href="http://localhost/Krishoker-Haat/AllProduct.php?data=Farming%20Tools">Tools</a></div>
                     </div>
+                    </a>
 
+                    <a href="AllProduct.php?data=Fertilizer">
                     <div class="product_child_2_1">
                         <div><img src="image\Category\fertilizer.png"></div>
                         <div><a href="http://localhost/Krishoker-Haat/AllProduct.php?data=Fertilizer">Fertilizer</a></div>
                     </div>
+                    </a>
 
-                    <div class="product_child_2_1">
+                   <a href="AllProduct.php?data=Pesticide">
+                   <div class="product_child_2_1">
                         <div><img src="image\Category\pesticide.png"></div>
                         <div><a href="http://localhost/Krishoker-Haat/AllProduct.php?data=Pesticide">Pesticide</a></div>
                     </div>
+                   </a>
 
+                    <a href="AllProduct.php?data=Seeds">
                     <div class="product_child_2_1">
                         <div><img src="image\Category\seeds.png"></div>
                         <div><a href="http://localhost/Krishoker-Haat/AllProduct.php?data=Seeds">Seeds</a></div>
                     </div>
+                    </a>
 
 
                 </div> <!-- product_child_2 End-->

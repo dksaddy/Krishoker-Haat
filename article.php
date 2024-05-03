@@ -43,7 +43,7 @@ if ($result->num_rows > 0) {
         echo '<p>' . $content . '</p>';
         echo '</div>';
         echo '<div class="blog-view">';
-        echo '<a href=""><button> Read More </button></a>';
+        echo '<a href="read_more.php"><button> Read More </button></a>';
         echo '</div>';
         echo '<div class="posted-date">';
         echo '<p>Posted on ' . $posted_date . '</p>';

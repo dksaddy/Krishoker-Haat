@@ -49,12 +49,17 @@ echo"<div style='display: grid; grid-template-columns: auto auto auto auto; marg
         <div class="child-2">
             <div class="child-2-1">'.$name.'</div>
             <div class="child-2-2">৳'.$price.'/kg</div>
-            <form method="post">
-                <div style="display: flex; margin-top: 5px;">
+            <div style="display: flex; margin-top: 5px;"> 
+                <form action="update-product.php">
+                    <div style="display: flex">
+                    <input type="text" name = "productID" value="'.$product_id.'" style="display: none;">
                     <input type="submit" name="update-product" value="Update" style="padding: 10px 15px; background-color: orange; margin-right: 5px; border: none; border-radius: 10px;">
+                    </div>
+                </form>
+                <form method="post">
                     <input type="submit" name="delete-product" value="Delete" style="padding: 10px 15px; background-color: red; border: none; border-radius: 10px;">
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
         '; 

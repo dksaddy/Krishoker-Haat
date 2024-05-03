@@ -5,6 +5,21 @@
 
 <?php
 
+if (!empty($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+    $log = 1;
+
+    // Check if the database connection is open
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $select = mysqli_query($conn, "SELECT * FROM `user` WHERE user_id = '$user_id'") or die('query failed');
+
+    if (mysqli_num_rows($select) > 0) {
+        $fetch = mysqli_fetch_assoc($select);
+    }
+}
 
 ?>
 
@@ -16,11 +31,13 @@
     <section>
         <div id="cover">
             <div id="profilepicture">
-                <img src="image/User/person.jpg" alt="প্রভাত কুন্ডু শাওন image" id="userpicture">
+                <img src="<?php echo $fetch['profile_picture']; ?>" alt="প্রভাত কুন্ডু শাওন image" id="userpicture">
             </div>
             <div id="nameandmobilenumber">
                 <div id="name">
-                মঈনুল ইসলাম
+                    <?php echo $fetch['name']; ?> <br>
+                    <?php echo $fetch['phone_number']; ?> <br>
+                    <?php echo $fetch['district']; ?> <br>
                 </div>
             </div>
         </div>
@@ -28,11 +45,10 @@
     <section style="display: flex;">
         <div id="menu">
             <h4 style="font-weight: 700;">আমার মেনু</h4>
-            <h6><a href="individual-shop.php">আমার দোকান</a></h6>
+            <h6><a href="individual-shop.php" style="text-decoration: none; color: black;">আমার দোকান</a></h6>
             <h6 style="background-color: green; padding: 10px; border-radius: 10px; color: white;">আমার ড্যাশবোর্ড</h6>
             <h6>আমার প্রিয় ক্রেতা</h6>
-            <h6 style="color: red;"><a href="account-delete-page.php">অ্যাকাউন্ট মুছে ফেলুন</a></h6>
-            <div id="sign-out-btn">সাইন আউট</div>
+            <h6><a href="account-delete-page.php" style="text-decoration: none; color: red;">অ্যাকাউন্ট মুছে ফেলুন</a></h6>
         </div>
         <div id="special-products-for-sell">
             <h4>ড্যাশবোর্ড</h4>

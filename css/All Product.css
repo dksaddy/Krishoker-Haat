@@ -9,7 +9,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 10px;
     background-color: rgba(255, 255, 255, 0.884);
 }
 .category:hover {
@@ -101,6 +100,7 @@
     word-spacing: 3px;
     letter-spacing: 1px;
     color: #198c07;
+    height: 5px;
 }
 
 /*select dropdown*/

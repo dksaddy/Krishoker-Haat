@@ -168,9 +168,17 @@ if ($result->num_rows > 0) {
                     $search_term = $_GET['search'];
                 
                     // SQL query with a prepared statement
-                    $stmt = $conn->prepare("SELECT * FROM `product` WHERE p_name LIKE CONCAT('%', ?, '%')");
-                    $stmt->bind_param("s", $search_term);
-                    $stmt->execute();
+
+                    $stmt = $conn->prepare("SELECT * FROM `product` 
+                    LEFT JOIN `user` ON `product`.`user_id` = `user`.`user_id`
+                    WHERE `p_name` LIKE CONCAT('%', ?, '%') OR `user`.`district` LIKE CONCAT('%', ?, '%') OR `user`.`name` LIKE CONCAT('%', ?, '%')");
+
+// Bind the search term parameter three times
+$stmt->bind_param("sss", $search_term, $search_term, $search_term);
+
+// Execute the prepared statement
+$stmt->execute();
+
                     $result = $stmt->get_result();
                 
                     if ($result->num_rows > 0) {

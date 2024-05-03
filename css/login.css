@@ -5,13 +5,30 @@ body{
     align-items: center;
     height: 46rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    background-color: #E1F0DA;
 }
-.logo{
-    height: 105px;
-    width: 100px;
-    border-radius: 40px;
-    margin-left: 100px;
-    padding-top: 10px;
+.logt{
+    text-align: center;
+    margin-top:12%;
+    margin-left: 0;
+    font-size: 17px;
+    font-weight: bolder;
+    padding: 0 50px;
+}
+.logt span{
+    color: #ff0707;
+    font-size: 22px;
+    font-weight: bolder;
+    text-shadow: 2px 2px 4px #ff0000;
+
+
+}
+.logt a {
+    text-decoration: none;
+    color: rgb(23, 77, 5);
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgb(23, 77, 5);
 }
 .login{
     border:1px solid black;
@@ -19,12 +36,16 @@ body{
     box-shadow: 0 0 20px rgba(0,0,0,0.75) ;
     height: 520px;
     width: 400px;
+
 }
 .form{
     display: grid;
     place-content: center;
     box-sizing: border-box;
 
+}
+.form label{
+    color: rgb(3, 79, 12);
 }
 .mrg{
     display: grid;
@@ -47,7 +68,7 @@ body{
 }
 .btn:hover{
     opacity: 0.85;
-    box-shadow: 0 0 10px rgba(0,0,0,0.8);
+    box-shadow: 0 0 10px rgba(36, 30, 30, 0.8);
     cursor: pointer;
 }
 
@@ -65,7 +86,7 @@ font-size: 12px;
 
 
 .a2{
-    color: blue;
+    color: rgb(10, 112, 41);
     font-size: 15px;
 }
 .a2:hover{
@@ -82,4 +103,27 @@ font-size: 12px;
     position: absolute;
     padding : 246px 0 0 30px;
 
+}
+.parent{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+}
+.second{
+    margin-top: 4%;
+    background-color: #99BC85;
+    border-radius: 30px;
+    padding: 4px 4px;
+}
+.second a{
+    text-decoration: solid;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    font-weight: 300;
+}
+.second a:hover{
+    text-decoration: underline;
+    cursor: pointer;
+    color: rgb(3, 2, 2);
 }

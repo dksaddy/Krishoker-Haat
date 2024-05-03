@@ -1,70 +1,127 @@
-<section class="footer">
-  <div class="footer-row">
-    <div class="footer-col">
-      <h2>কৃষকের<span> হাট</span></h2>
-      <p>কৃষক এবং ভোক্তাদের সংযোগকারী বিশ্বস্ত প্ল্যাটফর্ম,
-               কৃষকের হাটে স্বাগতম৷আমরা কৃষকদের কাছ থেকে সরাসরি আপনার টেবিলে সাশ্রয়ী মূল্যের,উচ্চ মানের কৃষি পণ্য অফার করি৷ মধ্যস্বত্বভোগীদের নির্মূল করে আমরা স্বচ্ছতা, নির্ভরযোগ্যতা
-                 এবং ন্যায্য মূল্য নিশ্চিত করি৷ প্রত্যক্ষ সম্পর্ক গড়ে তোলার প্রতি আমাদের প্রতিশ্রুতি স্থানীয় সম্প্রদায়কে শক্তিশালী করে এবং টেকসই চাষাবাদের অনুশীলনকে উৎসাহিত করে ৷তাজা ফল এবং সবজি থেকে শস্য এবং আরও অনেক কিছু ৷</p>
-    </div>
-    <div class="footer-col">
-      <h5>আমাদেরকে অনুসরণ করুন</h5>
-      <div class="icons">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-github"></i></a>
-      </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-      <div class="subscribe">
-      <h5>অফার সম্পর্কে সর্বশেষ আপডেট পেতে, কুপন সম্পর্কে জানতে আমাদের সাবস্ক্রাইব করুন ৷</h5>
-        <input type="text" placeholder="&#x270e; ই-মেইল ​​ঠিকানা লিখুন " name="restaurantName">
-        <button type="submit">সাবস্ক্রাইব</button>
-      <h5>আমাদের সাথে যোগাযোগ করুন : </h5>
-      <p>ইমেইল: krishokerhat@gmail.com</p>
-      <p>ফোন:  +880 1321098082</p>
-      <p>ঠিকানা: নতুন বাজার, বাড্ডা, ঢাকা ৷</p>
-
-    </div>
-</div>
-  </div>
-  <div class="footer-row">
-    <div class="footer-col">
-        <h4>Info</h4>
-        <ul class="links">
-          <li><a href="#">হোম</a></li>
-          <li><a href="about.php">আমাদের সম্পর্কে</a></li>
-          <li><a href="#">যোগাযোগ</a></li>
-          <li><a href="#">Developer contact</a></li>
-          <div class="icons">
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-linkedin"></i></a>
-              <a href="https://github.com/dksaddy/Krishoker-Haat"><i class="fab fa-github"></i></a>
+</head>
+<body>
+<footer class="footer-section">
+        <div class="container">
+            <div class="footer-cta pt-5 pb-5">
+                <div class="row">
+                    <div class="col-xl-4 col-md-4 mb-30">
+                        <div class="single-cta">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="cta-text">
+                                <h4>Find us</h4>
+                                <span>Natun Bazar,Vatara,Dhaka</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-4 mb-30">
+                        <div class="single-cta">
+                            <i class="fas fa-phone"></i>
+                            <div class="cta-text">
+                                <h4>Call us</h4>
+                                <span>+880 1766-972626</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-4 mb-30">
+                        <div class="single-cta">
+                            <i class="far fa-envelope-open"></i>
+                            <div class="cta-text">
+                                <h4>Mail us</h4>
+                                <span>ak@info.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Explore</h4>
-        <ul class="links">
-          <li><a href="#">পণ্য</a></li>
-          <li><a href="#">শীর্ষ কৃষক</a></li>
-          <li><a href="#">জনপ্রিয়</a></li>
-          <li><a href="#">হট ডিল</a></li>
-          <li><a href="#">ডিসকাউন্ট</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Legal</h4>
-        <ul class="links">
-          <li><a href="#">শর্তাবলী</a></li>
-          <li><a href="#">ফেরত সংক্রান্ত নীতি</a></li>
-          <li><a href="#">নিরাপত্তা</a></li>
-        </ul>
-      </div>
-  </div>
-  <div class="copyright">
-        <p>কৃষকের হাট 2024-এর সমস্ত অধিকার সংরক্ষিত</p>
-        <p>Developed by Team AK</p>
-  </div>
-</section>
+            <div class="footer-content pt-5 pb-5">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 mb-50">
+                        <div class="footer-widget">
+                            <div class="footer-logo">
+                               <p>কৃষকের<span> হাট</span></p>
+                            </div>
+                            <div class="footer-text">
+                                <p>কৃষকের হাট(F2C) ব্যবসায়িক মডেলের উপর নির্মিত একটি ই-কমার্স প্ল্যাটফর্ম।এই মডেলটি মধ্যস্থতাকারী এবং ঐতিহ্যগত
+            সরবরাহ চেইনকে বাদ দিয়ে কৃষকদের সরাসরি গ্রাহকদের সাথে সংযুক্ত করে।</p>
+                            </div>
+                            <div class="footer-social-icon">
+    <span>Follow us</span>
+    <a href="https://www.facebook.com/your-page"><i class="fab fa-facebook-f facebook-bg"></i></a>
+    <a href="https://twitter.com/your-account"><i class="fab fa-twitter twitter-bg"></i></a>
+    <a href="https://plus.google.com/your-profile"><i class="fab fa-google-plus-g google-bg"></i></a>
 </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                        <div class="footer-widget">
+                            <div class="footer-widget-heading">
+                                <h3>Useful Links</h3>
+                            </div>
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">about</a></li>
+                                <li><a href="#">services</a></li>
+                                <li><a href="#">portfolio</a></li>
+                                <li><a href="#">Contact</a></li>
+                                <li><a href="#">About us</a></li>
+                                <li><a href="#">Our Services</a></li>
+                                <li><a href="#">Expert Team</a></li>
+                                <li><a href="#">Contact us</a></li>
+                                <li><a href="#">Latest News</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
+                        <div class="footer-widget">
+                            <div class="footer-widget-heading">
+                                <h3>Subscribe</h3>
+                            </div>
+                            <div class="footer-text mb-25">
+                                <p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
+                            </div>
+                            <div class="subscribe-form">
+                                <form action="#">
+                                    <input type="text" placeholder="Email Address">
+                                    <button><i class="fab fa-telegram-plane"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 text-center text-lg-left">
+                        <div class="copyright-text">
+                            <p>Copyright &copy; 2018, All Right Reserved <a href="https://github.com/dksaddy/Krishoker-Haat">Krishoker Haat@Team AK</a></p>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Terms</a></li>
+                                <li><a href="#">Privacy</a></li>
+                                <li><a href="#">Policy</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+</html>

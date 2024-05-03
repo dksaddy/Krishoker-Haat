@@ -1,6 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color:	#E7F6F2;
+    background-color:	#E1F0DA;
     margin: 0;
     padding: 0;
  }
@@ -10,86 +10,14 @@ body {
 /*select dropdown*/
 /* Style for the dropdown container */
 .dropdown-container_sort {
-   border-top: 1px solid black;
    display: flex;
    flex-direction: row;
    justify-content: space-between;
 
    margin-top: 0px;
-   background-color: #E7F6F2;
+   background-color: rgb(77, 91, 73);
+   z-index: 1;
 }
-
-/* Style for each dropdown */
-.dropdown_sort {
-   width: 500px; 
-   padding: 8px;
-   box-sizing: border-box;
-   text-align: center;
-}
-
-/* Style for the dropdown menus */
-.dropdown_sort select {
-   padding: 10px;
-   font-size: 16px;
-   border: 2px solid rgb(21, 78, 50);
-   border-radius: 30px;
-   background-color: #A5C9CA;
-   cursor: pointer;
-   outline: none;
-   width: 70%; 
-
-
-}
-.dropdown_sort button{
-   padding: 6px 10px;
-   border: 2px solid transparent; /* Transparent border to maintain button size when border changes */
-   background-color: #2D4059; /* Blue background */
-   color: white;
-   border-radius: 10px;
-   cursor: pointer;
-   transition: background-color 0.3s; /* Smooth transition for background color */padding: 6px 10px;
-   border: 2px solid transparent; /* Transparent border to maintain button size when border changes */
-   background-color: rgb(21, 78, 50); /* Blue background */
-   color: white;
-   border-radius: 10px;
-   cursor: pointer;
-   transition: background-color 0.3s; /* Smooth transition for background color */
-}
-
-.dropdown_sort button:hover {
-   background-color: #05a327; 
-   transform: scale(1.04);
-   transition: .4s;
-   border: 2px  solid #ffffff; 
-}
-select:hover {
-   transform: scale(1.1);
-   background-color: rgb(255, 255, 255);
-   transition: .4s;
-   cursor: pointer;
-}
-/* Style when the select element is focused */
-select:focus {
-   border-color: #66afe9; /* Changes border color when focused */
-   box-shadow: 0 0 8px rgba(102, 175, 233, 0.6); /* Adds a light blue glow around the dropdown */
-}
-
-/* Style for options in the dropdown */
-option {
-   padding: 8px; /* Padding for each option */
-   background: white; /* Background color for each option */
-   color: black; /* Text color for each option */
-}
-
-option:hover {
-   transform: scale(1.1);
-   background-color: rgb(255, 255, 255);
-   transition: .4s;
-   cursor: pointer;
-}
-
-
-
 
 
 
@@ -103,7 +31,7 @@ option:hover {
 
 /* Styling for the input field */
 .search input[type="text"] {
-   width: 60%; 
+   width: 80%; 
    padding: 8px 10px 8px 30px; 
    margin-right: 0; 
    border: 2px solid rgb(21, 78, 50); 
@@ -115,7 +43,7 @@ option:hover {
 /* Styling for the button */
 .search button {
    padding: 6px 10px;
-   border: 2px solid transparent; /* Transparent border to maintain button size when border changes */
+   border: 2px solid rgb(239, 239, 239); /* Transparent border to maintain button size when border changes */
    background-color: rgb(21, 78, 50); /* Blue background */
    color: white;
    border-radius: 10px;
@@ -126,7 +54,7 @@ option:hover {
 /* Hover effects for input */
 .search input[type="text"]:hover,
 .search input[type="text"]:focus {
-   border-color: #0aad1d; 
+   border-color: rgb(255, 255, 255); 
    /* Change border color on hover/focus */
    transform: scale(1.04);
    transition: .4s;
@@ -149,14 +77,14 @@ option:hover {
    justify-content: center;
    position: relative;
    overflow: hidden;
-   width:30%;
-   background-color: rgb(21, 78, 50);
+   width:60%;
+   background-color: transparent;
    color: #080505;
-   padding: 18px;
-   margin-top: 1%;
+   padding: 16px;
    border-radius: 5px;
-   box-shadow: 0 0 10px rgb(21, 78, 50);
+   box-shadow: 0 0 5px rgb(21, 78, 50);
    white-space: nowrap; /* Prevent text from wrapping */
+   z-index: 1;
 }
 
 .slideable-text p {
@@ -190,47 +118,61 @@ option:hover {
    justify-content: center; 
    width: 100%; 
 }
-
+div.sticky {
+   position: -webkit-sticky;
+   position: sticky;
+   top: 0;
+   padding: 0;
+ }
 .main-box {
    display: flex;
    align-items: center;
    justify-content: center;
-   width: 70%;
-   background-color: transparent; 
-   margin-left: 3%; 
-   margin-right: 3%;
+   width: 60%;
+   background-color: rgb(0, 0, 0);; 
+   margin-left: 0; 
+   margin-right: 0;
 }
-
-.side-box {
-   width: 25%; 
-   background-color: #12372A;; 
+.side-box1 {
+   width: 15%; 
+   background-color: #bdc5b8; 
    padding: 10px;   
    color: white; 
 }
+.side-box {
+   width: 25%; 
+   background-color:#bdc7b7;
+   padding: 10px;   
+}
 .side-box-header{
+   margin-top: 3%;
+
    text-align: center;
    
 }
 .side-box-header p{
    font-size: 15px;
+   color: #000000;
+
 }
 .product_child_2_1{
    padding: 8px 20px;
-   border: 1px  solid rgb(255, 255, 255);
+   border: 1px  solid rgb(0, 0, 0);
    margin-bottom: 4px;
    cursor: pointer;
 
 }
 .product_child_2_1 a{
    text-decoration: none;
-   color: #ffffff;
+   color: #000000;
    font-size: 16px;
 }
 .product_child_2_1:hover{
    transition: all 0.4s ease-in-out;
    -webkit-transition: all 0.4s ease-in-out; 
-   box-shadow: inset 0 12px 20px -10px rgb(8, 255, 8);
-   border-left: 20px solid rgb(8, 255, 8);
+   box-shadow: inset 0 12px 20px -10px #99BC85;
+   border-left: 20px solid #99BC85;
+
    
    }
    .product_child_2_1 a:hover{
@@ -328,55 +270,59 @@ option:hover {
    color: rgb(255, 255, 255);
 }
 .blogHome{
-   max-width: 50%;
-   margin: 20px auto;
-   background-color:rgb(21, 78, 50);
-   padding: 20px;
+   max-width: 100%;
+   margin: 0 0;
+   background-color:whitesmoke;
+   padding: 10px 2%;
    border-radius: 4px;
    box-shadow: 0 0 10px rgba(239, 235, 235, 0.358);
 }
  
  h2 {
-    color: #ffffff;
+    color: #000000;
     text-align: center;
     margin-bottom: 2%;
+    font-weight: bold;
+    font-size: medium;
  }
  
  .blog-post {
     margin-bottom: 20px;
     height: auto;
     padding: 15px;
-    border: 1px solid #0aff1e;
+    border: 1px solid #000000;
     border-radius: 8px;
-    background-color: #12372A;
+    background-color: #ffffff;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
  }
  
  .blog-post h3 {
-    color: #ffffff;
+    color: #000000;
     margin-top: 5%;
     margin-bottom: 5px;
     padding-left: 5%;
     font-size: 18px;
+    font-weight: bold;
  }
  
  .blog-post p {
-    color: #ffffff;
+    color: #000000;
     font-size: 16px;
     padding-left: 5%;
  }
 
  .blog-post h4 {
-   color: rgb(255, 255, 255);
+   color: rgb(0, 0, 0);
    margin-bottom: 15px;
    margin-top: -20px;
    font-size: 10px;
    padding-left: 65px;
 }
 .blog-post h5 {
-   color: rgb(11, 255, 60);
+   color: rgb(0, 0, 0);
    font-size: 20px;
    margin-top: 1%;
+   font-weight: bold;
 }
 
 .blog-post h5 .round-image {
@@ -399,20 +345,21 @@ option:hover {
    
  }
  .district {
-   background-color: #1d7d3d;
    margin-left: 70%;
  }
  .district p{
    margin-left: 10%;
-   color: #ffffff !important;
+   color: #000000 !important;
    text-align: center;
    font-size: 20px;
+   font-weight: bold;
+
  }
  .blog-post input{
    width: 60%;
    background-color: transparent;
    color: #ffffff;
-   border: 2px solid white;
+   border: 2px solid rgb(0, 0, 0);
    margin-bottom: 10%;
 
  }
@@ -427,7 +374,7 @@ option:hover {
 
 .quantity-info, .contributor-info {
    margin-right: 20px;
-   color: #0aff1e;
+   color: #000000;
    /* Adjust as needed for spacing between the divs */
 }
 .info-bid-container {
@@ -443,7 +390,7 @@ option:hover {
    /* Adjust as needed for spacing between the divs */
 }
 .bid-container p{
-   color: #ffffff;
+   color: #000000;
    font-size: 12px;
    margin-left: -6%;
 }
@@ -452,26 +399,32 @@ option:hover {
    width: 60%;
    height: 30px;
    background-color: transparent;
-   color: white;
+   color: rgb(0, 0, 0);
+   padding-left: 2%;
    font-size: 14px;
    margin-right: 3%;
    border-radius: 30px;
-   border: 2px solid rgb(0, 255, 0);
+   border: 2px solid rgb(41, 50, 41);
 }
-.info-bid-container button{
+.bid-container button{
    cursor: pointer;
-   padding: 2px 2px;
-   border-radius: 10px;
+   padding: 4px 9px;
+   border-radius: 30px;
    margin-left: 1%;
-   background-color: green;
-   border: 2px solid rgb(0, 255, 0);
+   background-color: rgb(0, 0, 0);
+   border: 2px solid rgb(255, 255, 255);
    color: white;
+   font-size: 13px;
 }
-
+.message-container button{
+   background-image: url("../images/Icon/chat.png");
+   background-color: transparent;
+   border: none;
+}
 .info-bid-container button:hover{
-   background-color: rgb(0, 255, 0);
-   color: #180505;
-   border: 2px solid white;
+transform: scale(1.08);
+transition: 0.2s;
+
 }
  .button-container {
    display: flex;
@@ -485,13 +438,16 @@ option:hover {
    margin: 0;
  }
  .message-container button{
+   display: flex;
+   justify-content: center;
+   align-items: center;
    width: 40px;
-   height: 30px;
+   height: 40px;
    padding: 0 0;
  }
  .message-container button img {
-height: 25px;
-width: 25px;
+height: 40px;
+width: 40px;
  }
  
 
@@ -519,12 +475,13 @@ width: 25px;
    background-color: transparent;
    margin-top: 2%;
    border-radius: 8px;
+   
  }
  .comments-section h1{
    padding-top: 2%;
    margin-left: 2%;
-   font-size: 12px;
-   color: white;
+   font-size: 13px;
+   color: rgb(0, 0, 0);
 }
 .comment_text textarea {
    background-color: transparent;
@@ -549,9 +506,9 @@ width: 25px;
    margin-left: -10%;   
 }
 .comments-section h2{
-   background-color: #046210;
-   font-size: 12px;
-   color: white;
+   background-color: #E1F0DA;
+   font-size: 13px;
+   color: rgb(0, 0, 0);
    text-align: left;
    margin-left: 20%;
    padding-left: 2%;
@@ -559,9 +516,8 @@ width: 25px;
 
 }
 .comments-section h3{
-   background-color: #046210;
    font-size: 12px;
-   color: white;
+   color: rgb(100, 93, 93);
    text-align: right;
    margin-left: 20%;
    margin-right: 14%;
@@ -576,18 +532,26 @@ width: 25px;
 }
 
 .timestamp {
-   flex: 1; /* The timestamp div will take up all available space */
-   margin-right: 10px;
+   display: flex;
+   align-items: start;
 }
 
 .delete-form {
    flex: 0 0 auto; /* The delete button div will not grow or shrink */
+
+margin-left: 28%;
+margin-top: -2%;
 }
+
 .delete-form button{
-   border: 2px solid rgb(0, 255, 0);
-   background-color: green;
-   color: white;
-   font-size: 12px;
+   background-color: transparent;
+   border: none;
+}
+.delete-form button img{
+   height: 20px;
+   width: 20px;
+   background-color: transparent;
+   border: none;
 }
 .comment_form form textarea{
    width: 70%;
@@ -597,7 +561,7 @@ width: 25px;
    font-size: 14px;
    margin-right: 3%;
    border-radius: 30px;
-   border: 2px solid rgb(0, 255, 0);
+   border: 2px solid rgb(0, 0, 0);
 }
 .comment_form form button{
    border: 2px solid rgb(0, 255, 0);

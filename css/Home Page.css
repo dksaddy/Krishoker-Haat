@@ -12,7 +12,7 @@ h3 {
     position: relative;
     overflow: hidden;
     width:100%;
-    background-color: #005B41;
+    background-color: #D4E7C5;
     padding: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     white-space: nowrap; /* Prevent text from wrapping */
@@ -28,7 +28,7 @@ h3 {
     animation: slideText 40s linear infinite;
     margin: 0; /* Remove default margin */
     width: auto; 
-    color: #ffffff;
+    color: #000000;
 }
 
 @keyframes slideText {
@@ -44,7 +44,8 @@ h3 {
 
 
 .main_div {
-    background: url('../image/Icon/Fruit.jpg');
+    /*background: url('../image/Icon/Fruit.jpg');*/
+    background-color: #ffffff;
     padding-bottom: 10px;
 }
 
@@ -62,7 +63,7 @@ h3 {
 
 .first_div_1 {
     width: 15%;
-    background-color: rgba(255, 255, 255, 0.92);
+    background-color: #E1F0DA;
     display: flex;
     flex-direction: column;
     padding: 10px 50px;
@@ -72,7 +73,6 @@ h3 {
 
 }
 .first_div_1:hover {
-    background-color: white;
     box-shadow: 2px 2px 10px 4px rgb(138, 121, 121);
 }
 
@@ -84,8 +84,8 @@ h3 {
 .first_div_1 div:hover {
     transform: scale(1.1);
     transition: 0.3s;
-    border-left: 5px solid rgb(74, 255, 14);
-    background-color: #12372A;
+    border-left: 5px solid rgb(28, 92, 7);
+    background-color: #99BC85;
     color: rgb(255, 255, 255);
 }
 
@@ -94,35 +94,88 @@ h3 {
     font-size: 15px;
     color: black;
 }
-
+.first_div_1 a:hover{
+    text-decoration: none;
+    color: white;
+}
 
 .first_div_2 {
+    position: relative; /* Ensure the container is positioned */
     width: 60%;
     margin: 3px 0 3px;
-    
-    box-shadow: 2px 2px 10px 3px rgb(180, 176, 176);
-
-    background-image: url("../image/Category/slide1.jpg");
-    background-size: 100% 100%;
-    animation: slideHome 10s infinite linear;
-    animation-delay: .5s;
-
+    border-radius: 10px;
+    overflow: hidden; /* Ensure the video stays within the container */
 }
-@keyframes slideHome {
-    25% {background-image: url("../image/Category/slide2.jpg");}
-    50% {background-image: url("../image/Category/slide3.jpg");}
-    75% {background-image: url("../image/Category/slide4.jpg");}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    object-fit: fill; /* Ensure the video covers the entire container */
 }
+
+@media (min-aspect-ratio: 16/9) {
+    .background-video {
+        width: 100%;
+        height: 120%;
+    }
+}
+
+@media (max-aspect-ratio: 16/9) {
+    .background-video {
+        width: auto;
+        height: 100%;
+    }
+}
+
 
 .first_div_3{
     width: 23%;
-    background-color: rgba(255, 255, 255, 0.92);
+    background-color: #E1F0DA;
     display: flex;
     flex-direction: column;
     padding: 10px 50px;
     margin: 3px 0 3px 5px;
 
     border-radius: 10px;
+}
+
+
+
+
+ /* Slider container */
+ .slider-container {
+    width: 400px; /* Adjust the width as needed */
+    height: 300px; /* Adjust the height as needed */
+    overflow: hidden;
+    position: relative;
+}
+
+/* Slider content */
+.slides {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Individual slide */
+.slide {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Adjust slide content */
+.slide img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
 }
 
 /*This CSS for Product Salling ...................*/
@@ -142,7 +195,8 @@ h3 {
 }
 
 .parent {
-    width: 220px;
+    width: 170px;
+    height: auto;
     display: flex;
     flex-direction: column;
     border-radius: 15px;
@@ -199,7 +253,7 @@ h3 {
 
 
 .all_product_btn {
-    
+    z-index: -99;
     display: flex; 
     justify-content: center;
     margin: 20px 0 50px;
@@ -207,7 +261,7 @@ h3 {
 }
 
 .all_product_btn div {
-    background-color: rgb(255, 255, 255);
+    background-color: #99BC85;
     width: 350px;
     height: 40px;
     border-radius: 10px;
@@ -218,13 +272,13 @@ h3 {
 }
 
 @keyframes allProduct {
-    25% {background-color:#12372A;}
-    50% {background-color: #14513c; transform: scale(1.12);}
-    75% {background-color: #103628; transform: scale(1.15);}
+    25% {background-color:#BFD8AF;}
+    50% {background-color: #D4E7C5; transform: scale(1.12);}
+    75% {background-color: #E1F0DA; transform: scale(1.15);}
 }
 
 .all_product_btn div:hover {
-    color: rgb(45, 255, 12);
+    color: rgb(0, 0, 0);
 }
 
 .all_product_btn a {
@@ -232,7 +286,7 @@ h3 {
     font-size: 20px;
     font-weight: bold;
     text-align: center;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 
 
@@ -251,10 +305,14 @@ h3 {
 
 .product_parent {
     background-color: rgba(255, 255, 255, 0.842);
-    width: 40%;
+    width: 45%;
     display: flex;
     flex-direction: column;
     box-shadow: 1px 1px 6px 3px;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 1%;
+    padding-bottom: 1%;
 
 }
 .product_parent:hover{ 
@@ -268,7 +326,7 @@ h3 {
     justify-content: flex-start;
     gap: 5%;
     margin: 5px 0 5px;
-    border-bottom: 3px solid;
+    border-bottom: 3px solid #99BC85;
 
 }
 .product_child_1 img {
@@ -308,7 +366,10 @@ h3 {
     width: 50px;
     height: 50px;
 }
-
+.product_child_2_1 a{
+    text-decoration: solid;
+    color: #99BC85;
+}
 
 
 /*This CSS for মাস সেরা চাষী.*/
@@ -329,8 +390,8 @@ h3 {
     flex-direction: column;
     align-items: center;
 
-    box-shadow: 1px 1px 4px 2px;
-    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        border-radius: 10px;
     margin: 10px 0 10px;
 }
 
@@ -345,8 +406,8 @@ h3 {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    box-shadow: 1px 1px 1px 1px;
-    margin: 10px 0 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+         margin: 10px 0 10px;
 }
 
 .farmer-child-2 {

@@ -34,6 +34,7 @@ if (!empty($_SESSION['user_id'])) {
     <lin rel="stylesheet" href = "css/footer.css">
 </head>
 <body>
+<div class="sticky">
     <header class="header">
            
             <nav class="nav">
@@ -87,5 +88,5 @@ echo '<img src="' . $fetch['profile_picture'] . '" alt="প্রভাত ক�
                 </div>
             </nav>
     </header>
-    
+</div>  
    

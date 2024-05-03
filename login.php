@@ -7,10 +7,10 @@
   <link rel="stylesheet" type="text/css" href="css/login.css">
 </head>
 <body>
-
+<div class="parent">
 <div class="login">
 <form class="form" action="functions/login.php" enctype="multipart/form-data" method="post">
-        <img class="logo" src="image/image.jpg" alt=""><br>
+<h1 class="logt"><a href="http://localhost/Krishoker-Haat/HomePage.php">কৃষকের <span>হাট</span></a></h1>
          <!-- Display errors if any -->
       <?php
       session_start();
@@ -42,6 +42,9 @@
         <p></p>
     </form>
 </div>
-
+<div class="second">
+    <a href="HomePage.php">-Back to Home Page</a>
+</div>
+</div>
 </body>
 </html>

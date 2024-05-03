@@ -62,27 +62,22 @@
                     <div>Seeds</div>
                 </a>
             </div>
-
-            <div class="first_div_2"></div>
+            <div class="first_div_2">
+    <video autoplay loop class="background-video" muted plays-inline>
+        <source src="image/vid.mp4" type="video/mp4">
+    </video>
+</div>
 
 
             <div class="first_div_3">
+                <div>
+                <p>Top article</p>
 
-            <div class="slider-container">
-  <div class="slider-track">
-    <div class="slide">
-      <img src="image1.jpg" alt="Slide 1">
-    </div>
-    <div class="slide">
-      <img src="image2.jpg" alt="Slide 2">
-    </div>
-    <div class="slide">
-      <img src="image3.jpg" alt="Slide 3">
-    </div>
-  </div>
-  <button class="prev" onclick="prevSlide()">&#10094;</button>
-  <button class="next" onclick="nextSlide()">&#10095;</button>
-</div>
+                </div>
+                <div>
+                <p>Top article</p>
+
+                </div>
 
             </div>
        
@@ -147,8 +142,8 @@
         </div>
 
         <div style="margin-top: 10px; background: white; letter-spacing: 10px;
-                word-spacing: 15px; text-align: center; border-top: 3px solid;
-                border-bottom: 3px solid;">
+                word-spacing: 15px; text-align: center;color:#99BC85; border-top: 3px solid #99BC85;
+                border-bottom: 3px solid #99BC85;">
             <h1>Selective Category</h1>
         </div>
 
@@ -167,34 +162,34 @@
                     <div style="padding-bottom: 5px;">
                         <img src="image\Category\consumer.png" width="70px" height="70px">
                     </div>
-                    <h2>Consumer</h2>
+                    <h2 style="color:#99BC85;">Consumer</h2>
                 </div>
 
                 <div class="product_child_2">
 
                     <div class="product_child_2_1">
                         <div><img src="image\Category\fruits.png"></div>
-                        <div>Fruits</div>
+                        <div><a href="http://localhost/Krishoker-Haat/AllProduct.php?data=Fruits">Fruits</a></div>
                     </div>
 
                     <div class="product_child_2_1">
                         <div><img src="image\Category\vegetable.png"></div>
-                        <div>Vegetable</div>
+                        <div><a href="http://localhost/Krishoker-Haat/AllProduct.php?data=Vegetable">Vegetable</a></div>
                     </div>
 
                     <div class="product_child_2_1">
                         <div><img src="image\Category\grain food.png"></div>
-                        <div>Grain Product</div>
+                        <div><a href="http://localhost/Krishoker-Haat/AllProduct.php?data=Grain%20Product">Grain Product</a></div>
                     </div>
 
                     <div class="product_child_2_1">
                         <div><img src="image\Category\dairy-products.png"></div>
-                        <div>Dairy</div>
+                        <div><a href="http://localhost/Krishoker-Haat/AllProduct.php?data=Dairy%20Product">Dairy</a></div>
                     </div>
 
                     <div class="product_child_2_1">
                         <div><img src="image\Category\spice.png"></div>
-                        <div>Spices</div>
+                        <div><a href="http://localhost/Krishoker-Haat/AllProduct.php?data=Spices">Spices</a></div>
                     </div>
 
 
@@ -213,29 +208,29 @@
                     <div style="padding-bottom: 5px;">
                         <img src="image\Category\farmer.png" width="70px" height="70px">
                     </div>
-                    <h2>Farmer</h2>
+                    <h2 style="color:#99BC85;">Farmer</h2>
                 </div>
 
                 <div class="product_child_2">
 
                     <div class="product_child_2_1">
                         <div><img src="image\Category\tools.png"></div>
-                        <div style="text-align: center">Tools</div>
+                        <div style="text-align: center"><a href="http://localhost/Krishoker-Haat/AllProduct.php?data=Farming%20Tools">Tools</a></div>
                     </div>
 
                     <div class="product_child_2_1">
                         <div><img src="image\Category\fertilizer.png"></div>
-                        <div>Fertilizer</div>
+                        <div><a href="http://localhost/Krishoker-Haat/AllProduct.php?data=Fertilizer">Fertilizer</a></div>
                     </div>
 
                     <div class="product_child_2_1">
                         <div><img src="image\Category\pesticide.png"></div>
-                        <div>Pesticide</div>
+                        <div><a href="http://localhost/Krishoker-Haat/AllProduct.php?data=Pesticide">Pesticide</a></div>
                     </div>
 
                     <div class="product_child_2_1">
                         <div><img src="image\Category\seeds.png"></div>
-                        <div>Seeds</div>
+                        <div><a href="http://localhost/Krishoker-Haat/AllProduct.php?data=Seeds">Seeds</a></div>
                     </div>
 
 
@@ -249,8 +244,8 @@
 
 
         <div style="margin: 50px 0 10px; background: white; letter-spacing: 10px;
-                word-spacing: 15px; text-align: center; border-top: 3px solid;
-                border-bottom: 3px solid;">
+                word-spacing: 15px; text-align: center; color:#99BC85; border-top: 3px solid #99BC85;
+                border-bottom: 3px solid #99BC85;">
             <h1>Farmer Of The Month</h1>
         </div>
 

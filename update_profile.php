@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Profile</title>
-    <link rel="stylesheet" href="css/update_user_profile.css">
+    <!-- <link rel="stylesheet" href="css/update_user_profile.css"> -->
     <link rel="stylesheet" href="css/footer.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
     <?php include('header.php') ?>
@@ -19,108 +20,136 @@
 
     ?>
 
+    
     <div class="container">
-        <div class="profile">
-            <!-- Display current profile information -->
-            <?php
+    <div class="row my-5">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4 d-flex align-items-center justify-content-center"><div class="card" style="width:200px" >
+
+ <!-- Display current profile information -->
+          <?php
             if ($fetch['profile_picture'] == '') {
-                echo '<img src="image/default-avatar.png">';
+                echo '<img src="image/default-avatar.png" class="card-img-top" alt="...">';
+                
             } else {
-                echo '<img src="'.$fetch['profile_picture'].'">';
+                echo '<img src="'.$fetch['profile_picture'].'" class="card-img-top" alt="...">';
+                
             }
-            ?>
-            <h3><?php echo $fetch['name']; ?></h3>
-            <form action="functions/userProfileUpdate.php" method="post" enctype="multipart/form-data">
-                <!-- Add input fields for updating information -->
-                <label for="name">Name:</label>
-                <input type="text" name="name" placeholder="Enter your name here" value="<?php echo $fetch['name']; ?>" required>
+         ?>
 
-                <label for="phone_number">Phone Number:</label>
-                <input type="tel" name="phone_number" placeholder="Enter your phone number here" value="<?php echo $fetch['phone_number']; ?>" required>
 
-                <label for="email">Email:</label>
-                <input type="email" name="email" placeholder="Enter your Email here" value="<?php echo $fetch['email']; ?>" required>
 
-                <label for="address">District:</label>
-                <input type ="text" list="districts" id="district" name="district"value="<?php echo $fetch['district']; ?>" required>
-
-<datalist id="districts">
-  <option value="Bandarban">
-  <option value="Barguna">
-  <option value="Barishal">
-  <option value="Bhola">
-  <option value="Bogura">
-  <option value="Brahmanbaria">
-  <option value="Chandpur">
-  <option value="Chattogram">
-  <option value="Chuadanga">
-  <option value="Cumilla">
-  <option value="Cox's Bazar">
-  <option value="Dhaka">
-  <option value="Dinajpur">
-  <option value="Faridpur">
-  <option value="Feni">
-  <option value="Gaibandha">
-  <option value="Gazipur">
-  <option value="Gopalganj">
-  <option value="Habiganj">
-  <option value="Jamalpur">
-  <option value="Jashore">
-  <option value="Jhalokati">
-  <option value="Jhenaidah">
-  <option value="Joypurhat">
-  <option value="Khagrachari">
-  <option value="Khulna">
-  <option value="Kishoreganj">
-  <option value="Kurigram">
-  <option value="Kushtia">
-  <option value="Lakshmipur">
-  <option value="Lalmonirhat">
-  <option value="Madaripur">
-  <option value="Magura">
-  <option value="Manikganj">
-  <option value="Meherpur">
-  <option value="Moulvibazar">
-  <option value="Munshiganj">
-  <option value="Mymensingh">
-  <option value="Naogaon">
-  <option value="Narail">
-  <option value="Narayanganj">
-  <option value="Narsingdi">
-  <option value="Natore">
-  <option value="Netrokona">
-  <option value="Nilphamari">
-  <option value="Noakhali">
-  <option value="Pabna">
-  <option value="Panchagarh">
-  <option value="Patuakhali">
-  <option value="Pirojpur">
-  <option value="Rajbari">
-  <option value="Rajshahi">
-  <option value="Rangamati">
-  <option value="Rangpur">
-  <option value="Satkhira">
-  <option value="Shariatpur">
-  <option value="Sherpur">
-  <option value="Sirajganj">
-  <option value="Sunamganj">
-  <option value="Sylhet">
-  <option value="Tangail">
-  <option value="Thakurgaon">
-</datalist>    
-                <label for="address">Address:</label>
-                <input type="text" name="address" placeholder="Enter your address here" value="<?php echo $fetch['address']; ?>" required>
-
-                <label for="file-input">Select an image : </label>
-                    <input type="file" name="profile_picture">
-
-                <!-- Add more input fields for other information -->
-
-                <button type="submit" name="update_profile" value="Update Profile">Update Profile</button>
-            </form>
+  
+  <div class="card-body">
+    <h5 class="card-title text-center"><?php echo $fetch['name']; ?></h5>
+    
+  </div>
+</div></div>
         </div>
+    </div>
+
+    <div class="container">
+        
+    <form class="row g-3 mb-5" action="functions/userProfileUpdate.php" method="post" enctype="multipart/form-data">
+    <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Name</label>
+    <input type="text" class="form-control" id="inputPassword4"value="<?php echo $fetch['name']; ?>" name="name">
+  </div>
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Email</label>
+    <input type="email" class="form-control" id="inputEmail4"value="<?php echo $fetch['email']; ?>"name="email">
+  </div>
+  
+  <div class="col-3">
+    <label for="inputAddress" class="form-label">Phone Number</label>
+    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St"value="<?php echo $fetch['address']; ?>" name="address">
+  </div>
+  <div class="col-3 text-dark">
+  <label for="inputState" class="form-label">District</label>
+    <select id="inputState" class="form-select" name= "district">
+      
+      <option selected><?php echo $fetch['district']; ?></option>
+<option value="Bandarban">Bandarban</option>
+<option value="Barguna">Barguna</option>
+<option value="Barishal">Barishal</option>
+<option value="Bhola">Bhola</option>
+<option value="Bogura">Bogura</option>
+<option value="Brahmanbaria">Brahmanbaria</option>
+<option value="Chandpur">Chandpur</option>
+<option value="Chattogram">Chattogram</option>
+<option value="Chuadanga">Chuadanga</option>
+<option value="Cumilla">Cumilla</option>
+<option value="Cox's Bazar">Cox's Bazar</option>
+<option value="Dhaka">Dhaka</option>
+<option value="Dinajpur">Dinajpur</option>
+<option value="Faridpur">Faridpur</option>
+<option value="Feni">Feni</option>
+<option value="Gaibandha">Gaibandha</option>
+<option value="Gazipur">Gazipur</option>
+<option value="Gopalganj">Gopalganj</option>
+<option value="Habiganj">Habiganj</option>
+<option value="Jamalpur">Jamalpur</option>
+<option value="Jashore">Jashore</option>
+<option value="Jhalokati">Jhalokati</option>
+<option value="Jhenaidah">Jhenaidah</option>
+<option value="Joypurhat">Joypurhat</option>
+<option value="Khagrachari">Khagrachari</option>
+<option value="Khulna">Khulna</option>
+<option value="Kishoreganj">Kishoreganj</option>
+<option value="Kurigram">Kurigram</option>
+<option value="Kushtia">Kushtia</option>
+<option value="Lakshmipur">Lakshmipur</option>
+<option value="Lalmonirhat">Lalmonirhat</option>
+<option value="Madaripur">Madaripur</option>
+<option value="Magura">Magura</option>
+<option value="Manikganj">Manikganj</option>
+<option value="Meherpur">Meherpur</option>
+<option value="Moulvibazar">Moulvibazar</option>
+<option value="Munshiganj">Munshiganj</option>
+<option value="Mymensingh">Mymensingh</option>
+<option value="Naogaon">Naogaon</option>
+<option value="Narail">Narail</option>
+<option value="Narayanganj">Narayanganj</option>
+<option value="Narsingdi">Narsingdi</option>
+<option value="Natore">Natore</option>
+<option value="Netrokona">Netrokona</option>
+<option value="Nilphamari">Nilphamari</option>
+<option value="Noakhali">Noakhali</option>
+<option value="Pabna">Pabna</option>
+<option value="Panchagarh">Panchagarh</option>
+<option value="Patuakhali">Patuakhali</option>
+<option value="Pirojpur">Pirojpur</option>
+<option value="Rajbari">Rajbari</option>
+<option value="Rajshahi">Rajshahi</option>
+<option value="Rangamati">Rangamati</option>
+<option value="Rangpur">Rangpur</option>
+<option value="Satkhira">Satkhira</option>
+<option value="Shariatpur">Shariatpur</option>
+<option value="Sherpur">Sherpur</option>
+<option value="Sirajganj">Sirajganj</option>
+<option value="Sunamganj">Sunamganj</option>
+<option value="Sylhet">Sylhet</option>
+<option value="Tangail">Tangail</option>
+<option value="Thakurgaon">Thakurgaon</option>
+
+    </select>
+  </div>
+  <div class="col-6">
+    <label for="inputAddress2" class="form-label">Address</label>
+    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" value="<?php echo $fetch['address']; ?>" name="address">
+  </div>
+  <div class="input-group mb-3">
+  <label class="input-group-text" for="inputGroupFile01">Upload</label>
+  <input type="file" class="form-control" id="inputGroupFile01" name="profile_picture">
+</div>
+  <div class="col-12 d-flex align-items-center justify-content-center">
+    <button type="submit" class="btn btn-success"name="update_profile" value="Update Profile">Update Profile</button>
+  </div>
+</form>
+       
     </div>
 </div>
     <?php include('footer.php') ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

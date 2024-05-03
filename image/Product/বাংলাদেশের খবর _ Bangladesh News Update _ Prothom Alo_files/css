@@ -1,0 +1,6 @@
+@font-face {
+  font-family: 'Hind Siliguri';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/l/font?kit=ijwTs5juQtsyLLR5jN4cxBEofJ7IosEFG8kIWzo_RceL0L6D9sZEQY-eymvj1lxeLOJF4yAnSsstPUEwwIhNgbAkxvNyvNFSUlDOi3MPXEL-0P_HTWssDsr40hmbRsUn2NqYKI0E563PAmzgdsIcDg_S85MxqQ&skey=5aed9b95d255b37c&v=v12) format('woff2');
+}

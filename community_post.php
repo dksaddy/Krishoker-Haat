@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/header.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+
     <link rel="stylesheet" href="css/userBlogHome.css">
     <title>Group Sell Post Home</title>
     <script>
@@ -57,7 +59,7 @@
             }
 */
             // Insert post into the database
-            $insertPostQuery = "INSERT INTO group_purchase (leader_id,product_id, title, content, p_image, quantity) VALUES ('$user_id','$product_id', '$title', '$content', '$image_path', '$quantity')";
+            $insertPostQuery = "INSERT INTO group_purchase (leader_id,product_id, title, content, p_image, post_status,quantity) VALUES ('$user_id','$product_id', '$title', '$content', '$image_path','pending', '$quantity')";
             mysqli_query($conn, $insertPostQuery) or die('Post creation failed: ' . mysqli_error($conn));
 
             // Redirect to the same page after post creation
@@ -150,20 +152,12 @@
         ?>
 
         <div class="dropdown-container_sort">
-            <div class="dropdown_sort">
+            
 
-                <form action="AllProduct.php" method="post">
-                    <select name="category">
-                        <option> একটি বিভাগ নির্বাচন করুন</option>
-                        <option value="new">নতুন পণ্য</option>
-                        <option value="high">দাম উচ্চ থেকে কম</option>
-                        <option value="low">দাম কম থেকে বেশি</option>
-                        <option value="best">Best Selling</option>
-                    </select>
-                    <button type="submit">Sort Now</button>
-                </form>
 
-            </div>
+
+
+
 
             <div class="slideable-text">
                 <p>কৃষকের হাটে স্বাগতম।</p>
@@ -171,7 +165,7 @@
 
 
             <div class="search">
-                <form action="AllProduct.php" method="GET">
+                <form action="community_post.php" method="GET">
                     <input type="text" name="search" placeholder="পণ্য খুজুন..." required>
                     <button type="submit">খুজুন</button>
                 </form>
@@ -182,7 +176,7 @@
 
 
         <div class="first_container">
-            <div class="side-box">
+            <div class="side-box1">
                 <div class="side-box-header">
                     <p>আমার গ্রুপ</p>
                 </div>
@@ -207,66 +201,13 @@
                     $group_id = $row['title'];
                     echo '
             <div class="product_child_2_1">
-                <a href="">' . $row['title'] . ' - ক্রয়ের গ্রুপ</a><br>
+                <a href="my_group.php?group_id=' . $row['group_id'] . '">' . $row['title'] . ' - ক্রয়ের গ্রুপ</a><br>
+
             </div>';
                 }
                 ?>
-            </div>
 
-
-
-
-
-
-
-
-
-
-            <div class="main-box">
-                <div class="post_form">
-                    <form id="postForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"
-                        enctype="multipart/form-data">
-
-                        <p class="post_head">গ্রুপের সাথে কিনতে একটি নতুন পোস্ট তৈরি করুন</p>
-
-
-                        <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
-                        <p>পণ্যের শিরোনাম :<?php echo $product_name; ?></p>
-                        <input type="hidden" name="title" placeholder="Post Content" value="<?php echo $product_name; ?>"
-                            required><br>
-                        <label class="post_form_label">এখানে আপনার পোস্টের বিষয়বস্তু লিখুন :  ***</label>
-
-                        <textarea name="content" placeholder="Post Content"
-                            required><?php echo $description; ?></textarea><br>
-                        <label class="post_form_label">পরিমাণ :</label>
-
-                        <input type="number" name="quantity" placeholder="Quantity" value="<?php echo $quantity; ?>"
-                            required><br>
-                        <label class="post_form_label">পণ্যের ছবি :</label>
-
-                        <!-- Display the current image -->
-                        <?php if (!empty($image_path)): ?>
-                            <img src="<?php echo $image_path; ?>" alt="Current Image">
-                        <?php endif; ?>
-
-                        <!-- File input for image upload -->
-                        <input type="hidden" name="image_path" value="<?php echo $image_path; ?>">
-                         <!-- Button to show confirmation popup -->
-                        <button type="submit" name="submit_post">পোস্ট জমা দিন</button>
-                    </form>
-                </div>
-
-            <?php
-    } else {
-        echo "You have to log in to create a post";
-    }
-    ?>
-        </div>
-
-
-
-        <div class="side-box">
-            <div class="side-box-header">
+<div class="side-box-header">
                 <p>আমার বিড</p>
             </div>
 
@@ -308,31 +249,60 @@ WHERE group_id = $group_id";
                 while ($row = mysqli_fetch_assoc($result_group_contributor_find_group)) {
                     //$group_title= $row['title'];
 //echo $group_title;
-                    echo '
-            <div class="product_child_2_1">
-                <a href="">' . $row['title'] . ' - ক্রয়ের বিড</a><br>
-            </div>';
+echo '
+<div class="product_child_2_1">
+    <a href="my_bid.php?group_id=' . $row['group_id'] . '">' . $row['title'] . ' - ক্রয়ের বিড</a><br>
+</div>';
 
                 }
             }
-            ?>
-        </div>
-    </div>
+?>
 
-    <div class="blogHome">
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <div class="main-box">
+            <div class="blogHome">
         <h2>গ্রুপ বিক্রয় পোস্ট</h2>
         <?php
+// Fetch and display group selling posts
+if (isset($_GET['search'])) {
+    $search_term = $_GET['search'];
 
-        // Fetch and display group selling posts
-        
-        $query = "SELECT group_purchase.*, user.name, user.profile_picture, COUNT(group_purchase_contributor.id) AS contributor_count
-          FROM group_purchase
-          LEFT JOIN user ON group_purchase.leader_id = user.user_id
-          LEFT JOIN group_purchase_contributor ON group_purchase.group_id = group_purchase_contributor.group_id
-          GROUP BY group_purchase.group_id
-          ORDER BY group_purchase.timestamp DESC";
+    // SQL query with a prepared statement
+    $query = $conn->prepare("SELECT group_purchase.*, user.name, user.profile_picture, COUNT(group_purchase_contributor.id) AS contributor_count
+        FROM group_purchase
+        LEFT JOIN user ON group_purchase.leader_id = user.user_id
+        LEFT JOIN group_purchase_contributor ON group_purchase.group_id = group_purchase_contributor.group_id
+        WHERE title LIKE CONCAT('%', ?, '%') OR user.district LIKE CONCAT('%', ?, '%') OR user.name LIKE CONCAT('%', ?, '%')
+        GROUP BY group_purchase.group_id
+        ORDER BY group_purchase.timestamp DESC");
+    
+    // Bind the search term parameter
+    $query->bind_param("sss", $search_term,$search_term, $search_term);
+    
+    // Execute the prepared statement
+    $query->execute();
 
-        $result = mysqli_query($conn, $query) or die('Query failed: ' . mysqli_error($conn));
+    // Get the result set
+    $result = $query->get_result();
+} else {
+    // Default query without search term
+    $result = mysqli_query($conn, "SELECT group_purchase.*, user.name, user.profile_picture, COUNT(group_purchase_contributor.id) AS contributor_count
+        FROM group_purchase
+        LEFT JOIN user ON group_purchase.leader_id = user.user_id
+        LEFT JOIN group_purchase_contributor ON group_purchase.group_id = group_purchase_contributor.group_id
+        GROUP BY group_purchase.group_id
+        ORDER BY group_purchase.timestamp DESC") or die('Query failed: ' . mysqli_error($conn));
+}
 
 
 
@@ -387,7 +357,6 @@ echo '<div class="bid-container">';
             // Div container for message button
 echo '<div class="message-container">';
 // Replace 'YOUR_LINK_HERE' with the link you want to direct the user to, including the group_id parameter
-echo '<p>Send Message</p>';
 echo '<a href="YOUR_LINK_HERE?group_id=' . $row['group_id'] . '"><button class="message_button"><img src="image/Icon/chat.png" alt="chat"></button></a>';
 echo '</div>';
 echo '</div>';
@@ -421,7 +390,7 @@ echo '<h3 class="timestamp">' . $comment['timestamp'] . '</h3>';
 if ($comment['user_id'] == $_SESSION['user_id']) {
     echo '<form class="delete-form" method="post" action="community_post.php">';
     echo '<input type="hidden" name="comment_id" value="' . $comment['comment_id'] . '">';
-    echo '<button type="submit" name="delete_comment">Delete Comment</button>';
+    echo '<button type="submit" name="delete_comment"><img src="image/Icon/bin.png" alt="bin.png"></button>';
     echo '</form>';
 }
 
@@ -449,6 +418,59 @@ echo '</div>';
         }
         ?>
     </div>
+            
+        </div>
+
+
+
+        <div class="side-box">
+            
+        <?php if (isset($_GET['data1']) && isset($_GET['data2']) && isset($_GET['data3'])) {?>
+                <div class="post_form">
+                    <form id="postForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"
+                        enctype="multipart/form-data">
+
+                        <p class="post_head">গ্রুপের সাথে কিনতে একটি নতুন পোস্ট তৈরি করুন</p>
+
+
+                        <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
+                        <p>পণ্যের শিরোনাম :<?php echo $product_name; ?></p>
+                        <input type="hidden" name="title" placeholder="Post Content" value="<?php echo $product_name; ?>"
+                            required><br>
+                        <label class="post_form_label">এখানে আপনার পোস্টের বিষয়বস্তু লিখুন :  ***</label>
+
+                        <textarea name="content" placeholder="Post Content"
+                            required><?php echo $description; ?></textarea><br>
+                        <label class="post_form_label">পরিমাণ :</label>
+
+                        <input type="number" name="quantity" placeholder="Quantity" value="<?php echo $quantity; ?>"
+                            required><br>
+                        <label class="post_form_label">পণ্যের ছবি :</label>
+
+                        <!-- Display the current image -->
+                        <?php if (!empty($image_path)): ?>
+                            <img src="<?php echo $image_path; ?>" alt="Current Image">
+                        <?php endif; ?>
+
+                        <!-- File input for image upload -->
+                        <input type="hidden" name="image_path" value="<?php echo $image_path; ?>">
+                         <!-- Button to show confirmation popup -->
+                        <button type="submit" name="submit_post">পোস্ট জমা দিন</button>
+                    </form>
+                </div>
+
+            <?php
+            }else{
+                echo '<div class=""new item><p>Post near BY you</p></div>';
+            }
+    } else {
+        echo "You have to log in to create a post";
+    }
+    ?>
+        </div>
+    </div>
+
+    
     <?php
 
     // Handle bids on posts
@@ -492,21 +514,23 @@ WHERE  group_id='$group_id'";
             }
             $sum = $quantity_remain - $bid_quantity;
             if ($sum >= 0) {
-                // Prepare the INSERT statement
-                $insert_query = "INSERT INTO group_purchase_contributor (user_id, group_id, bid, quantity) VALUES ('$user_id', '$group_id', 1, '$bid_quantity')";
-
-                // Execute the INSERT statement
-                if (mysqli_query($conn, $insert_query)) {
-                    // Bid successfully inserted, now update the quantity in group_purchase table
-                    $update_query = "UPDATE group_purchase SET quantity = quantity - '$bid_quantity' WHERE group_id = '$group_id'";
-                    if (mysqli_query($conn, $update_query)) {
-                        $product_cart_query = "SELECT * FROM `product` WHERE product_id= '$product_id_group' ";
+                $product_cart_query = "SELECT * FROM `product` WHERE product_id= '$product_id_group' ";
                         $product_cart_res = mysqli_query($conn, $product_cart_query);
                         while ($row = mysqli_fetch_array($product_cart_res)) {
                             $price_per_unit = $row['price'];
                         }
 
                         $total_price = $price_per_unit * $bid_quantity;
+                // Prepare the INSERT statement
+                $insert_query = "INSERT INTO group_purchase_contributor (user_id, group_id, bid, quantity,price) VALUES ('$user_id', '$group_id', 1, '$bid_quantity','$total_price')";
+
+                // Execute the INSERT statement
+                if (mysqli_query($conn, $insert_query)) {
+                    // Bid successfully inserted, now update the quantity in group_purchase table
+                    $update_query = "UPDATE group_purchase SET quantity = quantity - '$bid_quantity', contributors = contributors + 1 WHERE group_id = '$group_id'";
+
+                    if (mysqli_query($conn, $update_query)) {
+                        
                         $cart_update_query = "INSERT INTO `cart`(`user_id`, `product_id`, `product_price`, `quantity`, `order_type`,`group_id`) VALUES ('$user_id','$product_id_group','$total_price','$bid_quantity','group','$group_id')";
                         echo $cart_update_query;
                         // Display a success message
@@ -583,6 +607,7 @@ if ($interval->y > 0) {
     // Format the difference and return
     return $interval->format($format);
 }
+include("footer.php");
 ?>
 
 </body>

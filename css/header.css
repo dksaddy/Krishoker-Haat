@@ -3,9 +3,16 @@ body {
     padding: 0;
     font-family: sans-serif;
 }
-
+div.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    padding: 0;
+    z-index: 999;
+  }
 .header {
    
+
     padding: 0px ;
 }
 
@@ -18,8 +25,7 @@ body {
     width: 100%;
     height: 80px;
     line-height: 70px;
-    background: #12372A;
-    z-index: 100;
+    background: #E1F0DA;
 
 }
 .nav ul{
@@ -47,7 +53,7 @@ body {
     text-decoration: none;
     font-size: 13px;
     font-weight: bold;
-    color: #E7F6F2;
+    color: #212b28;
     padding: 1px 5px;
     padding-bottom: 2px; 
     margin: 5px 0; 
@@ -55,11 +61,11 @@ body {
 }
 .nav ul li .link:hover {
     transform: scale(1.1);
-    border-bottom: 5px solid rgb(74, 255, 14);
+    border-bottom: 5px solid rgb(20, 71, 3);
     transition: .2s;
     cursor: pointer;
     font-size: 13px;
-    color: rgb(74, 255, 14);
+    color: rgb(19, 69, 2);
 }
 /* Style for the round cart image */
 .cart_round-image {
@@ -93,7 +99,7 @@ body {
     margin: 0 0;
     background-color: #ffffff;
     min-width: 200px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px #99BC85;
     z-index:  9999;
     top: 90%; 
     transform: translateX(-50%);
@@ -105,7 +111,7 @@ body {
     font-size: 12px;
     font-weight: bold;
     color: rgb(255, 255, 255);
-    background-color: #12372A;
+    background-color: #99BC85;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -125,7 +131,7 @@ body {
 
   /* Styling for the dropdown items on hover */
   .dropdown-content a:hover {
-    box-shadow: 9px 2px 16px 5px #12372A;
+    box-shadow: 9px 2px 16px 5px #99BC85;
     color: rgb(0, 0, 0);
   }
 
@@ -154,19 +160,18 @@ body {
     width: 90px;
     height: 30px;
     font-weight: 500;
-    background-color: transparent;
-    border: 1px  solid white;
+    background-color:  rgb(80, 130, 73); 
+
+    border: 1px  solid rgb(0, 0, 0);
     border-radius: 30px;
     cursor: pointer;
     transition: .3s ease;
-    color: white;
     margin-left: 10px;
     line-height: revert-layer;
 }
 .nav-button .signin:hover{
-    transform: scale(1.1);
-    background-color: rgb(143, 51, 12);
-    transition: .4s;
+    transform: scale(1.09);
+    transition: .09s;
     cursor: pointer;
     border: 2px solid white;
 }
@@ -175,6 +180,9 @@ body {
     color: rgb(255, 255, 255);
     font-size: 14px;
     
+}
+.nav-button .signin a:hover{
+    color: #ffffff;
 }
 .srch-bar{
     border: none;
@@ -211,21 +219,23 @@ body {
     text-align: center;
     margin-top:12%;
     margin-left: 0;
-    font-size: 15px;
+    font-size: 17px;
     font-weight: bolder;
     padding: 0 50px;
 }
 .logt span{
-    color: #f70000;
-    font-size: 20px;
+    color: #ff0707;
+    font-size: 22px;
     font-weight: bolder;
-    
+    text-shadow: 2px 2px 4px #ffffff;
+
 
 }
 .logt a {
     text-decoration: none;
-    color: rgb(74, 255, 14);
+    color: rgb(23, 77, 5);
     font-weight: 600;
+    text-shadow: 2px 2px 4px #ffffff;
 }
 .logo_image{
     

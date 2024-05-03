@@ -149,8 +149,8 @@
                             <p style="font-size: 18px; font-weight: bold; animation: attention 2s infinite linear">
                             If you want to Buy the Products with other Contributor.
                             </p>
-                            <button name="posting" class="cart_btn" style="background-color: rgb(80, 91, 155)">Add Post</button>
-                        </div>
+                            <button type="submit" name="posting" class="cart_btn" style="background-color: rgb(80, 91, 155)">Add Post</button>
+                            </div>
 
                     </form>
 

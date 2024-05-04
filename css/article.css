@@ -55,7 +55,7 @@
 .blog-view a button{
 padding: 8px 15px;
 margin-bottom: 10px;
-background-color: #25c5c5;
+background-color:#99BC85;
 margin-left: 5%;
 border: none;
 }
@@ -65,14 +65,14 @@ border: none;
     top: 0;
     left: 0;
     display: inline-block;
-    background-color:#25c5c5;
+    background-color:#99BC85;
     padding: 6px 15px;
 }
 .button1{
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    background-color: #25c5c5;
+    background-color: #99BC85;
     padding: 8px ;
     color: #fff;
     width: 100%;

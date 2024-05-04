@@ -66,6 +66,13 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment</title>
     <style>
+        div {
+            display: flex;
+            flex-direction: column;
+            align-item: center;
+            justify-content: center;
+            
+        }
         /* CSS for styling the button */
         .type {
             background-color: #4CAF50; /* Green */
@@ -90,18 +97,20 @@ $conn->close();
 <body>
     <form action="payment.php" enctype="multipart/form-data" method="post">
     <div>
+        <p>Click Payment to create order.</p>
     <?php 
 if(isset($_POST['pay_now'])) {
     if(isset($_SESSION['order_success'])) {
         echo "<p style='color:green;  text-align: center;'>{$_SESSION['order_success']}</p>";
         // Clear the success message after displaying
         unset($_SESSION['order_success']);
+        echo "<script>window.location.href = 'OrderConfirmation.php';</script>";
     }
 }
 ?>
+        <button class="type" type="submit"name ="pay_now">Payment</button>
 
         </div>
-        <button class="type" type="submit"name ="pay_now">Payment</button>
     </form>
 </body>
 </html>

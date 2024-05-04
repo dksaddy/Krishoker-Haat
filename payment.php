@@ -22,7 +22,7 @@ if ($result_seller_id->num_rows > 0) {
     /*echo $seller_id;*/
     
 // Insert order into order_table
-$sql_insert_order = "INSERT INTO order_table (buyer_id, seller_id, product_id, `quantity`, `status`, `payment_method`) VALUES ($user_id, $seller_id, $product_id, '$quantity', 'pending', 'COD')";
+$sql_insert_order = "INSERT INTO order_table (buyer_id, seller_id, product_id, `quantity`, `delivery_status`, `payment_method`) VALUES ($user_id, $seller_id, $product_id, '$quantity', 'pending', 'COD')";
 /*echo $sql_insert_order;*/
 if ($conn->query($sql_insert_order) === TRUE) {
     // Set a success message

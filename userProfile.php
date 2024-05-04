@@ -41,7 +41,7 @@
         <div id="menu">
             <h4 style="font-weight: 700;">আমার মেনু</h4>
             <h6>প্রোফাইল আপডেট</h6>
-            <h6>ক্রয় ইতিহাস</h6>
+            <h6><a href="http://localhost/Krishoker-Haat/order-history.php">ক্রয় ইতিহাস</a></h6>
             <h6>সাহায্য কুপন</h6>
             <h6>আমার প্রিয় বিক্রেতা</h6>
             <h6 style="color: red;"><a href="account-delete-page.php">অ্যাকাউন্ট মুছে ফেলুন</a></h6>

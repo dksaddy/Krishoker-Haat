@@ -1,7 +1,7 @@
 <?php 
  include("template\db_connect.php");
  include("header.php");
- include('footer.php');
+
 $title = $_POST['title'];
 $post = $_POST["post"];
 
@@ -15,10 +15,17 @@ move_uploaded_file($file_tmp, $targetFilePath);
 // echo $post;
 // echo $file_name;
 
-$sql = "INSERT INTO `article_post`(`user_id`, `tittle`, `content`, `image`) VALUES ('$user_id','$title','$post','$targetFilePath')";
-$result = $conn->query($sql);
+
+// Prepare and bind SQL statement
+$sql = "INSERT INTO article_post (user_id, tittle, content, image) VALUES (?, ?, ?, ?)";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("isss", $user_id, $title, $post, $targetFilePath);
+
+
+$stmt->execute();
+
+$stmt->close();
+$conn->close();
+
 header("location: article.php");
-// echo "OKay";
-
-
 ?>
